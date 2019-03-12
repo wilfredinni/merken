@@ -11,14 +11,16 @@
 </head>
 
 <body class="content">
+  <!-- tag name -->
   <h1>{{ tag }}</h1>
 
   <ul>
-    {% for post in tag.article_set.all %}
-    <li><a href="#">{{ post.title }}</a></li>
-    {% for tag in post.tags.all %}
-    {{ tag }}
-    {% endfor %}
+    <!-- articles by tag -->
+    {% for post in articles %}
+      <li><a href="#">{{ post.title }}</a></li>
+      {% for tag in post.tags.all %}
+        {{ tag }}
+      {% endfor %}
     {% endfor %}
   </ul>
 </body>

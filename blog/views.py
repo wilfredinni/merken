@@ -20,7 +20,9 @@ def article(request, url):
 
 def article_by_tag(request, tag_name):
     tag = get_object_or_404(Tag, title=tag_name)
+    articles = tag.article_set.all()
     context = {
+        "articles": articles,
         "tag": tag,
         }
     return render(request, "tag.html", context)
