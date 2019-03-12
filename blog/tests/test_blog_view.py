@@ -6,7 +6,7 @@ from ..views import blog
 
 class BlogView(TestCase):
     def test_blog_view_status_code(self):
-        url = reverse("blogApp:blog")
+        url = reverse("blog_app:blog")
         response = self.client.get(url)
         self.assertEquals(response.status_code, 200)
 

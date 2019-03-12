@@ -7,18 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
-  <title>Blog</title>
+  <title>{{ article.title }}</title>
 </head>
 
 <body class="content">
-  <ul>
-    {% for post in articles %}
-      <li><a href="#">{{ post.title }}</a></li>
-      {% for tag in post.tags.all %}
-        {{ tag }}
-      {% endfor %}
-    {% endfor %}
-  </ul>
+  <!-- title -->
+  <h1>{{ article.title }}</h1>
+  <!-- tags -->
+  <p>
+    {% for tag in article.tags.all %}
+      {{ tag }}
+    {% endfor%}
+  </p>
+  <!-- article content -->
+  <p>{{ article.content }}</p>
 </body>
 
 </html>

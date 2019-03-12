@@ -6,7 +6,7 @@ from ..views import article
 class HomeTests(TestCase):
 
     def test_article_view_status_code(self):
-        url = reverse("blogApp:article")
+        url = reverse("blog_app:article")
         response = self.client.get(url)
         self.assertEquals(response.status_code, 200)
 
