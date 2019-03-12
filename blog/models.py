@@ -15,11 +15,14 @@ class Article(models.Model):
     title = models.CharField(max_length=120, unique=True)
     overview = models.TextField()
     content = models.TextField()
+    img_url = models.CharField(max_length=200)
     tags = models.ManyToManyField(Tag)
     featured = models.BooleanField(default=False)
     url = models.SlugField(max_length=120, unique=True)
-    img_url = models.CharField(max_length=200)
     created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        ordering = ["-created_at"]
