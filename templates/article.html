@@ -17,7 +17,7 @@
   <!-- tags -->
   <p>Tags:
     {% for tag in article.tags.all %}
-      <a href="{% url 'blog_app:tag' tag.title %}">{{ tag }}</a>
+      <a href="{{ tag.get_absolute_url }}">{{ tag }}</a>
     {% endfor%}
   </p>
   <!-- article content -->
