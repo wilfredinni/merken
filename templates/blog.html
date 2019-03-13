@@ -10,7 +10,7 @@
   <title>Blog</title>
 </head>
 
-<body class="content">
+<body class="content container">
   <ul>
     <!-- working with all the articles -->
     {% for post in articles %}
@@ -22,7 +22,7 @@
         <a href="{{ tag.get_absolute_url }}">{{ tag }}</a>
       {% endfor %}
       <!-- author username and email -->
-      <p>Author: {{  post.author }}</p>
+      <p>Author: {{ post.author }}</p>
     {% endfor %}
   </ul>
 </body>

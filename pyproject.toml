@@ -8,6 +8,7 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = "^3.7"
 django = "^2.1"
+mistune = "^0.8.4"
 
 [tool.poetry.dev-dependencies]
 black = { version = "*", allows-prereleases = true }

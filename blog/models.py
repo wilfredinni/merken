@@ -1,15 +1,18 @@
 from django.db import models
 from django.utils import timezone
+from django.utils.html import mark_safe
 from django.urls import reverse
 
 from users.models import CustomUser
+
+from mistune import markdown
 
 
 class Tag(models.Model):
     title = models.SlugField(unique=True)
 
     def get_absolute_url(self):
-        return reverse('blog_app:tag', kwargs={'tag_name': self.title})
+        return reverse("blog_app:tag", kwargs={"tag_name": self.title})
 
     def __str__(self):
         return self.title
@@ -27,7 +30,10 @@ class Article(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
 
     def get_absolute_url(self):
-        return reverse('blog_app:article', kwargs={'url': self.url})
+        return reverse("blog_app:article", kwargs={"url": self.url})
+
+    def render_markdown(self):
+        return mark_safe(markdown(self.content, safe_mode="escape"))
 
     def __str__(self):
         return self.title
