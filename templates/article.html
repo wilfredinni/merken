@@ -1,4 +1,5 @@
 {% load static %}
+{% load markdown_tag %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +24,7 @@
   <!-- date -->
   <p>Created at: {{ article.created_at|date:"d/m/Y" }}</p>
   <!-- article content -->
-  <p>{{ article.render_markdown }}</p>
+  <p>{{ article.content|render_markdown }}</p>
 </body>
 
 </html>
