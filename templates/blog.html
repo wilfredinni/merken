@@ -15,11 +15,11 @@
     <!-- working with all the articles -->
     {% for post in articles %}
       <!-- the title -->
-      <li><a href="#">{{ post.title }}</a></li>
+      <li><a href="{% url 'blog_app:article' post.url %}">{{ post.title }}</a></li>
       <!-- the tags -->
       Tags:
       {% for tag in post.tags.all %}
-        {{ tag }}
+        <a href="{% url 'blog_app:tag' tag.title %}">{{ tag }}</a>
       {% endfor %}
       <!-- author username and email -->
       <p>Author: {{  post.author }}</p>
