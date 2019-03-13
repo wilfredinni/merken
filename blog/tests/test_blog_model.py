@@ -1,10 +1,10 @@
 from django.test import TestCase
-from ..models import User, Article, Tag
+from ..models import CustomUser, Article, Tag
 
 
 class BlogModels(TestCase):
     def setUp(self):
-        user = User.objects.create_user("test_user")
+        user = CustomUser.objects.create_user("test_user")
         Tag.objects.create(title="test_tag")
         Article.objects.create(
             author=user,

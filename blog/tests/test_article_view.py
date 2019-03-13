@@ -1,13 +1,13 @@
 from django.urls import reverse, resolve
 from django.test import TestCase
 from ..views import article
-from ..models import Article, User
+from ..models import Article, CustomUser
 
 
 class ArticleTest(TestCase):
 
     def setUp(self):
-        user = User.objects.create_user("test_user")
+        user = CustomUser.objects.create_user("test_user")
         Article.objects.create(url="test-article", author=user)
 
     def test_article_view_status_code(self):
