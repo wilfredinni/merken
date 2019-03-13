@@ -18,3 +18,8 @@ class ArticleTest(TestCase):
     def test_url_resolves_article_view(self):
         view = resolve("/blog/test-article/")
         self.assertEquals(view.func, article)
+
+    def test_article_view_not_found_404(self):
+        url = reverse('blog_app:article', kwargs={'url': 'wrong-url'})
+        response = self.client.get(url)
+        self.assertEquals(response.status_code, 404)

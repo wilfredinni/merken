@@ -17,3 +17,8 @@ class HomeTests(TestCase):
     def test_url_resolves_article_by_tag_view(self):
         view = resolve("/blog/tag/python/")
         self.assertEquals(view.func, article_by_tag)
+
+    def test_tag_view_not_found_404(self):
+        url = reverse('blog_app:tag', kwargs={'tag_name': 'wrong-tag'})
+        response = self.client.get(url)
+        self.assertEquals(response.status_code, 404)
