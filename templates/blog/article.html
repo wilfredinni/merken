@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load markdown_tag %}
+
+{% block title %}<title>{{ article.title }}</title>{% endblock title %}
+
+{% block content %}
+  <!-- title -->
+  <h1>{{ article.title }}</h1>
+  <p>Author: {{ article.author }}</p>
+  <!-- tags -->
+  <p>Tags:
+    {% for tag in article.tags.all %}
+      <a href="{{ tag.get_absolute_url }}">{{ tag }}</a>
+    {% endfor%}
+  </p>
+  <!-- date -->
+  <p>Created at: {{ article.created_at|date:"d/m/Y" }}</p>
+  <!-- article content -->
+  <p>{{ article.content|render_markdown }}</p>
+{% endblock content %}

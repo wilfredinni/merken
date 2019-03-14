@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/custom.nav.css' %}">
+  <!-- title -->
+  {% block title %}
+  {% if tag %}
+  <title>Tag: {{ tag }}</title>
+  {% else %}
+  <title>Blog</title>
+  {% endif %}
+  {% endblock title %}
+</head>
+
+<body class="has-navbar-fixed-top">
+  {% include 'includes/navbar.html' %}
+
+  <section class="content container section">
+    {% block content %}
+    {% endblock content %}
+  </section>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        2019 <strong>Python Cheatsheet</strong> by
+        <a href="https://twitter.com/pyCheatsheet">@pyCheatsheet</a>.
+        Fork this
+        <a href="https://github.com/wilfredinni/pysheetBlog">website</a>.
+        Fork the
+        <a href="https://github.com/wilfredinni/python-cheatsheet">Python Cheatsheet</a>.
+        <br>
+        Sponsored by
+        <a href="https://www.digitalocean.com/"><img class="do-sponsor" src="{% static 'img/DO_Logo_Horizontal_Black.png' %}"
+            alt="Sponsored by DigitalOcean"></a>
+      </p>
+    </div>
+  </footer>
+</body>
+
+</html>

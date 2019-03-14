@@ -1,0 +1,60 @@
+{% load static %}
+<nav class="navbar is-link is-fixed-top" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
+      <img src="{% static 'img/snake.svg' %}" width="112" height="28">
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a href="#" class="navbar-item">
+        Home
+      </a>
+      <a href="{% url 'blog_app:blog' %}" class="navbar-item">
+        Blog
+      </a>
+      <!-- versions drop-down menu -->
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link" href="javascript:void(0);">
+          Versions
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://github.com/wilfredinni/Python-cheatsheet/raw/master/python_cheat_sheet.pdf">
+            PDF
+          </a>
+          <a class="navbar-item" href="https://mybinder.org/v2/gh/wilfredinni/python-cheatsheet/master?filepath=jupyter_notebooks">
+            Jupyter Notebook
+          </a>
+          <a class="navbar-item" href="https://github.com/wilfredinni/python-cheatsheet/blob/master/README.md">
+            Markdown
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary">
+            <strong>Sign up</strong>
+          </a>
+          <a class="button is-light">
+            Log in
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- fork on github -->
+<a class="forkme" href="https://github.com/wilfredinni/python-cheatsheet">
+  <img src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+</a>

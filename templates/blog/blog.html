@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load markdown_tag %}
+
+{% block content %}
+<!-- if tag  -->
+{% if tag %}
+  <h1>{{ tag }}</h1>
+{% endif %}
+
+<ul>
+  <!-- all articles -->
+  {% for post in articles %}
+    <!-- title -->
+    <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+    <!-- tags -->
+    Tags:
+    {% for tag in post.tags.all %}
+      <a href="{{ tag.get_absolute_url }}">{{ tag }}</a>
+    {% endfor %}
+    <!-- author username and content -->
+    <p>Author: {{ post.author }}</p>
+    <p>{{ post.overview|render_markdown }}</p>
+  {% endfor %}
+</ul>
+{% endblock content%}
