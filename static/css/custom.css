@@ -53,10 +53,19 @@
 
 .newsletter {
     background: #eee;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem !important;
 }
 
 .newsletter-title {
     margin: 0 !important;
     color: #4a4a4a !important;
+}
+
+.blog-side {
+    padding-top: 0 !important;
+}
+
+.side-list-tag {
+    margin-top: 2%;
+    margin-bottom: 2%;
 }

@@ -8,12 +8,12 @@
     <!-- post list column -->
     <div class="column is-8">
       {% for post in articles %}
-        {% include 'includes/post.html' %}
+      {% include 'includes/post.html' %}
       {% endfor %}
     </div>
 
     <!-- sidebar column -->
-    <div class="column">
+    <div class="column section blog-side">
 
       <!-- subscribe -->
       <div class="box has-text-centered newsletter is-hidden-mobile">
@@ -29,7 +29,20 @@
       </div>
 
       <!-- tag list -->
-      {{ tag }}
+      <div class="is-hidden-mobile">
+        <p>
+          <span class="icon">
+            <i class="fas fa-tags"></i>
+          </span>
+          <span aria-hidden="true"></span>
+          _Tags:
+        </p>
+        {% for tag in tags %}
+        <a href="#">
+          <span class="tag is-warning side-list-tag">{{ tag }}</span>
+        </a>
+        {% endfor %}
+      </div>
 
     </div>
   </div>
