@@ -32,8 +32,10 @@ class TagView(ListView):
     paginate_by = 5
 
     def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         kwargs["tag"] = self.tag
-        return super().get_context_data(**kwargs)
+        context["tags"] = get_all_tags()
+        return context
 
     def get_queryset(self):
         self.tag = get_object_or_404(Tag, title=self.kwargs.get("slug"))

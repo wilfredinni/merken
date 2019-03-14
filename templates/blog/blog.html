@@ -38,7 +38,7 @@
           _Tags:
         </p>
         {% for tag in tags %}
-        <a href="#">
+        <a href="{{ tag.get_absolute_url }}">
           <span class="tag is-warning side-list-tag">{{ tag }}</span>
         </a>
         {% endfor %}
