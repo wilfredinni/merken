@@ -3,30 +3,28 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
-  <link rel="stylesheet" href="{% static 'css/custom.nav.css' %}">
+  {% include 'includes/head.html' %}
+
   <!-- title -->
   {% block title %}
-  {% if tag %}
-  <title>Tag: {{ tag }}</title>
-  {% else %}
-  <title>Blog</title>
-  {% endif %}
+    {% if tag %}
+      <title>Tag: {{ tag }}</title>
+    {% else %}
+      <title>Blog</title>
+    {% endif %}
   {% endblock title %}
 </head>
 
 <body class="has-navbar-fixed-top">
   {% include 'includes/navbar.html' %}
 
-  <section class="content container section">
+  <section class="content container">
     {% block content %}
     {% endblock content %}
   </section>
 
   {% include 'includes/footer.html' %}
+
 </body>
 
 </html>

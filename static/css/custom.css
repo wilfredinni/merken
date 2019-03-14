@@ -1,0 +1,62 @@
+.forkme {
+    border: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar-end {
+    padding-right: 140px;
+}
+
+.navbar-brand {
+    padding-left: 70px;
+}
+
+.do-sponsor {
+    width: 10%;
+}
+
+.footer {
+    padding: 3rem 1.5rem;
+    background: #f7f4f4;
+}
+
+.blog-title {
+    font-size: 2.5rem !important;
+    margin-bottom: 0px !important;
+}
+
+.blog-title a {
+    color: #363636;
+}
+
+.blog-author-date {
+    margin-bottom: 2%;
+}
+
+.blog-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.blog-space-post {
+    margin-bottom: 5rem;
+}
+
+.blog-section {
+    padding-top: 4rem;
+    padding-bottom: 0;
+}
+
+.newsletter {
+    background: #eee;
+    margin-bottom: 1.5rem;
+}
+
+.newsletter-title {
+    margin: 0 !important;
+    color: #4a4a4a !important;
+}

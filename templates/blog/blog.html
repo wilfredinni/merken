@@ -1,25 +1,37 @@
 {% extends 'base.html' %}
-{% load markdown_tag %}
 
 {% block content %}
-<!-- if tag  -->
-{% if tag %}
-  <h1>{{ tag }}</h1>
-{% endif %}
+<section class="container blog-section">
 
-<ul>
-  <!-- all articles -->
-  {% for post in articles %}
-    <!-- title -->
-    <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
-    <!-- tags -->
-    Tags:
-    {% for tag in post.tags.all %}
-      <a href="{{ tag.get_absolute_url }}">{{ tag }}</a>
-    {% endfor %}
-    <!-- author username and content -->
-    <p>Author: {{ post.author }}</p>
-    <p>{{ post.overview|render_markdown }}</p>
-  {% endfor %}
-</ul>
-{% endblock content%}
+  <div class="columns">
+
+    <!-- post list column -->
+    <div class="column is-8">
+      {% for post in articles %}
+        {% include 'includes/post.html' %}
+      {% endfor %}
+    </div>
+
+    <!-- sidebar column -->
+    <div class="column">
+
+      <!-- subscribe -->
+      <div class="box has-text-centered newsletter is-hidden-mobile">
+        <h3 class="has-text-weight-bold newsletter-title">Newsletters</h3><br>
+        <p class="control has-icons-left has-icons-right no-unsubscribe">
+          <input class="input" type="email" placeholder="Email" disabled>
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </p><br>
+        <a class="button is-fullwidth" disabled>Subscribe</a>
+        <p class="help has-text-left no-unsubscribe">Unsubscribe any time.</p>
+      </div>
+
+      <!-- tag list -->
+      {{ tag }}
+
+    </div>
+  </div>
+</section>
+{% endblock content %}
