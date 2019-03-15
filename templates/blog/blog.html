@@ -1,41 +1,58 @@
 {% extends 'base_sidebar.html' %}
+{% load markdown_tag %}
 
 <!-- post list column -->
 {% block main_column %}
+
+  {% if tag %}
+  <div>
+    <p>Tag: <a href="{{ tag.get_absolute_url }}">
+        <span class="tag is-warning">
+          {{tag}}
+        </span></a>
+    </p><br>
+  </div>
+  {% endif %}
+
   {% for post in articles %}
-    {% include 'includes/post.html' %}
+  <!-- title -->
+  <div class="has-text-centered header-content">
+    <h1 class="blog-title is-hidden-mobile"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
+    <h2 class="blog-title font-mobile is-hidden-tablet"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+  </div>
+
+  <!-- author, date, comments -->
+  <div class="has-text-centered blog-author-date">
+    <p>By <a href="#">{{ post.author }}</a> • {{ post.created_at|date:"d/m/Y" }} • <a href="#">comments</a></p>
+  </div>
+
+  <!-- image -->
+  <img class="blog-img" src="{{ post.img_url }}" alt="">
+
+  <!-- overview -->
+  <p>{{ post.overview|render_markdown }}</p>
+  <hr class="is-hidden-mobile">
+
+  <!-- tags and continue reading-->
+  <div class="level">
+
+    <div class="level-left">
+      <a class="button is-hidden-mobile" href="{{ post.get_absolute_url }}">Continue Reading</a>
+      <a class="is-hidden-tablet is-pulled-right" href="{{ post.get_absolute_url }}">Continue Reading...</a>
+    </div>
+
+    <div class="level is-hidden-mobile">
+      <p>Tags: {% for tag in post.tags.all %}
+        <a href="{{ tag.get_absolute_url }}">
+          <span class="tag is-warning">
+            {{tag}}
+          </span>
+        </a>
+        {% endfor %}
+      </p>
+    </div>
+
+  </div>
+  <div class="blog-space-post"></div>
   {% endfor %}
 {% endblock main_column %}
-
-
-<!-- sidebar column -->
-{% block side_column %}
-<!-- subscribe -->
-<div class="box has-text-centered newsletter is-hidden-mobile">
-  <h3 class="has-text-weight-bold newsletter-title">Newsletters</h3><br>
-  <p class="control has-icons-left has-icons-right no-unsubscribe">
-    <input class="input" type="email" placeholder="Email" disabled>
-    <span class="icon is-small is-left">
-      <i class="fas fa-envelope"></i>
-    </span>
-  </p><br>
-  <a class="button is-fullwidth" disabled>Subscribe</a>
-  <p class="help has-text-left no-unsubscribe">Unsubscribe any time.</p>
-</div>
-
-<!-- tag list -->
-<div class="is-hidden-mobile">
-  <p>
-    <span class="icon">
-      <i class="fas fa-tags"></i>
-    </span>
-    <span aria-hidden="true"></span>
-    _Tags:
-  </p>
-  {% for tag in tags %}
-  <a href="{{ tag.get_absolute_url }}">
-    <span class="tag is-warning side-list-tag">{{ tag }}</span>
-  </a>
-  {% endfor %}
-</div>
-{% endblock side_column %}

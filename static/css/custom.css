@@ -10,7 +10,7 @@
     padding-right: 140px;
 }
 
-.navbar-brand {
+.navbar-brand-desktop-padding {
     padding-left: 70px;
 }
 
@@ -30,6 +30,10 @@
 
 .blog-title a {
     color: #363636;
+}
+
+.font-mobile {
+    font-size: 2rem !important;
 }
 
 .blog-author-date {
@@ -57,6 +61,10 @@
 
 .column-section {
     padding: 0rem 0.5rem;
+}
+
+.side-column-padding {
+    padding-top: 0;
 }
 
 .newsletter {

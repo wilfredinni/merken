@@ -25,15 +25,25 @@ class ArticleView(DetailView):
     template_name = "blog/article.html"
     slug_field = "url"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["tags"] = get_all_tags()
+        return context
+
 
 class TagView(ListView):
     context_object_name = "articles"
     template_name = "blog/blog.html"
     paginate_by = 5
 
+    # def get_context_data(self, **kwargs):
+    #     kwargs['tag'] = self.tag
+    #     return super().get_context_data(**kwargs)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         kwargs["tag"] = self.tag
+        context["tag"] = self.tag
         context["tags"] = get_all_tags()
         return context
 

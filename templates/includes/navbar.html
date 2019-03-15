@@ -1,10 +1,24 @@
 {% load static %}
 <nav class="navbar is-link is-fixed-top" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
-      <img src="{% static 'img/snake.svg' %}" width="112" height="28">
-    </a>
 
+    <!-- navbar brand and burger for desktop -->
+    <div class="navbar-brand navbar-brand-desktop-padding is-hidden-touch">
+      <a class="navbar-item" href="https://pythoncheatsheet.org/">
+        <img class="" src="{% static 'img/snake.svg' %}" width="112" height="28">
+      </a>
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+  <!-- navbar brand and burger for tablet and mobile -->
+  <div class="navbar-brand is-hidden-desktop">
+    <a class="navbar-item" href="https://pythoncheatsheet.org/">
+      <img class="" src="{% static 'img/snake.svg' %}" width="112" height="28">
+      <p class="">Python Cheatsheet</p>
+    </a>
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
