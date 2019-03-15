@@ -36,13 +36,8 @@ class TagView(ListView):
     template_name = "blog/blog.html"
     paginate_by = 5
 
-    # def get_context_data(self, **kwargs):
-    #     kwargs['tag'] = self.tag
-    #     return super().get_context_data(**kwargs)
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        kwargs["tag"] = self.tag
         context["tag"] = self.tag
         context["tags"] = get_all_tags()
         return context
