@@ -1,5 +1,5 @@
 {% extends 'base_sidebar.html' %}
-{% load markdown_tag %}
+{% load static markdown_tag %}
 
 {% block title %}<title>{{ article.title }}</title>{% endblock title %}
 
@@ -65,3 +65,7 @@
     </div>
   </div>
 {% endblock main_column %}
+
+{% block javascript %}
+<script type="text/javascript" src="{% static 'js/article-index.js' %}"></script>
+{% endblock javascript %}

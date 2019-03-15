@@ -26,12 +26,34 @@
         <p class="help has-text-left no-unsubscribe">Unsubscribe any time.</p>
       </div>
 
+      <!-- article content block -->
+      {% if article %}
+      <div class="side-contents-sticky">
+        <div id="index" class="box">
+          <h3 class="side-contents-title">Table of Content</h3>
+          <ul class="side-contents-list" id="indexList"></ul>
+        </div>
+
+        <!-- tag list -->
+        <div class="is-hidden-mobile">
+          <p>
+            <span class="icon"><i class="fas fa-tags"></i></span>
+            <span aria-hidden="true"></span>
+            _Tags:
+          </p>
+          {% for tag in tags %}
+          <a href="{{ tag.get_absolute_url }}">
+            <span class="tag is-warning side-list-tag">{{ tag }}</span>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+
+      {% else %}
       <!-- tag list -->
       <div class="is-hidden-mobile">
         <p>
-          <span class="icon">
-            <i class="fas fa-tags"></i>
-          </span>
+          <span class="icon"><i class="fas fa-tags"></i></span>
           <span aria-hidden="true"></span>
           _Tags:
         </p>
@@ -41,7 +63,9 @@
         </a>
         {% endfor %}
       </div>
+      {% endif %}
       {% endblock side_column %}
+
     </div>
   </div>
 </section>
