@@ -3,6 +3,10 @@
 
 {% block title %}<title>{{ article.title }}</title>{% endblock title %}
 
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/atom-one-dark-min.css' %}">
+{% endblock css %}
+
 {% block main_column %}
   <!-- title -->
   <div class="has-text-centered header-content">
@@ -68,4 +72,6 @@
 
 {% block javascript %}
 <script type="text/javascript" src="{% static 'js/article-index.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/highlight.pack.js' %}"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 {% endblock javascript %}
