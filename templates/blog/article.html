@@ -1,20 +1,34 @@
-{% extends 'base.html' %}
+{% extends 'base_sidebar.html' %}
 {% load markdown_tag %}
 
 {% block title %}<title>{{ article.title }}</title>{% endblock title %}
 
-{% block content %}
+{% block main_column %}
   <!-- title -->
-  <h1>{{ article.title }}</h1>
-  <p>Author: {{ article.author }}</p>
-  <!-- tags -->
-  <p>Tags:
-    {% for tag in article.tags.all %}
-      <a href="{{ tag.get_absolute_url }}">{{ tag }}</a>
-    {% endfor%}
-  </p>
-  <!-- date -->
-  <p>Created at: {{ article.created_at|date:"d/m/Y" }}</p>
+  <div class="has-text-centered header-content">
+    <h1 class="blog-title">{{ article.title }}</h1>
+  </div>
+
+  <!-- author, date, comments -->
+  <div class="has-text-centered blog-author-date">
+    <p>posted on <a href="#">{{ article.created_at|date:"d/m/Y" }}</a> by <a href="#">{{ article.author }}</a></p>
+  </div>
+
+  <!-- image -->
+  <img class="blog-img" src="{{ article.img_url }}" alt=""><br>
+
   <!-- article content -->
   <p>{{ article.content|render_markdown }}</p>
-{% endblock content %}
+
+  <!-- tags -->
+  <hr>
+  <p>Tags:
+    {% for tag in article.tags.all %}
+    <a href="{{ tag.get_absolute_url }}">
+        <span class="tag is-warning">
+          {{tag}}
+        </span>
+      </a>
+    {% endfor%}
+  </p>
+{% endblock main_column %}

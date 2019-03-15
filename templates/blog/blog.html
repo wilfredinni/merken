@@ -1,50 +1,41 @@
-{% extends 'base.html' %}
+{% extends 'base_sidebar.html' %}
 
-{% block content %}
-<section class="container blog-section">
+<!-- post list column -->
+{% block main_column %}
+  {% for post in articles %}
+    {% include 'includes/post.html' %}
+  {% endfor %}
+{% endblock main_column %}
 
-  <div class="columns">
 
-    <!-- post list column -->
-    <div class="column is-8">
-      {% for post in articles %}
-      {% include 'includes/post.html' %}
-      {% endfor %}
-    </div>
+<!-- sidebar column -->
+{% block side_column %}
+<!-- subscribe -->
+<div class="box has-text-centered newsletter is-hidden-mobile">
+  <h3 class="has-text-weight-bold newsletter-title">Newsletters</h3><br>
+  <p class="control has-icons-left has-icons-right no-unsubscribe">
+    <input class="input" type="email" placeholder="Email" disabled>
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+  </p><br>
+  <a class="button is-fullwidth" disabled>Subscribe</a>
+  <p class="help has-text-left no-unsubscribe">Unsubscribe any time.</p>
+</div>
 
-    <!-- sidebar column -->
-    <div class="column section blog-side">
-
-      <!-- subscribe -->
-      <div class="box has-text-centered newsletter is-hidden-mobile">
-        <h3 class="has-text-weight-bold newsletter-title">Newsletters</h3><br>
-        <p class="control has-icons-left has-icons-right no-unsubscribe">
-          <input class="input" type="email" placeholder="Email" disabled>
-          <span class="icon is-small is-left">
-            <i class="fas fa-envelope"></i>
-          </span>
-        </p><br>
-        <a class="button is-fullwidth" disabled>Subscribe</a>
-        <p class="help has-text-left no-unsubscribe">Unsubscribe any time.</p>
-      </div>
-
-      <!-- tag list -->
-      <div class="is-hidden-mobile">
-        <p>
-          <span class="icon">
-            <i class="fas fa-tags"></i>
-          </span>
-          <span aria-hidden="true"></span>
-          _Tags:
-        </p>
-        {% for tag in tags %}
-        <a href="{{ tag.get_absolute_url }}">
-          <span class="tag is-warning side-list-tag">{{ tag }}</span>
-        </a>
-        {% endfor %}
-      </div>
-
-    </div>
-  </div>
-</section>
-{% endblock content %}
+<!-- tag list -->
+<div class="is-hidden-mobile">
+  <p>
+    <span class="icon">
+      <i class="fas fa-tags"></i>
+    </span>
+    <span aria-hidden="true"></span>
+    _Tags:
+  </p>
+  {% for tag in tags %}
+  <a href="{{ tag.get_absolute_url }}">
+    <span class="tag is-warning side-list-tag">{{ tag }}</span>
+  </a>
+  {% endfor %}
+</div>
+{% endblock side_column %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="container blog-section">
+
+  <div class="columns">
+
+    <!-- main -->
+    <div class="column is-8">
+      {% block main_column %}{% endblock main_column %}
+    </div>
+
+    <!-- sidebar column -->
+    <div class="column section blog-side">
+      {% block side_column %}{% endblock side_column %}
+    </div>
+  </div>
+</section>
+{% endblock content %}
