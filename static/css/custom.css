@@ -46,9 +46,17 @@
     margin-bottom: 5rem;
 }
 
+.blog-side {
+    padding-top: 0 !important;
+}
+
 .blog-section {
     padding-top: 4rem;
     padding-bottom: 0;
+}
+
+.column-section {
+    padding: 0rem 0.5rem;
 }
 
 .newsletter {
@@ -61,11 +69,27 @@
     color: #4a4a4a !important;
 }
 
-.blog-side {
-    padding-top: 0 !important;
-}
-
 .side-list-tag {
     margin-top: 2%;
     margin-bottom: 2%;
+}
+
+.share {
+    border: 1px solid;
+    border-radius: 3px;
+    margin-right: .75rem;
+    width: 25px;
+    height: 25px;
+}
+
+.twitter {
+    color: #03acef;
+}
+
+.facebook {
+    color: #3c5a9a;
+}
+
+.google {
+    color: #dc4b3a;
 }

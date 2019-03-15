@@ -20,15 +20,47 @@
   <!-- article content -->
   <p>{{ article.content|render_markdown }}</p>
 
-  <!-- tags -->
   <hr>
-  <p>Tags:
-    {% for tag in article.tags.all %}
-    <a href="{{ tag.get_absolute_url }}">
-        <span class="tag is-warning">
-          {{tag}}
+  <div class="level">
+    <!-- tags -->
+    <div class="level-left">
+      <p>Tags:
+        {% for tag in article.tags.all %}
+        <a href="{{ tag.get_absolute_url }}">
+          <span class="tag is-warning">
+            {{tag}}
+          </span>
+        </a>
+        {% endfor%}
+      </p>
+    </div>
+
+    <!-- share -->
+    <div class="level-right is-hidden-mobile">
+
+      <!-- twitter -->
+      <a target="blank" href="https://twitter.com/intent/tweet?status={{article.title}}+https://pythoncheatsheet.org{{ article.get_absolute_url }}"
+        class="share twitter">
+        <span class="icon share-icon">
+          <i class="fab fa-twitter"></i>
         </span>
       </a>
-    {% endfor%}
-  </p>
+
+      <!-- facebook -->
+      <a target="blank" href="https://www.facebook.com/share.php?u=https://pythoncheatsheet.org{{ article.get_absolute_url }}&title={{article.title}}"
+        class="share facebook">
+        <span class="icon share-icon">
+          <i class="fab fa-facebook-f"></i>
+        </span>
+      </a>
+
+      <!-- google -->
+      <a target="blank" href="https://plus.google.com/share?url=https://pythoncheatsheet.org{{ article.get_absolute_url }}" class="share google">
+        <span class="icon share-icon">
+          <i class="fab fa-google"></i>
+        </span>
+      </a>
+
+    </div>
+  </div>
 {% endblock main_column %}
