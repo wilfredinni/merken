@@ -1,0 +1,10 @@
+{{ user.email }}
+{{ user }}
+
+<ul>
+    {% for article in user.article_set.all %}
+        <li>{{ article.title }}</li>
+    {% endfor %}
+</ul>
+
+{{ user.about }}
