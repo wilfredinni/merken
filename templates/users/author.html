@@ -48,7 +48,7 @@
 
   <!-- username or screen name -->
   <div class="has-text-centered">
-    <h1 class="">About {{ user.username }}</h1>
+    <h1 class="author-title">About {{ user.username }}</h1>
   </div>
 
   <!-- resumé -->
@@ -61,7 +61,7 @@
 
   <!-- blog posts -->
   <div>
-    <h2 class="subtitle is-3 level-item">Blog Posts by {{ user.username }}</h2>
+    <h2 class="author-title level-item">Blog Posts by {{ user.username }}</h2>
     <ul style="list-style-type:disc">
       {% for article in user.article_set.all %}
       <li>
