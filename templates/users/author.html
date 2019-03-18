@@ -65,7 +65,7 @@
     <ul style="list-style-type:disc">
       {% for article in user.article_set.all %}
       <li>
-        <a href="·">{{ article.title }}</a>
+        <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
       </li>
       {% endfor %}
     </ul>
