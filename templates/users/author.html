@@ -1,6 +1,10 @@
 {% extends 'base_sidebar.html' %}
 {% load markdown_tag %}
 
+{% block title %}
+  <title>About {{ user }} - {{ context.site_name }}</title>
+{% endblock title %}
+
 {% block main_column %}
 
 

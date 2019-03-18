@@ -6,14 +6,9 @@
   {% include 'includes/head.html' %}
 
   <!-- title -->
-  {% block title %}
-    {% if tag %}
-      <title>Tag: {{ tag }}</title>
-    {% else %}
-      <title>Blog</title>
-    {% endif %}
-  {% endblock title %}
+  {% block title %}{% endblock title %}
 
+  <!-- css -->
   {% block css %}{% endblock css %}
 </head>
 
@@ -27,8 +22,8 @@
 
   {% include 'includes/footer.html' %}
 
+  <!-- javascript -->
   {% block javascript %}{% endblock javascript %}
-
 </body>
 
 </html>

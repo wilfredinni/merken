@@ -1,6 +1,15 @@
 {% extends 'base_sidebar.html' %}
 {% load markdown_tag %}
 
+<!-- title -->
+{% block title %}
+  {% if tag %}
+    <title>{{ tag }} - {{ context.site_name }}</title>
+  {% else %}
+    <title>Blog - {{ context.site_name }}</title>
+  {% endif %}
+{% endblock title %}
+
 <!-- post list column -->
 {% block main_column %}
 

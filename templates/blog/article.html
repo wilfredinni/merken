@@ -1,7 +1,9 @@
 {% extends 'base_sidebar.html' %}
 {% load static markdown_tag %}
 
-{% block title %}<title>{{ article.title }}</title>{% endblock title %}
+{% block title %}
+  <title>{{ article.title }} - {{ context.site_name }}</title>
+{% endblock title %}
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/atom-one-dark-min.css' %}">
