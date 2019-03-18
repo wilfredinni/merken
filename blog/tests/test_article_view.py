@@ -14,13 +14,13 @@ class ArticleTest(TestCase):
     def test_article_view_status_code(self):
         url = reverse("blog_app:article", kwargs={"slug": "test-article"})
         response = self.client.get(url)
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
 
     def test_article_view_not_found_404(self):
         url = reverse('blog_app:article', kwargs={'slug': 'wrong-url'})
         response = self.client.get(url)
-        self.assertEquals(response.status_code, 404)
+        self.assertEqual(response.status_code, 404)
 
     def test_url_resolves_article_view(self):
         view = resolve("/blog/test-article/")
-        self.assertEquals(view.func.view_class, ArticleView)
+        self.assertEqual(view.func.view_class, ArticleView)

@@ -12,13 +12,13 @@ class HomeTests(TestCase):
     def test_article_view_status_code(self):
         url = reverse("blog_app:tag", kwargs={"slug": "python"})
         response = self.client.get(url)
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
 
     def test_url_resolves_article_by_tag_view(self):
         view = resolve("/blog/tag/python/")
-        self.assertEquals(view.func.view_class, TagView)
+        self.assertEqual(view.func.view_class, TagView)
 
     def test_tag_view_not_found_404(self):
         url = reverse('blog_app:tag', kwargs={'slug': 'wrong-tag'})
         response = self.client.get(url)
-        self.assertEquals(response.status_code, 404)
+        self.assertEqual(response.status_code, 404)
