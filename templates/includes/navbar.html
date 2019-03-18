@@ -34,6 +34,14 @@
       <a href="{% url 'blog_app:blog' %}" class="navbar-item">
         Blog
       </a>
+
+      <!-- links for the dynamic pages -->
+      {% for page in pages %}
+        <a href="{{ page.get_absolute_url }}" class="navbar-item">
+          {{ page }}
+        </a>
+      {% endfor %}
+
       <!-- versions drop-down menu -->
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link" href="javascript:void(0);">
