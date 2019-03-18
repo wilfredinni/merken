@@ -10,8 +10,8 @@ class Page(models.Model):
     url = models.SlugField(max_length=120, unique=True)
     created_at = models.DateTimeField(default=timezone.now)
 
+    def get_absolute_url(self):
+        return reverse("page_app:page", kwargs={"slug": self.url})
+
     def __str__(self):
         return self.title
-
-    def get_absolute_url(self):
-        return reverse("pages_app:page", kwargs={"slug": self.url})
