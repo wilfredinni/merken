@@ -1,0 +1,10 @@
+{% extends 'base_sidebar.html' %}
+{% load markdown_tag %}
+
+{% block title %}
+  <title>{{ page.title }} - {{ context.site_name }}</title>
+{% endblock title %}
+
+{% block main_column %}
+    {{ page.content|render_markdown }}
+{% endblock main_column %}
