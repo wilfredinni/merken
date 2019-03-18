@@ -37,9 +37,11 @@
 
       <!-- links for the dynamic pages -->
       {% for page in pages %}
-        <a href="{{ page.get_absolute_url }}" class="navbar-item">
-          {{ page }}
-        </a>
+        {% if page.visible %}
+          <a href="{{ page.get_absolute_url }}" class="navbar-item">
+            {{ page }}
+          </a>
+        {% endif %}
       {% endfor %}
 
       <!-- versions drop-down menu -->

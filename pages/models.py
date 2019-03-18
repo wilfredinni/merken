@@ -8,6 +8,7 @@ class Page(models.Model):
     overview = models.TextField()
     content = models.TextField()
     url = models.SlugField(max_length=120, unique=True)
+    visible = models.BooleanField(default=False)
     created_at = models.DateTimeField(default=timezone.now)
 
     def get_absolute_url(self):
