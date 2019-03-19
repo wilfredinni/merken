@@ -5,9 +5,9 @@
   <meta property="og:title" content="{{ user.username }} - {{ site_name }}">
   <link rel="canonical" href="https://www.pythoncheatsheet.org/author/{{ user.username }}">
   <meta property="og:url" content="https://www.pythoncheatsheet.org/author/{{ user.username }}">
-  <meta name="description" content="{{ user.username }} - {{ user.about|render_markdown }}">
-  <meta property="og:description" content="{{ user.username }} - {{ user.about|render_markdown }}">
-  <meta name="twitter:description" content="{{ user.username }} - {{ user.about|render_markdown }}"/>
+  <meta name="description" content="{{ user.username }} - {{ user.about|render_markdown|striptags }}">
+  <meta property="og:description" content="{{ user.username }} - {{ user.about|render_markdown|striptags }}">
+  <meta name="twitter:description" content="{{ user.username }} - {{ user.about|render_markdown|striptags }}"/>
 {% endblock seo %}
 
 {% block title %}
