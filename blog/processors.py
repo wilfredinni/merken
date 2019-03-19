@@ -1,16 +1,14 @@
+from .models import Tag
 from pages.models import Page
 
 
-def site_name(request):
-    # Create fixed data structures to pass to template
-    # data could equally come from database queries
-    # web services or social APIs
+def global_query(request):
     # TODO: site_name must come from the database
-    context = {"site_name": "Python Cheatsheet"}
-    return context
-
-
-def custom_pages(request):
+    tags = Tag.objects.all()
     pages = Page.objects.all()
-    context = {'pages': pages}
+    context = {
+        "site_name": "Python Cheatsheet",
+        'pages': pages,
+        'tags': tags,
+        }
     return context

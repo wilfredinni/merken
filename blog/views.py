@@ -14,21 +14,11 @@ class BlogView(ListView):
     template_name = "blog/blog.html"
     paginate_by = 5
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["tags"] = get_all_tags()
-        return context
-
 
 class ArticleView(DetailView):
     model = Article
     template_name = "blog/article.html"
     slug_field = "url"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["tags"] = get_all_tags()
-        return context
 
 
 class TagView(ListView):
@@ -39,7 +29,6 @@ class TagView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["tag"] = self.tag
-        context["tags"] = get_all_tags()
         return context
 
     def get_queryset(self):
