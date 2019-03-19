@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
     'users.apps.UsersConfig',  # custom user model
     'blog',
-    'pages'
+    'pages',
 ]
 
 MIDDLEWARE = [
@@ -66,12 +66,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # 'blog.processors.site_name',
-                # 'blog.processors.custom_pages',
                 'blog.processors.global_query',
             ],
         },
-    },
+    }
 ]
 
 WSGI_APPLICATION = 'merken.wsgi.application'
