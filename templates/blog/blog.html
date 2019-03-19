@@ -14,7 +14,7 @@
 {% block main_column %}
 
 {% if tag %}
-<a class="tags has-addons" href="">
+<a class="tags has-addons" href="{{ tag.get_absolute_url }}">
   <span class="tag">Tag</span>
   <span class="tag is-warning">{{ tag }}</span>
 </a>
