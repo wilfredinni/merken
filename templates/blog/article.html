@@ -1,6 +1,15 @@
 {% extends 'base_sidebar.html' %}
 {% load static markdown_tag %}
 
+{% block seo %}
+  <meta property="og:title" content="{{ article.title }} - {{ site_name }}">
+  <link rel="canonical" href="https://www.pythoncheatsheet.org/blog/{{ article.url }}">
+  <meta property="og:url" content="https://www.pythoncheatsheet.org/blog/{{ article.url }}">
+  <meta name="description" content="{{ article.overview|render_markdown }}">
+  <meta property="og:description" content="{{ article.overview|render_markdown }}">
+  <meta name="twitter:description" content="{{ article.overview|render_markdown }}"/>
+{% endblock seo %}
+
 {% block title %}
   <title>{{ article.title }} - {{ site_name }}</title>
 {% endblock title %}
@@ -13,7 +22,7 @@
   <!-- title -->
   <div class="has-text-centered header-content">
     <h1 class="blog-title is-hidden-mobile">{{ article.title }}</h1>
-    <h1 class="blog-title font-mobile is-hidden-tablet">{{ article.title }}</h1>
+    <h2 class="blog-title font-mobile is-hidden-tablet">{{ article.title }}</h2>
   </div>
 
   <!-- author, date, comments -->
@@ -22,7 +31,7 @@
   </div>
 
   <!-- image -->
-  <img class="blog-img" src="{{ article.img_url }}" alt=""><br>
+  <img class="blog-img" src="{{ article.img_url }}" alt="{{ article.title }}"><br>
 
   <!-- article content -->
   <p>{{ article.content|render_markdown }}</p>

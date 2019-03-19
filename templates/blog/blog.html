@@ -1,6 +1,21 @@
 {% extends 'base_sidebar.html' %}
 {% load markdown_tag %}
 
+{% block seo %}
+  {% if tag %}
+    <meta property="og:title" content="{{ tag }} - {{ site_name }}">
+  {% else %}
+    <meta property="og:title" content="Blog - {{ site_name }}">
+  {% endif %}
+
+  <!-- TODO: change canonical url and description to database -->
+  <link rel="canonical" href="https://www.pythoncheatsheet.org/blog">
+  <meta property="og:url" content="https://www.pythoncheatsheet.org/blog">
+  <meta name="description" content="Python cheat sheet and Articles for Beginner and Advanced Python Developers. This blog tries to provide a basic reference for beginner and advanced developers, lower the entry barrier for newcomers and help veterans refresh the old Python tricks.">
+  <meta property="og:description" content="Python cheat sheet and Articles for Beginner and Advanced Python Developers. This blog tries to provide a basic reference for beginner and advanced developers, lower the entry barrier for newcomers and help veterans refresh the old Python tricks.">
+  <meta name="twitter:description" content="Python cheat sheet and Articles for Beginner and Advanced Developers." />
+{% endblock seo %}
+
 <!-- title -->
 {% block title %}
   {% if tag %}
@@ -33,7 +48,7 @@
 </div>
 
 <!-- image -->
-<img class="blog-img" src="{{ post.img_url }}" alt="">
+<img class="blog-img" src="{{ post.img_url }}" alt="{{ post.title }}">
 
 <!-- overview -->
 <p>{{ post.overview|render_markdown }}</p>

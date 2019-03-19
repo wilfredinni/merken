@@ -1,8 +1,17 @@
 {% extends 'base_sidebar.html' %}
 {% load markdown_tag %}
 
+{% block seo %}
+  <meta property="og:title" content="{{ user.username }} - {{ site_name }}">
+  <link rel="canonical" href="https://www.pythoncheatsheet.org/author/{{ user.username }}">
+  <meta property="og:url" content="https://www.pythoncheatsheet.org/author/{{ user.username }}">
+  <meta name="description" content="{{ user.username }} - {{ user.about|render_markdown }}">
+  <meta property="og:description" content="{{ user.username }} - {{ user.about|render_markdown }}">
+  <meta name="twitter:description" content="{{ user.username }} - {{ user.about|render_markdown }}"/>
+{% endblock seo %}
+
 {% block title %}
-  <title>About {{ user }} - {{ site_name }}</title>
+  <title>About {{ user.username }} - {{ site_name }}</title>
 {% endblock title %}
 
 {% block main_column %}
@@ -12,7 +21,8 @@
   <!-- avatar -->
   <nav class="level">
     <p class="level-item has-text-centered">
-      <img style="border-radius:50%" src="https://www.gravatar.com/avatar/1db1fcc07f63b206cfa559d3021456db?d=identicon&s=180" alt="" style="height: 180px;">
+      <!-- use gravatar api -->
+      <img style="border-radius:50%" src="https://www.gravatar.com/avatar/1db1fcc07f63b206cfa559d3021456db?d=identicon&s=180" alt="About {{ user.username }}" style="height: 180px;">
     </p>
   </nav>
 
@@ -53,7 +63,7 @@
     <h1 class="author-title">About {{ user.username }}</h1>
   </div>
 
-  <!-- resumé -->
+  <!-- about -->
   <section class="content has-text-centered">
     {% if user.about %}
     <p>{{ user.about|render_markdown }}</p>
