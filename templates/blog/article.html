@@ -27,7 +27,7 @@
 
   <!-- author, date, comments -->
   <div class="has-text-centered blog-author-date">
-    <p>posted on <a href="#">{{ article.created_at|date:"d/m/Y" }}</a> by <a href="{{ article.author.get_absolute_url }}">{{ article.author }}</a></p>
+    <p>posted on <a href="#">{{ article.created_at|date:"M d, Y" }}</a> by <a href="{{ article.author.get_absolute_url }}">{{ article.author }}</a></p>
   </div>
 
   <!-- image -->
