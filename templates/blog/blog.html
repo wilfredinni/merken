@@ -9,11 +9,12 @@
   {% endif %}
 
   <!-- TODO: change canonical url and description to database -->
-  <link rel="canonical" href="https://www.pythoncheatsheet.org/blog">
-  <meta property="og:url" content="https://www.pythoncheatsheet.org/blog">
-  <meta name="description" content="Python cheat sheet and Articles for Beginner and Advanced Python Developers. This blog tries to provide a basic reference for beginner and advanced developers, lower the entry barrier for newcomers and help veterans refresh the old Python tricks.">
-  <meta property="og:description" content="Python cheat sheet and Articles for Beginner and Advanced Python Developers. This blog tries to provide a basic reference for beginner and advanced developers, lower the entry barrier for newcomers and help veterans refresh the old Python tricks.">
-  <meta name="twitter:description" content="Python cheat sheet and Articles for Beginner and Advanced Developers." />
+  <link rel="canonical" href="{{ canonical_url }}/blog">
+  <meta property="og:url" content="{{ canonical_url }}/blog">
+  <meta name="description" content="{{ site_description }}">
+  <meta property="og:description" content="{{ site_description }}">
+  <!-- TODO: truncate the length of this description -->
+  <meta name="twitter:description" content="{{ site_description }}"/>
 {% endblock seo %}
 
 <!-- title -->

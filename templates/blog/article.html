@@ -3,8 +3,8 @@
 
 {% block seo %}
   <meta property="og:title" content="{{ article.title }} - {{ site_name }}">
-  <link rel="canonical" href="https://www.pythoncheatsheet.org/blog/{{ article.url }}">
-  <meta property="og:url" content="https://www.pythoncheatsheet.org/blog/{{ article.url }}">
+  <link rel="canonical" href="{{ canonical_url }}/blog/{{ article.url }}">
+  <meta property="og:url" content="{{ canonical_url }}/blog/{{ article.url }}">
   <meta name="description" content="{{ article.overview|render_markdown|striptags }}">
   <meta property="og:description" content="{{ article.overview|render_markdown|striptags }}">
   <meta name="twitter:description" content="{{ article.overview|render_markdown|striptags }}"/>
