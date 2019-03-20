@@ -1,28 +1,32 @@
 {% extends 'base_sidebar.html' %}
 {% load markdown_tag %}
+{% load solo_tags %}
 
 {% block seo %}
+  {% get_solo 'dashboard.SiteConfiguration' as site_config %}
   {% if tag %}
-    <meta property="og:title" content="{{ tag }} - {{ site_name }}">
+    <meta property="og:title" content="{{ tag }} - {{ site_config.site_name }}">
   {% else %}
-    <meta property="og:title" content="Blog - {{ site_name }}">
+    <meta property="og:title" content="Blog - {{ site_config.site_name }}">
   {% endif %}
 
   <!-- TODO: change canonical url and description to database -->
-  <link rel="canonical" href="{{ canonical_url }}/blog">
-  <meta property="og:url" content="{{ canonical_url }}/blog">
-  <meta name="description" content="{{ site_description }}">
-  <meta property="og:description" content="{{ site_description }}">
+  <link rel="canonical" href="{{ site_config.canonical_url }}/blog">
+  <meta property="og:url" content="{{ site_config.canonical_url }}/blog">
+  <meta name="description" content="{{ site_config.site_description }}">
+  <meta property="og:description" content="{{ site_config.site_description }}">
+
   <!-- TODO: truncate the length of this description -->
-  <meta name="twitter:description" content="{{ site_description }}"/>
+  <meta name="twitter:description" content="{{ site_config.site_description }}"/>
 {% endblock seo %}
 
 <!-- title -->
 {% block title %}
+  {% get_solo 'dashboard.SiteConfiguration' as site_config %}
   {% if tag %}
-    <title>{{ tag }} - {{ site_name }}</title>
+    <title>{{ tag }} - {{ site_config.site_name }}</title>
   {% else %}
-    <title>Blog - {{ site_name }}</title>
+    <title>Blog - {{ site_config.site_name }}</title>
   {% endif %}
 {% endblock title %}
 

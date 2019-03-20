@@ -1,17 +1,21 @@
 {% extends 'base_sidebar.html' %}
 {% load markdown_tag %}
+{% load solo_tags %}
+
 
 {% block seo %}
-  <meta property="og:title" content="{{ user.username }} - {{ site_name }}">
-  <link rel="canonical" href="https://www.pythoncheatsheet.org/author/{{ user.username }}">
-  <meta property="og:url" content="https://www.pythoncheatsheet.org/author/{{ user.username }}">
+  {% get_solo 'dashboard.SiteConfiguration' as site_config %}
+  <meta property="og:title" content="{{ user.username }} - {{ site_config.site_name }}">
+  <link rel="canonical" href="{{ site_config.canonical_url }}/author/{{ user.username }}">
+  <meta property="og:url" content="{{ site_config.canonical_url }}/author/{{ user.username }}">
   <meta name="description" content="{{ user.username }} - {{ user.about|render_markdown|striptags }}">
   <meta property="og:description" content="{{ user.username }} - {{ user.about|render_markdown|striptags }}">
   <meta name="twitter:description" content="{{ user.username }} - {{ user.about|render_markdown|striptags }}"/>
 {% endblock seo %}
 
 {% block title %}
-  <title>About {{ user.username }} - {{ site_name }}</title>
+  {% get_solo 'dashboard.SiteConfiguration' as site_config %}
+  <title>About {{ user.username }} - {{ site_config.site_name }}</title>
 {% endblock title %}
 
 {% block main_column %}

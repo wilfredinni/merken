@@ -1,4 +1,7 @@
 {% load static %}
+{% load solo_tags %}
+{% get_solo 'dashboard.SiteConfiguration' as site_config %}
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -7,7 +10,7 @@
 
 <!-- metadata -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="author" content="{{ publisher }}">
+<meta name="author" content="{{ site_config.publisher }}">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@pyCheatsheet">
 <meta name="twitter:site" content="@pyCheatsheet">
@@ -23,9 +26,9 @@
   {
     "@context": "https://schema.org",
     "@type": "Website",
-    "publisher": "{{ publisher }}",
-    "url": "{{ canonical_url }}",
-    "description": "{{ site_description }}"
+    "publisher": "{{ site_config.publisher }}",
+    "url": "{{ site_config.canonical_url }}",
+    "description": "{{ site_config.site_description }}"
   }
 </script>
 
