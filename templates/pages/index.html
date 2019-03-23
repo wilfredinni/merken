@@ -21,25 +21,30 @@
 {% endblock title %}
 
 {% block content %}
-
 <div class="container section">
     <div class="columns is-tablet">
       <!-- index -->
       <div id="index" class="column">
-        <div class="fixed-index" id="style-1">
+        <div class="overflow-index" id="style-1">
           <h4 class="title is-5 index">Table of Content</h4>
-          <ul id="indexList"></ul>
+          <ul class="side-contents-list" id="indexList"></ul>
+          <!-- <aside class="menu">
+              <p class="menu-label">
+                General
+              </p>
+              <ul class="menu-list" id="indexList"></ul>
+            </aside> -->
         </div>
       </div>
 
-      <!-- pysheet -->
+      <!-- main column -->
       <div class="column is-8 cheat">
 
         <!-- pinned notification -->
         {% if message.content %}
           {% if message.enabled %}
-          <div id="pysheetNotification" class="content notification is-hidden-mobile">
-            <button id="pysheetCloseNotification" class="delete"></button>
+          <div id="HomeMessage" class="content notification is-hidden-mobile index-notification">
+            <button id="closeNotification" class="delete"></button>
             <div>
               {{ message.content|render_markdown|safe }}
             </div>
@@ -47,17 +52,21 @@
           {% endif %}
         {% endif %}
 
-
-        {{ home_page.content|render_markdown }}
+        <!-- content -->
+        <div>
+          {{ home_page.content|render_markdown }}
+        </div>
       </div>
   </div>
 </div>
 {% endblock content %}
 
 {% block javascript %}
+  <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/article-index.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/highlight.pack.js' %}"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
   <script src="{% static 'js/tinyquoter.min.js' %}"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   <script >
       document.addEventListener("DOMContentLoaded", function(event) {
           window.TinyQ.init();

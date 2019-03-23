@@ -150,3 +150,16 @@ code {
     font-size: 32px !important;
     font-weight: 400 !important;
 }
+
+.index-notification h1, h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #4a4a4a !important;
+}
+
+.overflow-index {
+    position: fixed;
+    overflow: auto;
+    height: 80%;
+    width: 21%;
+}
