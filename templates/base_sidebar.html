@@ -41,9 +41,9 @@
             _Tags:
           </p>
           {% for tag in tags %}
-          <a href="{{ tag.get_absolute_url }}">
-            <span class="tag is-warning side-list-tag">{{ tag }}</span>
-          </a>
+            <a href="{{ tag.get_absolute_url }}">
+              <span class="tag is-warning side-list-tag">{{ tag }}</span>
+            </a>
           {% endfor %}
         </div>
       </div>
@@ -57,9 +57,9 @@
           _Tags:
         </p>
         {% for tag in tags %}
-        <a href="{{ tag.get_absolute_url }}">
-          <span class="tag is-warning side-list-tag">{{ tag }}</span>
-        </a>
+          <a href="{{ tag.get_absolute_url }}">
+            <span class="tag is-warning side-list-tag">{{ tag }}</span>
+          </a>
         {% endfor %}
       </div>
       {% endif %}

@@ -1,7 +1,5 @@
 {% extends 'base_sidebar.html' %}
-{% load markdown_tag %}
-{% load solo_tags %}
-
+{% load markdown_tag solo_tags %}
 
 {% block seo %}
   {% get_solo 'dashboard.SiteConfiguration' as site_config %}
@@ -35,29 +33,29 @@
     <nav class="level is-mobile">
       <!-- website -->
       {% if user.website %}
-      <a href="{{ user.website }}" class="level-item">
-        <span class="icon is-medium ">
-          <i class="fas fa-link fa-lg "></i>
-        </span>
-      </a>
+        <a href="{{ user.website }}" class="level-item">
+          <span class="icon is-medium ">
+            <i class="fas fa-link fa-lg "></i>
+          </span>
+        </a>
       {% endif %}
 
       <!-- github -->
       {% if user.github %}
-      <a href="{{ user.github }}" class="level-item ">
-        <span class="icon is-medium ">
-          <i class="fab fa-github fa-lg"></i>
-        </span>
-      </a>
+        <a href="{{ user.github }}" class="level-item ">
+          <span class="icon is-medium ">
+            <i class="fab fa-github fa-lg"></i>
+          </span>
+        </a>
       {% endif %}
 
       <!-- twitter -->
       {% if user.twitter %}
-      <a href="{{ user.twitter }}" class="level-item">
-        <span class="icon is-medium ">
-          <i class="fab fa-twitter fa-lg"></i>
-        </span>
-      </a>
+        <a href="{{ user.twitter }}" class="level-item">
+          <span class="icon is-medium ">
+            <i class="fab fa-twitter fa-lg"></i>
+          </span>
+        </a>
       {% endif %}
     </nav>
   </div>
@@ -70,7 +68,7 @@
   <!-- about -->
   <section class="content has-text-centered">
     {% if user.about %}
-    <p>{{ user.about|render_markdown }}</p>
+      <p>{{ user.about|render_markdown }}</p>
     {% endif %}
   </section>
   <br>
@@ -80,9 +78,9 @@
     <h2 class="author-title level-item">Blog Posts by {{ user.username }}</h2>
     <ul style="list-style-type:disc">
       {% for article in user.article_set.all %}
-      <li>
-        <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
-      </li>
+        <li>
+          <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+        </li>
       {% endfor %}
     </ul>
   </div>

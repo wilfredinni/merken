@@ -4,10 +4,6 @@ from django.views.generic import ListView, DetailView
 from .models import Article, Tag
 
 
-def get_all_tags():
-    return Tag.objects.all()
-
-
 class BlogView(ListView):
     model = Article
     context_object_name = "articles"

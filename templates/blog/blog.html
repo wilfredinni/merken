@@ -1,6 +1,5 @@
 {% extends 'base_sidebar.html' %}
-{% load markdown_tag %}
-{% load solo_tags %}
+{% load markdown_tag solo_tags %}
 
 {% block seo %}
   {% get_solo 'dashboard.SiteConfiguration' as site_config %}
@@ -32,12 +31,11 @@
 
 <!-- post list column -->
 {% block main_column %}
-
 {% if tag %}
-<a class="tags has-addons" href="{{ tag.get_absolute_url }}">
-  <span class="tag">Tag</span>
-  <span class="tag is-warning">{{ tag }}</span>
-</a>
+  <a class="tags has-addons" href="{{ tag.get_absolute_url }}">
+    <span class="tag">Tag</span>
+    <span class="tag is-warning">{{ tag }}</span>
+  </a>
 {% endif %}
 
 {% for post in articles %}

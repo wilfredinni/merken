@@ -1,6 +1,5 @@
 {% extends 'base_sidebar.html' %}
-{% load static markdown_tag %}
-{% load solo_tags %}
+{% load static markdown_tag solo_tags %}
 
 {% block seo %}
   {% get_solo 'dashboard.SiteConfiguration' as site_config %}
@@ -18,7 +17,7 @@
 {% endblock title %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/atom-one-dark-min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/atom-one-dark-min.css' %}">
 {% endblock css %}
 
 {% block main_column %}
@@ -45,11 +44,11 @@
     <div class="level-left">
       <p>Tags:
         {% for tag in article.tags.all %}
-        <a href="{{ tag.get_absolute_url }}">
-          <span class="tag is-warning">
-            {{tag}}
-          </span>
-        </a>
+          <a href="{{ tag.get_absolute_url }}">
+            <span class="tag is-warning">
+              {{tag}}
+            </span>
+          </a>
         {% endfor%}
       </p>
     </div>
@@ -85,10 +84,10 @@
 {% endblock main_column %}
 
 {% block javascript %}
-<script type="text/javascript" src="{% static 'js/article-index.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/highlight.pack.js' %}"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<script src="{% static 'js/tinyquoter.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/article-index.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/highlight.pack.js' %}"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="{% static 'js/tinyquoter.min.js' %}"></script>
   <script >
       document.addEventListener("DOMContentLoaded", function(event) {
           window.TinyQ.init();

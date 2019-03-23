@@ -16,3 +16,11 @@ class SiteConfiguration(SingletonModel):
 
     class Meta:
         verbose_name = "Site Configuration"
+
+
+class HomeMsg(SingletonModel):
+    content = models.TextField(null=True, blank=True)
+    enabled = models.BooleanField(default=False)
+
+    class Meta:
+        verbose_name = "Home Message"

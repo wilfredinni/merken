@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load markdown_tag solo_tags static %}
+
+{% block seo %}
+  {% get_solo 'dashboard.SiteConfiguration' as site_config %}
+  <meta property="og:title" content="{{ home_page.title }} - {{ site_config.site_name }}">
+  <link rel="canonical" href="{{ site_config.canonical_url }}">
+  <meta property="og:url" content="{{ site_config.canonical_url }}">
+  <meta name="description" content="{{ home_page.overview }}">
+  <meta property="og:description" content="{{ home_page.overview }}">
+  <meta name="twitter:description" content="{{ home_page.overview }}"/>
+{% endblock seo %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/atom-one-dark-min.css' %}">
+{% endblock css %}
+
+{% block title %}
+  {% get_solo 'dashboard.SiteConfiguration' as site_config %}
+  <title>{{ home_page.title }} - {{ site_config.site_name }}</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="container section">
+    <div class="columns is-tablet">
+      <!-- index -->
+      <div id="index" class="column">
+        <div class="fixed-index" id="style-1">
+          <h4 class="title is-5 index">Table of Content</h4>
+          <ul id="indexList"></ul>
+        </div>
+      </div>
+
+      <!-- pysheet -->
+      <div class="column is-8 cheat">
+
+        <!-- pinned notification -->
+        {% if message.content %}
+          {% if message.enabled %}
+          <div id="pysheetNotification" class="content notification is-hidden-mobile">
+            <button id="pysheetCloseNotification" class="delete"></button>
+            <div>
+              {{ message.content|render_markdown|safe }}
+            </div>
+          </div>
+          {% endif %}
+        {% endif %}
+
+
+        {{ home_page.content|render_markdown }}
+      </div>
+  </div>
+</div>
+{% endblock content %}
+
+{% block javascript %}
+  <script type="text/javascript" src="{% static 'js/highlight.pack.js' %}"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="{% static 'js/tinyquoter.min.js' %}"></script>
+  <script >
+      document.addEventListener("DOMContentLoaded", function(event) {
+          window.TinyQ.init();
+      });
+  </script>
+{% endblock javascript %}

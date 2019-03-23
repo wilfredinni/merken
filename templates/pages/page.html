@@ -1,6 +1,5 @@
 {% extends 'base_sidebar.html' %}
-{% load markdown_tag %}
-{% load solo_tags %}
+{% load markdown_tag solo_tags %}
 
 {% block seo %}
   {% get_solo 'dashboard.SiteConfiguration' as site_config %}
@@ -18,5 +17,5 @@
 {% endblock title %}
 
 {% block main_column %}
-    {{ page.content|render_markdown }}
+  {{ page.content|render_markdown }}
 {% endblock main_column %}
