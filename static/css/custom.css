@@ -151,7 +151,8 @@ code {
     font-weight: 400 !important;
 }
 
-.index-notification h1, h4 {
+.index-notification h1,
+h4 {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
     color: #4a4a4a !important;
@@ -163,3 +164,17 @@ code {
     height: 80%;
     width: 21%;
 }
+
+.index-content {
+    list-style: none !important;
+    margin-left: 5px !important;
+}
+
+.index-content li {
+    /* border-bottom: 1px solid #f5f5f5; */
+    /* line-height: 1.7rem; */
+}
+
+/* .index-content li:hover {
+    background-color: #f7f8a9;
+} */
