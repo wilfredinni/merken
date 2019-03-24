@@ -17,7 +17,7 @@ MIDDLEWARE += [
 
 # DEBUG TOOLBAR SETTINGS
 
-TESTING_MODE = 'test' in sys.argv
+TESTING_MODE = 'test' in sys.argv  # to avoid dtb to cause errors when testing
 
 DEBUG_TOOLBAR_PANELS = [
     'debug_toolbar.panels.versions.VersionsPanel',
