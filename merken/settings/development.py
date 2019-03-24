@@ -1,3 +1,4 @@
+import sys
 from .base import *
 
 
@@ -15,6 +16,8 @@ MIDDLEWARE += [
 ]
 
 # DEBUG TOOLBAR SETTINGS
+
+TESTING_MODE = 'test' in sys.argv
 
 DEBUG_TOOLBAR_PANELS = [
     'debug_toolbar.panels.versions.VersionsPanel',
