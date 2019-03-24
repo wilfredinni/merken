@@ -1,5 +1,5 @@
 from django.test import TestCase
-from ..models import SiteConfiguration
+from ..models import SiteConfiguration, HomeMsg
 
 
 class SiteConfigurationModel(TestCase):
@@ -10,7 +10,6 @@ class SiteConfigurationModel(TestCase):
             canonical_url="https://www.site.com",
             publisher="author",
             email="my@email.com",
-
             # from here is incomplete, but the tests will pass anyway
             favicon="path/to/favicon.png",
             site_img="pat/to/img.png",
@@ -25,3 +24,13 @@ class SiteConfigurationModel(TestCase):
         self.assertEqual(config.email, "my@email.com")
         self.assertEqual(config.favicon, "path/to/favicon.png")
         self.assertEqual(config.site_img, "pat/to/img.png")
+
+
+class HomeMsgModel(TestCase):
+    def setUp(self):
+        HomeMsg.objects.create(content="content", enabled=True)
+
+    def test_home_msg_model(self):
+        message = HomeMsg.objects.get()
+        self.assertEqual(message.content, 'content')
+        self.assertEqual(message.enabled, True)
