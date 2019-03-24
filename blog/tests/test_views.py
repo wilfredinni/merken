@@ -49,3 +49,13 @@ class TestTagView(TestCase):
         url = reverse('blog_app:tag', args=['wrong-tag'])
         response = self.client.get(url)
         self.assertEqual(response.status_code, 404)
+
+
+class TestRssFeed(TestCase):
+    def setUp(self):
+        self.client = Client()
+
+    def test_feed_GET(self):
+        url = reverse('blog_app:rss_feed')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
