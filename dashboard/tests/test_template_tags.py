@@ -8,4 +8,4 @@ class MarkdownTag(TestCase):
     def test_render_markdown(self):
         context = Context({"h1": "# h1"})
         rendered_template = self.TEMPLATE.render(context)
-        self.assertInHTML('<h1>h1</h1>', rendered_template)
+        self.assertInHTML("<h1>h1</h1>", rendered_template)

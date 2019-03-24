@@ -14,23 +14,23 @@ class SiteConfigurationModel(TestCase):
             favicon="path/to/favicon.png",
             site_img="pat/to/img.png",
         )
+        self.config = SiteConfiguration.objects.get()
 
     def test_site_configuration_model(self):
-        config = SiteConfiguration.objects.get()
-        self.assertEqual(config.site_name, "site_name")
-        self.assertEqual(config.site_description, "description")
-        self.assertEqual(config.canonical_url, "https://www.site.com")
-        self.assertEqual(config.publisher, "author")
-        self.assertEqual(config.email, "my@email.com")
-        self.assertEqual(config.favicon, "path/to/favicon.png")
-        self.assertEqual(config.site_img, "pat/to/img.png")
+        self.assertEqual(self.config.site_name, "site_name")
+        self.assertEqual(self.config.site_description, "description")
+        self.assertEqual(self.config.canonical_url, "https://www.site.com")
+        self.assertEqual(self.config.publisher, "author")
+        self.assertEqual(self.config.email, "my@email.com")
+        self.assertEqual(self.config.favicon, "path/to/favicon.png")
+        self.assertEqual(self.config.site_img, "pat/to/img.png")
 
 
 class HomeMsgModel(TestCase):
     def setUp(self):
         HomeMsg.objects.create(content="content", enabled=True)
+        self.message = HomeMsg.objects.get()
 
     def test_home_msg_model(self):
-        message = HomeMsg.objects.get()
-        self.assertEqual(message.content, 'content')
-        self.assertEqual(message.enabled, True)
+        self.assertEqual(self.message.content, "content")
+        self.assertEqual(self.message.enabled, True)
