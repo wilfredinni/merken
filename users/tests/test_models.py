@@ -14,15 +14,14 @@ class CustomUserModel(TestCase):
             website="website",
             about="about",
         )
+        self.user = CustomUser.objects.get(username="test_user")
 
     def test_CustomUser_model(self):
-        user = CustomUser.objects.get(username="test_user")
-        self.assertEqual(user.username, "test_user")
-        self.assertEqual(user.email, "test_user@test_user.com")
+        self.assertEqual(self.user.username, "test_user")
+        self.assertEqual(self.user.email, "test_user@test_user.com")
 
     def test_CustomUser_model_custom_fields(self):
-        user = CustomUser.objects.get(username="test_user")
-        self.assertEqual(user.twitter, 'twitter')
-        self.assertEqual(user.github, 'github')
-        self.assertEqual(user.website, 'website')
-        self.assertEqual(user.about, 'about')
+        self.assertEqual(self.user.twitter, 'twitter')
+        self.assertEqual(self.user.github, 'github')
+        self.assertEqual(self.user.website, 'website')
+        self.assertEqual(self.user.about, 'about')
