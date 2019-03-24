@@ -10,6 +10,7 @@ python = "^3.7"
 django = "^2.1"
 mistune = "^0.8.4"
 django-solo = "^1.1"
+django-debug-toolbar = "^1.11"
 
 [tool.poetry.dev-dependencies]
 black = { version = "*", allows-prereleases = true }
