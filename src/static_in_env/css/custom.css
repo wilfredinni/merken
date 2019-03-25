@@ -209,3 +209,36 @@ h4 {
 .material-search:hover {
     background-color: #fad028;
 }
+
+.search-modal {
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 30;
+}
+
+.search-area {
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid #dcdcdc;
+    margin: 60px auto;
+    width: 50%;
+    animation: openModal;
+    animation-duration: 0.3s;
+}
+
+.search-bar {
+    border: none;
+    color: #dbd9d9;
+    font-size: 1rem;
+    height: 40px;
+    padding: 0 0 0 34px;
+    /* position: fixed; */
+    width: 100%;
+    margin-bottom: 0;
+}
