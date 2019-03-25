@@ -1,7 +1,6 @@
 from django.views.generic import DetailView
 
 from .models import CustomUser
-from blog.models import Tag
 
 
 class ProfileView(DetailView):
@@ -12,5 +11,5 @@ class ProfileView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["tags"] = Tag.objects.all()
+        context['gravatar'] = context['user'].avatar(size=180)
         return context
