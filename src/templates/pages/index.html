@@ -53,12 +53,24 @@
       </div>
   </div>
 </div>
+
+<!-- scroll top -->
+<button id="scroll" class="material-scrolltop" type="scroll" title="Back to top">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<!-- quick search -->
+<button id="search-icon" class="material-search" title="Quick Search - ctrl+z">
+  <i class="fas fa-search"></i>
+</button>
+
 {% endblock content %}
 
 {% block javascript %}
   <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/article-index.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/highlight.pack.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/scroll.js' %}"></script>
   <script src="{% static 'js/tinyquoter.min.js' %}"></script>
   <script>hljs.initHighlightingOnLoad();</script>
   <script >

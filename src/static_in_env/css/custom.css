@@ -169,3 +169,43 @@ h4 {
     list-style: none !important;
     margin-left: 5px !important;
 }
+
+.material-scrolltop {
+    background: #ffdd57;
+    border-radius: 50%;
+    border: none;
+    bottom: 80px;
+    animation: openModal;
+    animation-duration: 1s;
+}
+
+.material-search {
+    background: #ffdd57;
+    border-radius: 50%;
+    border: none;
+    bottom: 23px;
+}
+
+.material-scrolltop:hover,
+.material-search:hover {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.material-scrolltop,
+.material-search {
+    display: block;
+    height: 40px;
+    outline: 0;
+    overflow: hidden;
+    padding: 0;
+    right: 2%;
+    width: 40px;
+    position: fixed;
+}
+
+.material-scrolltop:hover,
+.material-search:hover {
+    background-color: #fad028;
+}
