@@ -242,3 +242,11 @@ h4 {
     width: 100%;
     margin-bottom: 0;
 }
+
+.pag-ul {
+    list-style: none !important;
+}
+
+.pag-ul li {
+    margin-top: 0 !important;
+}
