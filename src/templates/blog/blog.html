@@ -1,41 +1,39 @@
 {% extends 'base_sidebar.html' %}
-{% load markdown_tag solo_tags %}
+{% load markdown_tag %}
 
 {% block seo %}
-  {% get_solo 'dashboard.SiteConfiguration' as site_config %}
-  {% if tag %}
-    <meta property="og:title" content="{{ tag }} - {{ site_config.site_name }}">
-  {% else %}
-    <meta property="og:title" content="Blog - {{ site_config.site_name }}">
-  {% endif %}
+{% if tag %}
+<meta property="og:title" content="{{ tag }} - {{ d }}">
+{% else %}
+<meta property="og:title" content="Blog - {{ d }}">
+{% endif %}
 
-  <!-- TODO: change canonical url and description to database -->
-  <link rel="canonical" href="{{ site_config.canonical_url }}/blog">
-  <meta property="og:url" content="{{ site_config.canonical_url }}/blog">
-  <meta name="description" content="{{ site_config.site_description }}">
-  <meta property="og:description" content="{{ site_config.site_description }}">
+<!-- TODO: change canonical url and description to database -->
+<link rel="canonical" href="{{s  }}/blog">
+<meta property="og:url" content="{{ s }}/blog">
+<meta name="description" content="{{ s }}">
+<meta property="og:description" content="{{ s }}">
 
-  <!-- TODO: truncate the length of this description -->
-  <meta name="twitter:description" content="{{ site_config.site_description }}"/>
+<!-- TODO: truncate the length of this description -->
+<meta name="twitter:description" content="{{ s }}" />
 {% endblock seo %}
 
 <!-- title -->
 {% block title %}
-  {% get_solo 'dashboard.SiteConfiguration' as site_config %}
-  {% if tag %}
-    <title>{{ tag }} - {{ site_config.site_name }}</title>
-  {% else %}
-    <title>Blog - {{ site_config.site_name }}</title>
-  {% endif %}
+{% if tag %}
+<title>{{ tag }} - {{ s }}</title>
+{% else %}
+<title>Blog - {{ s }}</title>
+{% endif %}
 {% endblock title %}
 
 <!-- post list column -->
 {% block main_column %}
 {% if tag %}
-  <a class="tags has-addons" href="{{ tag.get_absolute_url }}">
-    <span class="tag">Tag</span>
-    <span class="tag is-warning">{{ tag }}</span>
-  </a>
+<a class="tags has-addons" href="{{ tag.get_absolute_url }}">
+  <span class="tag">Tag</span>
+  <span class="tag is-warning">{{ tag }}</span>
+</a>
 {% endif %}
 
 {% for post in articles %}
@@ -47,7 +45,8 @@
 
 <!-- author, date, comments -->
 <div class="has-text-centered blog-author-date">
-  <p>By <a href="{{ post.author.get_absolute_url }}">{{ post.author }}</a> • {{ post.created_at|date:"M d, Y" }} • <a href="#">comments</a></p>
+  <p>By <a href="{{ post.author.get_absolute_url }}">{{ post.author }}</a> • {{ post.created_at|date:"M d, Y" }} • <a
+      href="#">comments</a></p>
 </div>
 
 <!-- image -->
@@ -81,7 +80,7 @@
 {% endfor %}
 
 {% if is_paginated %}
-  {% include 'includes/pagination.html' %}
+{% include 'includes/pagination.html' %}
 {% endif %}
 
 {% endblock main_column %}

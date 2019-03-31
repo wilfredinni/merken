@@ -3,7 +3,6 @@ from django.shortcuts import get_object_or_404
 
 
 from .models import Page
-from dashboard.models import HomeMsg
 
 
 class IndexView(ListView):
@@ -11,8 +10,7 @@ class IndexView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["home_page"] = get_object_or_404(Page, url='index')
-        context["message"] = HomeMsg.get_solo()
+        context["home_page"] = get_object_or_404(Page, url="index")
         return context
 
     def queryset(self):

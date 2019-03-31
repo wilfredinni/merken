@@ -1,21 +1,18 @@
 {% extends 'base_sidebar.html' %}
-{% load markdown_tag solo_tags %}
 
 {% block seo %}
-  {% get_solo 'dashboard.SiteConfiguration' as site_config %}
-  <meta property="og:title" content="{{ page.title }} - {{ site_config.site_name }}">
-  <link rel="canonical" href="{{ site_config.canonical_url }}/{{ page.url }}">
-  <meta property="og:url" content="{{ site_config.canonical_url }}/{{ page.url }}">
-  <meta name="description" content="{{ page.overview }}">
-  <meta property="og:description" content="{{ page.overview }}">
-  <meta name="twitter:description" content="{{ page.overview }}"/>
+<meta property="og:title" content="{{ page.title }} - {{  }}">
+<link rel="canonical" href="{{  }}/{{ page.url }}">
+<meta property="og:url" content="{{ l }}/{{ page.url }}">
+<meta name="description" content="{{ page.overview }}">
+<meta property="og:description" content="{{ page.overview }}">
+<meta name="twitter:description" content="{{ page.overview }}" />
 {% endblock seo %}
 
 {% block title %}
-  {% get_solo 'dashboard.SiteConfiguration' as site_config %}
-  <title>{{ page.title }} - {{ site_config.site_name }}</title>
+<title>{{ page.title }} - {{  }}</title>
 {% endblock title %}
 
 {% block main_column %}
-  {{ page.content|render_markdown }}
+{{ page.content|render_markdown }}
 {% endblock main_column %}

@@ -24,7 +24,6 @@ INSTALLED_APPS = [
     # 'django.contrib.sites',
 
     # 3rd party
-    'solo',
 
     # local apps
     'users.apps.UsersConfig',  # custom user model

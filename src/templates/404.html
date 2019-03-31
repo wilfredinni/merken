@@ -1,17 +1,15 @@
 {% extends 'base_sidebar.html' %}
-{% load markdown_tag solo_tags %}
 
 {% block title %}
-  {% get_solo 'dashboard.SiteConfiguration' as site_config %}
-  <title>404 Not Found - {{ site_config.site_name }}</title>
+<title>404 Not Found - {{  }}</title>
 {% endblock title %}
 
 {% block main_column %}
-  <section class="section has-text-centered">
-    <div class="section">
-        <h1 class="is-size-1 has-text-grey"> 404 🤔</h1>
-        <h1 class="subtitle has-text-grey">File Not Found</h1>
-        <p><a href="/">Back</a></p>
-    </div>
-  </section>
+<section class="section has-text-centered">
+  <div class="section">
+    <h1 class="is-size-1 has-text-grey"> 404 🤔</h1>
+    <h1 class="subtitle has-text-grey">File Not Found</h1>
+    <p><a href="/">Back</a></p>
+  </div>
+</section>
 {% endblock main_column %}

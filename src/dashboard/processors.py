@@ -1,5 +1,6 @@
 from blog.models import Tag
 from pages.models import Page
+from .models import SiteConfiguration, HomeMsg
 
 
 def global_query(request):
@@ -9,5 +10,7 @@ def global_query(request):
     context = {
         "pages": pages,
         "tags": tags,
+        "settings": SiteConfiguration.load(),
+        "message": HomeMsg.load(),
     }
     return context
