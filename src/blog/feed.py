@@ -2,22 +2,27 @@ from django.contrib.syndication.views import Feed
 
 from .models import Article
 
-from dashboard.models import SiteConfiguration
+# TODO: error when loading siteconfiguration, load settings form
+# SiteConfiguration
+# from dashboard.models import SiteConfiguration
 
 
 class ArticleFeed(Feed):
-    # site_info = SiteConfiguration.load()
+    # site_info = SiteConfiguration.objects.get(pk=1)
 
-    # title = f"{site_info.site_name} Blog Feed"
-    # link = "/blog/"
-    # description = f"Updates to the {site_info.site_name} Blog"
+    title = f"Python Cheatsheet Blog Feed"  # replace with SiteConfiguration
+    link = "/blog/"
+    description = (  # replace with SiteConfiguration
+        f"Updates to the Python Cheatsheet Blog"
+    )
 
-    # def items(self):
-    #     return Article.objects.all()[:5]
+    def items(self):
+        return Article.objects.all()[:5]
 
-    # def item_title(self, item):
-    #     return item.title
+    def item_title(self, item):
+        return item.title
 
-    # def item_description(self, item):
-    #     return item.overview
+    def item_description(self, item):
+        return item.overview
+
     pass
