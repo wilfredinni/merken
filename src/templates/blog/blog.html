@@ -3,27 +3,24 @@
 
 {% block seo %}
 {% if tag %}
-<meta property="og:title" content="{{ tag }} - {{ d }}">
+<meta property="og:title" content="{{ tag }} - {{ settings.site_name }}">
 {% else %}
-<meta property="og:title" content="Blog - {{ d }}">
+<meta property="og:title" content="Blog - {{ settings.site_name }}">
 {% endif %}
 
-<!-- TODO: change canonical url and description to database -->
-<link rel="canonical" href="{{s  }}/blog">
-<meta property="og:url" content="{{ s }}/blog">
-<meta name="description" content="{{ s }}">
-<meta property="og:description" content="{{ s }}">
-
-<!-- TODO: truncate the length of this description -->
-<meta name="twitter:description" content="{{ s }}" />
+<link rel="canonical" href="{{ settings.canonical_url  }}/blog">
+<meta property="og:url" content="{{ settings.canonical_url  }}/blog">
+<meta name="description" content="{{ settings.site_description }}">
+<meta property="og:description" content="{{ settings.site_description }}">
+<meta name="twitter:description" content="{{ settings.site_description }}" />
 {% endblock seo %}
 
 <!-- title -->
 {% block title %}
 {% if tag %}
-<title>{{ tag }} - {{ s }}</title>
+<title>{{ tag }} - {{ settings.site_name }}</title>
 {% else %}
-<title>Blog - {{ s }}</title>
+<title>Blog - {{ settings.site_name }}</title>
 {% endif %}
 {% endblock title %}
 

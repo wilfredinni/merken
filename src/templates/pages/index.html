@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
+{% load static markdown_tag  %}
 
 {% block seo %}
-<meta property="og:title" content="{{ home_page.title }} - {{  }}">
-<link rel="canonical" href="{{  }}">
-<meta property="og:url" content="{{  }}">
+<meta property="og:title" content="{{ home_page.title }} - {{ settings.site_name }}">
+<link rel="canonical" href="{{ settings.canonical_url }}">
+<meta property="og:url" content="{{ settings.canonical_url }}">
 <meta name="description" content="{{ home_page.overview }}">
 <meta property="og:description" content="{{ home_page.overview }}">
 <meta name="twitter:description" content="{{ home_page.overview }}" />
@@ -14,7 +15,7 @@
 {% endblock css %}
 
 {% block title %}
-<title>{{ home_page.title }} - {{  }}</title>
+<title>{{ home_page.title }} - {{ settings.site_name }}</title>
 {% endblock title %}
 
 {% block content %}

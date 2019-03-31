@@ -1,8 +1,9 @@
 {% extends 'base_sidebar.html' %}
+{% load static markdown_tag  %}
 
 
 {% block seo %}
-<meta property="og:title" content="{{ article.title }} - {{  }}">
+<meta property="og:title" content="{{ article.title }} - {{ settings.site_name }}">
 <link rel="canonical" href="{{ site_config.canonical_url }}/blog/{{ article.url }}">
 <meta property="og:url" content="{{ site_config.canonical_url }}/blog/{{ article.url }}">
 <meta name="description" content="{{ article.overview|render_markdown|striptags }}">
@@ -11,7 +12,7 @@
 {% endblock seo %}
 
 {% block title %}
-<title>{{ article.title }} - {{  }}</title>
+<title>{{ article.title }} - {{ settings.site_name }}</title>
 {% endblock title %}
 
 {% block css %}

@@ -34,7 +34,8 @@ class SiteConfiguration(SingletonModel):
     publisher = models.CharField(max_length=120, default="Publisher")
     email = models.EmailField(max_length=120, default="my@email.com")
 
-    # TODO: haven't decided how to load this images... add fields for twitter cards!!
+    # TODO: haven't decided how to load this images...
+    # add fields for twitter cards!!
     favicon = models.CharField(max_length=120, default="some url for now")
     site_img = models.CharField(max_length=120, default="some url for now")
 
