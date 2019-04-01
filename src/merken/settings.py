@@ -22,13 +22,14 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sitemaps",
     # 'django.contrib.sites',
-    # 3rd party
     # local apps
     "users.apps.UsersConfig",  # custom user model
     "blog",
     "pages",
     "dashboard",
 ]
+
+# SITE_ID = 1
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -142,5 +143,3 @@ DEBUG_TOOLBAR_CONFIG = {
     "INTERCEPT_REDIRECTS": False,
     "SHOW_TOOLBAR_CALLBACK": show_toolbar,
 }
-
-# SITE_ID = 1
