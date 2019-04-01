@@ -1,17 +1,18 @@
 {% load static %}
 <nav class="navbar is-link is-fixed-top" role="navigation" aria-label="main navigation">
 
-    <!-- navbar brand and burger for desktop -->
-    <div class="navbar-brand navbar-brand-desktop-padding is-hidden-touch">
-      <a class="navbar-item" href="https://pythoncheatsheet.org/">
-        <img src="{% static 'img/snake.svg' %}" width="112" height="28" alt="{{ site_name }}">
-      </a>
-      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
+  <!-- navbar brand and burger for desktop -->
+  <div class="navbar-brand navbar-brand-desktop-padding is-hidden-touch">
+    <a class="navbar-item" href="https://pythoncheatsheet.org/">
+      <img src="{% static 'img/snake.svg' %}" width="112" height="28" alt="{{ settings.site_name }}">
+    </a>
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+      data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
 
   <!-- navbar brand and burger for tablet and mobile -->
   <div class="navbar-brand is-hidden-desktop">
@@ -19,7 +20,8 @@
       <img src="{% static 'img/snake.svg' %}" width="112" height="28">
       <p>Python Cheatsheet</p>
     </a>
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+      data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -37,11 +39,11 @@
 
       <!-- links for the dynamic pages -->
       {% for page in pages %}
-        {% if page.visible %}
-          <a href="{{ page.get_absolute_url }}" class="navbar-item">
-            {{ page }}
-          </a>
-        {% endif %}
+      {% if page.visible %}
+      <a href="{{ page.get_absolute_url }}" class="navbar-item">
+        {{ page }}
+      </a>
+      {% endif %}
       {% endfor %}
 
       <!-- versions drop-down menu -->
@@ -50,10 +52,12 @@
           Versions
         </a>
         <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://github.com/wilfredinni/Python-cheatsheet/raw/master/python_cheat_sheet.pdf">
+          <a class="navbar-item"
+            href="https://github.com/wilfredinni/Python-cheatsheet/raw/master/python_cheat_sheet.pdf">
             PDF
           </a>
-          <a class="navbar-item" href="https://mybinder.org/v2/gh/wilfredinni/python-cheatsheet/master?filepath=jupyter_notebooks">
+          <a class="navbar-item"
+            href="https://mybinder.org/v2/gh/wilfredinni/python-cheatsheet/master?filepath=jupyter_notebooks">
             Jupyter Notebook
           </a>
           <a class="navbar-item" href="https://github.com/wilfredinni/python-cheatsheet/blob/master/README.md">

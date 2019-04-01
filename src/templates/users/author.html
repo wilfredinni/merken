@@ -1,16 +1,17 @@
 {% extends 'base_sidebar.html' %}
+{% load markdown_tag  %}
 
 {% block seo %}
-<meta property="og:title" content="{{ user.username }} - {{  }}">
-<link rel="canonical" href="{{  }}/author/{{ user.username }}">
-<meta property="og:url" content="{{ site_config.canonical_url }}/author/{{ user.username }}">
+<meta property="og:title" content="{{ user.username }} - {{ settings.site_name }}">
+<link rel="canonical" href="{{ settings.canonical_url }}/author/{{ user.username }}">
+<meta property="og:url" content="{{ settings.canonical_url }}/author/{{ user.username }}">
 <meta name="description" content="{{ user.username }} - {{ user.about|render_markdown|striptags }}">
 <meta property="og:description" content="{{ user.username }} - {{ user.about|render_markdown|striptags }}">
 <meta name="twitter:description" content="{{ user.username }} - {{ user.about|render_markdown|striptags }}" />
 {% endblock seo %}
 
 {% block title %}
-<title>About {{ user.username }} - {{  }}</title>
+<title>About {{ user.username }} - {{ settings.site_name }}</title>
 {% endblock title %}
 
 {% block main_column %}

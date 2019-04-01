@@ -3,7 +3,7 @@ from django.conf import settings
 from django.urls import path, include
 from django.contrib.sitemaps.views import sitemap
 
-# from dashboard.views import handler404, handler500
+from dashboard.views import handler404, handler500
 
 from dashboard.sitemaps import (
     StaticViewSitemap,
@@ -19,8 +19,8 @@ sitemaps = {
     # "page": PageSitemap,
 }
 
-# handler404 = handler404
-# handler500 = handler500
+handler404 = handler404
+handler500 = handler500
 
 urlpatterns = [
     path("admin/", admin.site.urls),
