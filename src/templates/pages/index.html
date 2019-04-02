@@ -34,15 +34,18 @@
 
       <!-- pinned notification -->
       {% if message.content %}
-      {% if message.enabled %}
-      <div id="HomeMessage" class="content notification is-hidden-mobile index-notification">
-        <button id="closeNotification" class="delete"></button>
-        <div>
-          {{ message.content|render_markdown|safe }}
-        </div>
-      </div>
+        {% if message.enabled %}
+          <div id="HomeMessage" class="content notification is-hidden-mobile index-notification">
+            <button id="closeNotification" class="delete"></button>
+            <div>
+              {{ message.content|render_markdown|safe }}
+            </div>
+          </div>
+        {% endif %}
       {% endif %}
-      {% endif %}
+
+      <!-- codefund -->
+      <div id="codefund"><!-- fallback content --></div>
 
       <!-- content -->
       <div>
@@ -68,7 +71,9 @@
 <script type="text/javascript" src="{% static 'js/notification.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/article-index.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/scroll.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/highlight.pack.js' %}"></script>
+
+<!-- codefund -->
+<script src="https://codefund.app/properties/92/funder.js?template=centered" async="async"></script>
 
 <!-- tiny quoter -->
 <script src="{% static 'js/tinyquoter.min.js' %}"></script>
@@ -79,6 +84,7 @@
 </script>
 
 <!-- highlight -->
+<script type="text/javascript" src="{% static 'js/highlight.pack.js' %}"></script>
 <script>
   hljs.initHighlightingOnLoad();
 </script>

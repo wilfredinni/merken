@@ -93,7 +93,7 @@
 
 .newsletter {
     background: #eee;
-    margin-bottom: 3rem !important;
+    margin-bottom: 2rem !important;
 }
 
 .newsletter-title {
@@ -165,10 +165,11 @@ h4 {
     width: 21%;
 }
 
-.index-content {
+/* the index ul */
+/* .index-content {
     list-style: none !important;
     margin-left: 5px !important;
-}
+} */
 
 .material-scrolltop {
     background: #ffdd57;
@@ -249,4 +250,8 @@ h4 {
 
 .pag-ul li {
     margin-top: 0 !important;
+}
+
+.codefund-side {
+    margin-bottom: 2rem;
 }
