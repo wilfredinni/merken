@@ -25,8 +25,9 @@ class Article(models.Model):
     content = models.TextField()
     img_url = models.CharField(max_length=200)
     tags = models.ManyToManyField(Tag)
-    featured = models.BooleanField(default=False)
     url = models.SlugField(max_length=120, unique=True)
+    allow_comments = models.BooleanField(default=True)
+    featured = models.BooleanField(default=False)
     created_at = models.DateTimeField(default=timezone.now)
 
     def get_absolute_url(self):
