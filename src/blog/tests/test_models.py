@@ -10,22 +10,32 @@ class TestModels(TestCase):
             author=user,
             title="title",
             overview="overview",
-            content='content',
+            content="content",
             url="url",
-            img_url='img_url'
+            img_url="img_url",
         )
 
         self.article = Article.objects.get(url="url")
         self.tag = Tag.objects.get(title="test_tag")
 
-    def test_article_model(self):
+    def test_article_model_defaults(self):
         self.assertEqual(self.article.author.username, "test_user")
         self.assertEqual(self.article.title, "title")
         self.assertEqual(self.article.overview, "overview")
         self.assertEqual(self.article.content, "content")
         self.assertEqual(self.article.img_url, "img_url")
-        self.assertEqual(self.article.featured, False)
         self.assertEqual(self.article.url, "url")
+
+        # defaults
+        self.assertEqual(self.article.featured, False)
+        self.assertEqual(self.article.allow_comments, True)
+
+    def test_article_model_modified(self):
+        self.article.featured = True
+        self.article.allow_comments = False
+        self.article.save()
+        self.assertEqual(self.article.featured, True)
+        self.assertEqual(self.article.allow_comments, False)
 
     def test_tag_model(self):
         self.assertEqual(self.tag.title, "test_tag")
