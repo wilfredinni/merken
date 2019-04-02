@@ -41,6 +41,7 @@ class SiteConfiguration(SingletonModel):
 
     # others
     enable_ads = models.BooleanField(default=False)
+    enable_analytics = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = "Site Configuration"
