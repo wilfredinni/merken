@@ -13,8 +13,10 @@
     <div class="column section blog-side">
       {% block side_column %}
 
-      <!-- codefund -->
-      <div class="codefund-side" id="codefund"><!-- fallback content --></div>
+      {% if settings.enable_ads %}
+        <div id="codefund" class="codefund-side"><!-- fallback content --></div>
+        <script src="https://codefund.app/properties/92/funder.js" async="async"></script>
+      {% endif %}
 
       <!-- subscribe -->
       <div class="box has-text-centered newsletter is-hidden-mobile">
@@ -74,5 +76,5 @@
 </section>
 
 <!-- codefund -->
-<script src="https://codefund.app/properties/92/funder.js" async="async"></script>
+<!-- <script src="https://codefund.app/properties/92/funder.js" async="async"></script> -->
 {% endblock content %}

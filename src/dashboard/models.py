@@ -39,6 +39,9 @@ class SiteConfiguration(SingletonModel):
     favicon = models.CharField(max_length=120, default="some url for now")
     site_img = models.CharField(max_length=120, default="some url for now")
 
+    # others
+    enable_ads = models.BooleanField(default=False)
+
     class Meta:
         verbose_name = "Site Configuration"
 
