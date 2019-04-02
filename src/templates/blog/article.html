@@ -120,6 +120,16 @@
     (d.head || d.body).appendChild(s);
   })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
-    Disqus.</a></noscript>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+<!-- addthis -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b05cb2ae9e75f31"></script>
+<script type="text/javascript">
+  var addthis_share = {
+    url: "{{ settings.canonical_url }}/blog/{{ article.url }}",
+    title: "{{ article.title }}",
+  };
+</script>
 {% endblock javascript %}
