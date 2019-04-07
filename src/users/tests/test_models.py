@@ -7,8 +7,6 @@ class CustomUserModel(TestCase):
         CustomUser.objects.create_user(
             username="test_user",
             email="test_user@test_user.com",
-
-            # custom fields
             twitter="twitter",
             github="github",
             website="website",
