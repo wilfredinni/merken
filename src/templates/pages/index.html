@@ -20,6 +20,35 @@
 
 {% block content %}
 <div class="container section">
+
+  <!-- search modal -->
+  <div id="search-modal">
+    <div class="search-content">
+      <!-- search bar -->
+      <div class="field search-mb">
+        <spam class="control has-icons-left">
+          <input id="search-bar" class="input search-bar" type="search" placeholder="Search">
+          <span class="icon is-small is-left">
+            <i class="fas fa-search"></i>
+          </span>
+        </spam>
+      </div>
+      <!-- search title -->
+      <div id="search-message" class="search-message">
+        Type to start searching
+      </div>
+      <!-- search title (clear search bar) -->
+      <div style="display:none" id="clear-message" class="search-message">
+        <span class="icon is-small">
+          <i class="fas fa-times"></i>
+        </span>
+        Clear Search...
+      </div>
+      <!-- results -->
+      <div id="results" class="search-results"></div>
+    </div>
+  </div>
+
   <div class="columns is-tablet">
     <!-- index -->
     <div id="index" class="column">
@@ -35,17 +64,19 @@
       <!-- pinned notification -->
       {% if message.content %}
         {% if message.enabled %}
-          <div id="HomeMessage" class="content notification is-hidden-mobile index-notification">
-            <button id="closeNotification" class="delete"></button>
-            <div>
-              {{ message.content|render_markdown|safe }}
-            </div>
+        <div id="HomeMessage" class="content notification is-hidden-mobile index-notification">
+          <button id="closeNotification" class="delete"></button>
+          <div>
+            {{ message.content|render_markdown|safe }}
           </div>
+        </div>
         {% endif %}
       {% endif %}
 
       {% if settings.enable_ads %}
-      <div id="codefund"><!-- fallback content --></div>
+      <div id="codefund">
+        <!-- fallback content -->
+      </div>
       <script src="https://codefund.app/properties/92/funder.js?template=centered" async="async"></script>
       {% endif %}
 
@@ -71,7 +102,7 @@
 
 {% block javascript %}
 <script type="text/javascript" src="{% static 'js/notification.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/article-index.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/search-index.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/scroll.js' %}"></script>
 
 <!-- tiny quoter -->
