@@ -275,7 +275,7 @@ h4 {
     width: 50%;
     animation: openModal;
     animation-duration: .3s;
-    max-height: 33rem;
+    max-height: 70%;
 }
 
 .search-bar {
