@@ -1,6 +1,13 @@
 @import 'message';
 @import 'search';
 @import 'sidebar';
+@import 'article-bottom';
+@import 'blog';
+@import 'author';
+@import 'material-buttons';
+@import 'code';
+@import 'navbar';
+@import 'footer';
 
 :target:before {
     content: "";
@@ -11,6 +18,7 @@
     /* negative fixed header height */
 }
 
+// forkme on github
 .forkme {
     border: 0;
     position: fixed;
@@ -19,112 +27,7 @@
     z-index: 999;
 }
 
-.navbar-end {
-    padding-right: 140px;
-}
-
-.navbar-brand-desktop-padding {
-    padding-left: 70px;
-}
-
-.do-sponsor {
-    width: 10%;
-}
-
-.footer {
-    padding: 3rem 1.5rem;
-    background: #f7f4f4;
-}
-
-.blog-title {
-    font-size: 2.5rem !important;
-    margin-bottom: 0px !important;
-
-    a {
-        color: #363636;
-    }
-}
-
-.font-mobile {
-    font-size: 2rem !important;
-}
-
-.blog-author-date {
-    margin-bottom: 2%;
-}
-
-.blog-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.blog-space-post {
-    margin-bottom: 5rem;
-}
-
-.blog-side {
-    padding-top: 0 !important;
-}
-
-.blog-section {
-    padding-top: 4rem;
-    padding-bottom: 0;
-}
-
-.column-section {
-    padding: 0rem 0.5rem;
-}
-
-.side-column-padding {
-    padding-top: 0;
-}
-
-.share {
-    border: 1px solid;
-    border-radius: 3px;
-    margin-right: .75rem;
-    width: 25px;
-    height: 25px;
-}
-
-.twitter {
-    color: #03acef;
-}
-
-.facebook {
-    color: #3c5a9a;
-}
-
-.google {
-    color: #dc4b3a;
-}
-
-pre {
-    background-color: #282c34;
-    border-radius: 5px;
-    margin-top: 2em !important;
-    margin-bottom: 2em !important;
-}
-
-.hljs {
-    padding: 0 !important;
-}
-
-/* .content pre {
-    padding: 1em 0 !important;
-} */
-
-code {
-    font-size: 1.1em;
-}
-
-.author-title {
-    color: #4a4a4a !important;
-    font-size: 32px !important;
-    font-weight: 400 !important;
-}
-
+// fixed and scroll index for the cheatsheet
 .overflow-index {
     position: fixed;
     overflow: auto;
@@ -132,54 +35,11 @@ code {
     width: 21%;
 }
 
-.material-scrolltop {
-    background: #ffdd57;
-    border-radius: 50%;
-    border: none;
-    bottom: 80px;
-    animation: openModal;
-    animation-duration: 1s;
-}
-
-.material-search {
-    background: #ffdd57;
-    border-radius: 50%;
-    border: none;
-    bottom: 23px;
-}
-
-.material-scrolltop:hover,
-.material-search:hover {
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.material-scrolltop,
-.material-search {
-    display: block;
-    height: 40px;
-    outline: 0;
-    overflow: hidden;
-    padding: 0;
-    right: 2%;
-    width: 40px;
-    position: fixed;
-}
-
-.material-scrolltop:hover,
-.material-search:hover {
-    background-color: #fad028;
-}
-
+// fix pagination default list style
 .pag-ul {
     list-style: none !important;
-}
 
-.pag-ul li {
-    margin-top: 0 !important;
-}
-
-.codefund-side {
-    margin-bottom: 2rem;
+    li {
+        margin-top: 0 !important;
+    }
 }

@@ -1,16 +1,16 @@
 {% extends 'merken/base.html' %}
 
 {% block content %}
-<section class="container blog-section">
+<section class="container sidebar-section">
   <div class="columns column-section">
 
     <!-- main -->
-    <div class="column side-column-padding is-8">
+    <div class="column section is-8 side-padding-top">
       {% block main_column %}{% endblock main_column %}
     </div>
 
     <!-- sidebar column -->
-    <div class="column section blog-side">
+    <div class="column section side-padding-top">
       {% block side_column %}
         {% include 'merken/includes/sidebar.html' %}
       {% endblock side_column %}

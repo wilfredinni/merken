@@ -1,96 +1,34 @@
 {% extends 'merken/base_sidebar.html' %}
 {% load static markdown_tag  %}
 
-
 {% block seo %}
-<meta property="og:title" content="{{ article.title }} - {{ settings.site_name }}">
-<link rel="canonical" href="{{ settings.canonical_url }}/blog/{{ article.url }}">
-<meta property="og:url" content="{{ settings.canonical_url }}/blog/{{ article.url }}">
-<meta name="description" content="{{ article.overview|render_markdown|striptags }}">
-<meta property="og:description" content="{{ article.overview|render_markdown|striptags }}">
-<meta name="twitter:description" content="{{ article.overview|render_markdown|striptags }}" />
+  <meta property="og:title" content="{{ article.title }} - {{ settings.site_name }}">
+  <link rel="canonical" href="{{ settings.canonical_url }}/blog/{{ article.url }}">
+  <meta property="og:url" content="{{ settings.canonical_url }}/blog/{{ article.url }}">
+  <meta name="description" content="{{ article.overview|render_markdown|striptags }}">
+  <meta property="og:description" content="{{ article.overview|render_markdown|striptags }}">
+  <meta name="twitter:description" content="{{ article.overview|render_markdown|striptags }}" />
 {% endblock seo %}
 
 {% block title %}
-<title>{{ article.title }} - {{ settings.site_name }}</title>
+  <title>{{ article.title }} - {{ settings.site_name }}</title>
 {% endblock title %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'merken/css/atom-one-dark-min.css' %}">
+  <link rel="stylesheet" href="{% static 'merken/css/atom-one-dark-min.css' %}">
 {% endblock css %}
 
 {% block main_column %}
-<!-- title -->
-<div class="has-text-centered header-content">
-  <h1 class="blog-title is-hidden-mobile">{{ article.title }}</h1>
-  <h1 class="blog-title font-mobile is-hidden-tablet">{{ article.title }}</h1>
-</div>
+  <!-- article -->
+  {% include 'merken/blog/includes/article-detail.html' %}
+  <hr>
+  <!-- share and article tags -->
+  {% include 'merken/blog/includes/article-bottom.html' %}
 
-<!-- author, date, comments -->
-<div class="has-text-centered blog-author-date">
-  <p>posted on <a href="#">{{ article.created_at|date:"M d, Y" }}</a> by <a
-      href="{{ article.author.get_absolute_url }}">{{ article.author }}</a></p>
-</div>
-
-<!-- image -->
-<img class="blog-img" src="{{ article.img_url }}" alt="{{ article.title }}"><br>
-
-<!-- article content -->
-<p>{{ article.content|render_markdown }}</p>
-
-<hr>
-<div class="level">
-  <!-- tags -->
-  <div class="level-left">
-    <p>
-      {% for tag in article.tags.all %}
-      <a href="{{ tag.get_absolute_url }}">
-        <span class="tag is-warning">
-          {{ tag }}
-        </span>
-      </a>
-      {% endfor%}
-    </p>
-  </div>
-
-  <!-- share -->
-  <div class="level-right is-hidden-mobile">
-
-    <!-- twitter -->
-    <a target="blank"
-      href="https://twitter.com/intent/tweet?status={{ article.title }}+https://pythoncheatsheet.org{{ article.get_absolute_url }}"
-      class="share twitter">
-      <span class="icon share-icon">
-        <i class="fab fa-twitter"></i>
-      </span>
-    </a>
-
-    <!-- facebook -->
-    <a target="blank"
-      href="https://www.facebook.com/share.php?u=https://pythoncheatsheet.org{{ article.get_absolute_url }}&title={{ article.title }}"
-      class="share facebook">
-      <span class="icon share-icon">
-        <i class="fab fa-facebook-f"></i>
-      </span>
-    </a>
-
-    <!-- google -->
-    <a target="blank"
-      href="https://plus.google.com/share?url=https://pythoncheatsheet.org{{ article.get_absolute_url }}"
-      class="share google">
-      <span class="icon share-icon">
-        <i class="fab fa-google"></i>
-      </span>
-    </a>
-
-  </div>
-</div>
-
-{% if article.allow_comments %}
-  <br><br>
-  <div id="disqus_thread"></div>
-{% endif %}
-
+  {% if article.allow_comments %}
+    <br><br>
+    <div id="disqus_thread"></div>
+  {% endif %}
 {% endblock main_column %}
 
 {% block javascript %}

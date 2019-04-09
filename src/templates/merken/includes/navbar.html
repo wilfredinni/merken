@@ -37,13 +37,13 @@
         Blog
       </a>
 
-      <!-- links for the dynamic pages -->
+      <!-- links for dynamic pages -->
       {% for page in pages %}
-      {% if page.visible %}
-      <a href="{{ page.get_absolute_url }}" class="navbar-item">
-        {{ page }}
-      </a>
-      {% endif %}
+        {% if page.visible %}
+          <a href="{{ page.get_absolute_url }}" class="navbar-item">
+            {{ page }}
+          </a>
+        {% endif %}
       {% endfor %}
 
       <!-- versions drop-down menu -->

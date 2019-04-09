@@ -1,0 +1,19 @@
+{% load static markdown_tag  %}
+
+<!-- title -->
+<div class="has-text-centered header-content">
+  <h1 class="blog-title is-hidden-mobile">{{ article.title }}</h1>
+  <h1 class="blog-title font-mobile is-hidden-tablet">{{ article.title }}</h1>
+</div>
+
+<!-- author, date, comments -->
+<div class="has-text-centered blog-author-date">
+  <p>posted on <a href="#">{{ article.created_at|date:"M d, Y" }}</a> by <a
+      href="{{ article.author.get_absolute_url }}">{{ article.author }}</a></p>
+</div>
+
+<!-- image -->
+<img class="blog-img" src="{{ article.img_url }}" alt="{{ article.title }}"><br>
+
+<!-- article content -->
+<p>{{ article.content|render_markdown }}</p>
