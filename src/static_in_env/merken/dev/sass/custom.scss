@@ -35,6 +35,14 @@
     width: 21%;
 }
 
+@media (max-width: 768px) {
+    .overflow-index {
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
+}
+
 // fix pagination default list style
 .pag-ul {
     list-style: none !important;
