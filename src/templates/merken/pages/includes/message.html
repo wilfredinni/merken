@@ -1,0 +1,8 @@
+{% load markdown_tag  %}
+
+<div id="HomeMessage" class="content notification is-hidden-mobile index-notification">
+  <button id="closeNotification" class="delete"></button>
+  <div>
+    {{ message.content|render_markdown|safe }}
+  </div>
+</div>

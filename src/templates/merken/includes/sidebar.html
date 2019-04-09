@@ -1,0 +1,58 @@
+{% if settings.enable_ads %}
+<div id="codefund" class="codefund-side">
+  <!-- fallback content -->
+</div>
+<script src="https://codefund.app/properties/92/funder.js" async="async"></script>
+{% endif %}
+
+<!-- subscribe -->
+<div class="box has-text-centered newsletter is-hidden-mobile">
+  <h3 class="has-text-weight-bold">Newsletters</h3><br>
+  <p class="control has-icons-left has-icons-right">
+    <input class="input" type="email" placeholder="Email" disabled>
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+  </p><br>
+  <a class="button is-fullwidth" disabled>Subscribe</a>
+  <p class="help has-text-left">Unsubscribe any time.</p>
+</div>
+
+<!-- article content block -->
+{% if article %}
+<div class="side-contents-sticky">
+  <div id="index" class="box">
+    <h3>Table of Content</h3>
+    <ul id="indexList"></ul>
+  </div>
+
+  <!-- tag list -->
+  <div class="is-hidden-mobile">
+    <p>
+      <span class="icon"><i class="fas fa-tags"></i></span>
+      <span aria-hidden="true"></span>
+      _Tags:
+    </p>
+    {% for tag in tags %}
+    <a href="{{ tag.get_absolute_url }}">
+      <span class="tag is-warning side-list-tag">{{ tag }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+
+{% else %}
+<!-- tag list -->
+<div class="is-hidden-mobile">
+  <p>
+    <span class="icon"><i class="fas fa-tags"></i></span>
+    <span aria-hidden="true"></span>
+    _Tags:
+  </p>
+  {% for tag in tags %}
+  <a href="{{ tag.get_absolute_url }}">
+    <span class="tag is-warning side-list-tag">{{ tag }}</span>
+  </a>
+  {% endfor %}
+</div>
+{% endif %}

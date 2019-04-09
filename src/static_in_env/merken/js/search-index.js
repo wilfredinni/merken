@@ -33,7 +33,7 @@ for (let item of topics) {
   let link = replace(item);
   results.insertAdjacentHTML(
     "beforeend",
-    `<a style="display:none" href="#${link}" class="results_a">\n <p class="results_p">${
+    `<a style="display:none" href="#${link}">\n <p>${
       item.innerText
     }</p>\n </a>`
   );

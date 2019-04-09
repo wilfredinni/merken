@@ -22,32 +22,7 @@
 <div class="container section">
 
   <!-- search modal -->
-  <div id="search-modal">
-    <div class="search-content">
-      <!-- search bar -->
-      <div class="field search-mb">
-        <spam class="control has-icons-left">
-          <input id="search-bar" class="input search-bar" type="search" placeholder="Search">
-          <span class="icon is-small is-left">
-            <i class="fas fa-search"></i>
-          </span>
-        </spam>
-      </div>
-      <!-- search title -->
-      <div id="search-message" class="search-message">
-        Type to start searching
-      </div>
-      <!-- search title (clear search bar) -->
-      <div style="display:none" id="clear-message" class="search-message">
-        <span class="icon is-small">
-          <i class="fas fa-times"></i>
-        </span>
-        Clear Search...
-      </div>
-      <!-- results -->
-      <div id="results" class="search-results"></div>
-    </div>
-  </div>
+  {% include 'merken/pages/includes/search.html' %}
 
   <div class="columns is-tablet">
     <!-- index -->
@@ -61,15 +36,10 @@
     <!-- main column -->
     <div class="column is-8 cheat">
 
-      <!-- pinned notification -->
+      <!-- message -->
       {% if message.content %}
         {% if message.enabled %}
-        <div id="HomeMessage" class="content notification is-hidden-mobile index-notification">
-          <button id="closeNotification" class="delete"></button>
-          <div>
-            {{ message.content|render_markdown|safe }}
-          </div>
-        </div>
+          {% include 'merken/pages/includes/message.html' %}
         {% endif %}
       {% endif %}
 
