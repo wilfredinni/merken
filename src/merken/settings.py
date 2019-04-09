@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sitemaps",
     # 'django.contrib.sites',
+
     # local apps
     "users.apps.UsersConfig",  # custom user model
     "blog",
