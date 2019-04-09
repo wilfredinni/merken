@@ -5,7 +5,7 @@ from .models import CustomUser
 
 class ProfileView(DetailView):
     model = CustomUser
-    template_name = "users/author.html"
+    template_name = "merken/users/author.html"
     context_object_name = "user"
     slug_field = "username"
 

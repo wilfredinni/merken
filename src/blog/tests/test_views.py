@@ -13,7 +13,7 @@ class TestBlogView(TestCase):
         url = reverse("blog_app:blog")
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "blog/blog.html")
+        self.assertTemplateUsed(response, "merken/blog/blog.html")
 
 
 class TestArticleView(TestCase):
@@ -26,7 +26,7 @@ class TestArticleView(TestCase):
         url = reverse("blog_app:article", args=["test_slug"])
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "blog/article.html")
+        self.assertTemplateUsed(response, "merken/blog/article.html")
 
     def test_article_404(self):
         url = reverse("blog_app:article", args=["wrong_slug"])
@@ -43,7 +43,7 @@ class TestTagView(TestCase):
         url = reverse("blog_app:tag", args=["python"])
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "blog/blog.html")
+        self.assertTemplateUsed(response, "merken/blog/blog.html")
 
     def test_tag_404(self):
         url = reverse("blog_app:tag", args=["wrong-tag"])

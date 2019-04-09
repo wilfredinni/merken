@@ -66,7 +66,7 @@ pytz = "*"
 sqlparse = "*"
 
 [[package]]
-category = "main"
+category = "dev"
 description = "A configurable set of panels that display various debug information about the current request/response."
 name = "django-debug-toolbar"
 optional = false
@@ -226,7 +226,7 @@ python-versions = "*"
 version = "0.10.0"
 
 [metadata]
-content-hash = "f258f54fc366302beaf7e14a19d4dae7225d8df8888487251f5d1f189dc42f01"
+content-hash = "628ddb7d0e4cbe85c47c03e9ea114bb4ad87ade6114f486e96f52262c50f2c92"
 python-versions = "^3.7"
 
 [metadata.hashes]

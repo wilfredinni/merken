@@ -1,0 +1,25 @@
+{
+  "name": "merken",
+  "version": "1.0.0",
+  "description": "Future replacement for pythoncheatsheet.org",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wilfredinni/merken.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wilfredinni/merken/issues"
+  },
+  "homepage": "https://github.com/wilfredinni/merken#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-sass": "^4.0.2"
+  },
+  "dependencies": {}
+}

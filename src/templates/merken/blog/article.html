@@ -1,4 +1,4 @@
-{% extends 'base_sidebar.html' %}
+{% extends 'merken/base_sidebar.html' %}
 {% load static markdown_tag  %}
 
 
@@ -16,7 +16,7 @@
 {% endblock title %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/atom-one-dark-min.css' %}">
+<link rel="stylesheet" href="{% static 'merken/css/atom-one-dark-min.css' %}">
 {% endblock css %}
 
 {% block main_column %}
@@ -94,16 +94,16 @@
 {% endblock main_column %}
 
 {% block javascript %}
-<script type="text/javascript" src="{% static 'js/article-index.js' %}"></script>
+<script type="text/javascript" src="{% static 'merken/js/article-index.js' %}"></script>
 
 <!-- highlight -->
-<script type="text/javascript" src="{% static 'js/highlight.pack.js' %}"></script>
+<script type="text/javascript" src="{% static 'merken/js/highlight.pack.js' %}"></script>
 <script>
   hljs.initHighlightingOnLoad();
 </script>
 
 <!-- tiny quoter -->
-<script src="{% static 'js/tinyquoter.min.js' %}"></script>
+<script src="{% static 'merken/js/tinyquoter.min.js' %}"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function (event) {
     window.TinyQ.init();

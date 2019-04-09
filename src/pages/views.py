@@ -6,7 +6,7 @@ from .models import Page
 
 
 class IndexView(ListView):
-    template_name = "pages/index.html"
+    template_name = "merken/pages/index.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -19,5 +19,5 @@ class IndexView(ListView):
 
 class PageView(DetailView):
     model = Page
-    template_name = "pages/page.html"
+    template_name = "merken/pages/page.html"
     slug_field = "url"

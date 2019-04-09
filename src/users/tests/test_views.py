@@ -13,7 +13,7 @@ class TestAuthor(TestCase):
         url = reverse("users_app:profile", args=["test_user"])
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "users/author.html")
+        self.assertTemplateUsed(response, "merken/users/author.html")
 
     def test_author_view_not_found_404(self):
         url = reverse("users_app:profile", args=["wrong_user"])
