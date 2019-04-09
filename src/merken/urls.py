@@ -3,9 +3,9 @@ from django.conf import settings
 from django.urls import path, include
 from django.contrib.sitemaps.views import sitemap
 
-from dashboard.views import handler404, handler500
+from core.views import handler404, handler500
 
-from dashboard.sitemaps import (
+from core.sitemaps import (
     StaticViewSitemap,
     # ArticleSitemap,
     # PageSitemap,

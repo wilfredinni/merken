@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     "blog",
     "pages",
     "dashboard",
+    "core",
 ]
 
 # SITE_ID = 1
@@ -73,8 +74,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                "dashboard.processors.global_query",
-                # "dashboard.processors.settings",
+                "core.processors.global_query",
             ]
         },
     }

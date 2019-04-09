@@ -1,6 +1,6 @@
 from blog.models import Tag
 from pages.models import Page
-from .models import SiteConfiguration, HomeMsg
+from dashboard.models import SiteConfiguration, HomeMsg
 
 
 def global_query(request):

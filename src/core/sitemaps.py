@@ -4,6 +4,8 @@ from django.shortcuts import reverse
 # from blog.models import Article, Tag
 # from pages.models import Page
 
+# TODO: fix sitemap for dynamic pages
+
 
 class StaticViewSitemap(Sitemap):
     def items(self):

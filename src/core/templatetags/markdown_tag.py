@@ -3,7 +3,6 @@ from django.utils.html import mark_safe
 
 from mistune import markdown
 
-
 register = template.Library()
 
 
