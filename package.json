@@ -18,8 +18,12 @@
   },
   "homepage": "https://github.com/wilfredinni/merken#readme",
   "devDependencies": {
+    "autoprefixer": "^9.5.1",
+    "cssnano": "^4.1.10",
     "gulp": "^4.0.0",
-    "gulp-sass": "^4.0.2"
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5"
   },
   "dependencies": {}
 }
