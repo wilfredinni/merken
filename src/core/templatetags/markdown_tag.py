@@ -8,4 +8,4 @@ register = template.Library()
 
 @register.filter
 def render_markdown(markdown_text):
-    return mark_safe(markdown(markdown_text, safe_mode="escape"))
+    return mark_safe(markdown(markdown_text))
