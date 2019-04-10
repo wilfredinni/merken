@@ -10,7 +10,7 @@ python = "^3.7"
 django = "^2.1"
 mistune = "^0.8.4"
 python-decouple = "^3.1"
-psycopg2 = "^2.7"
+psycopg2-binary = "^2.8"
 
 [tool.poetry.dev-dependencies]
 black = { version = "*", allows-prereleases = true }

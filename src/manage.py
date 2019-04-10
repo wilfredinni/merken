@@ -1,13 +1,18 @@
 #!/usr/bin/env python
 import os
 import sys
-# from decouple import config
+from decouple import config
 
+# development or production
+debug = config('DEBUG', cast=bool)
+if debug is True:
+    settings_file = "development"
+else:
+    settings_file = "production"
 
-# state = config('STATE')  # development or production
 
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "merken.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "merken.settings." + settings_file)
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
