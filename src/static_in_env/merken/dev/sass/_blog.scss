@@ -31,7 +31,7 @@
     font-size: 2rem !important;
 }
 
-@media(max-width: 767px) { /* <== You can change this break point as per your  needs */
+@media(max-width: 767px) { /* <== invert the order of the columns in tablet */
     .custom-columns {
       flex-direction: column-reverse;
       display: flex;
