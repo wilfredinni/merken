@@ -12,20 +12,23 @@
 <meta property="og:url" content="{{ settings.canonical_url  }}/blog">
 <meta name="description" content="{{ settings.site_description }}">
 <meta property="og:description" content="{{ settings.site_description }}">
-<meta name="twitter:description" content="{{ settings.site_description }}" />
+<meta name="twitter:description" content="{{ settings.site_description }}"/>
 {% endblock seo %}
 
 <!-- title -->
 {% block title %}
-{% if tag %}
-<title>{{ tag }} - {{ settings.site_name }}</title>
-{% else %}
-<title>Blog - {{ settings.site_name }}</title>
-{% endif %}
+  {% if tag %}
+    <title>{{ tag }} - {{ settings.site_name }}</title>
+  {% else %}
+    <title>Blog - {{ settings.site_name }}</title>
+  {% endif %}
 {% endblock title %}
 
 <!-- post list column -->
 {% block main_column %}
+
+  <h1 class="is-hidden-tablet is-hidden-mobile">Python Cheat Sheet Blog</h1>
+
   {% if tag %}
   <a class="tags has-addons" href="{{ tag.get_absolute_url }}">
     <span class="tag">Tag</span>

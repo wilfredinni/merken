@@ -7,6 +7,12 @@
     }
 }
 
+@media (max-width: 768px) {
+    .blog-title {
+        font-size: 2rem !important;
+    }
+}
+
 .blog-author-date {
     margin-bottom: 2%;
 }
