@@ -1,5 +1,5 @@
 import sys
-import os
+from decouple import config
 from .base import *
 
 
@@ -15,8 +15,12 @@ MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": config("DEV_DB_NAME"),
+        "USER": config("DEV_DB_USERNAME"),
+        "PASSWORD": "",
+        "HOST": "localhost",
+        "PORT": 5432,
     }
 }
 
