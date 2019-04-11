@@ -13,12 +13,12 @@ sass.compiler = require('node-sass');
 
 var paths = {
   styles: {
-    src: "./src/static_in_env/merken/dev/sass/*.scss",
-    dest: "./src/static_in_env/merken/css"
+    src: "./static_in_env/merken/dev/sass/*.scss",
+    dest: "./static_in_env/merken/css"
   },
   js: {
-    src: "./src/static_in_env/merken/dev/js/*.js",
-    dest: "./src/static_in_env/merken/js"
+    src: "./static_in_env/merken/dev/js/*.js",
+    dest: "./static_in_env/merken/js"
   }
 };
 
