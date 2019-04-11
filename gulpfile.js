@@ -9,6 +9,8 @@ var sourcemaps = require("gulp-sourcemaps");
 var uglify = require("gulp-uglify-es").default;
 var rename = require("gulp-rename");
 
+sass.compiler = require('node-sass');
+
 var paths = {
   styles: {
     src: "./src/static_in_env/merken/dev/sass/*.scss",
