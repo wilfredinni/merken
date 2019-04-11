@@ -6,11 +6,17 @@ var postcss = require("gulp-postcss");
 var autoprefixer = require("autoprefixer");
 var cssnano = require("cssnano");
 var sourcemaps = require("gulp-sourcemaps");
+var uglify = require("gulp-uglify-es").default;
+var rename = require("gulp-rename");
 
 var paths = {
   styles: {
     src: "./src/static_in_env/merken/dev/sass/*.scss",
     dest: "./src/static_in_env/merken/css"
+  },
+  js: {
+    src: "./src/static_in_env/merken/dev/js/*.js",
+    dest: "./src/static_in_env/merken/js"
   }
 };
 
@@ -20,14 +26,27 @@ function style() {
     .pipe(sourcemaps.init())
     .pipe(sass())
     .on("error", sass.logError)
+    .pipe(rename({ suffix: ".min" }))
     .pipe(postcss([autoprefixer(), cssnano()]))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(paths.styles.dest));
 }
 
+function compressJs() {
+  return gulp
+    .src(paths.js.src)
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(sourcemaps.init())
+    .pipe(uglify())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(paths.js.dest));
+}
+
 function watch() {
   gulp.watch(paths.styles.src, style);
+  gulp.watch(paths.js.src, compressJs);
 }
 
 exports.style = style;
+exports.compressJs = compressJs;
 exports.watch = watch;
