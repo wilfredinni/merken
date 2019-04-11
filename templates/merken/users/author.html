@@ -1,5 +1,5 @@
 {% extends 'merken/base_sidebar.html' %}
-{% load markdown_tag  %}
+{% load markdown_tag gravatar_tag %}
 
 {% block seo %}
 <meta property="og:title" content="{{ user.username }} - {{ settings.site_name }}">
@@ -22,7 +22,7 @@
   <nav class="level">
     <p class="level-item has-text-centered">
       <!-- use gravatar api -->
-      <img style="border-radius:50%" src="{{ gravatar }}" alt="About {{ user.username }}" style="height: 180px;">
+      <img style="border-radius:50%" src="{{ user|gravatar }}" alt="About {{ user.username }}" style="height: 180px;">
     </p>
   </nav>
 
