@@ -17,6 +17,7 @@ black = { version = "*", allows-prereleases = true }
 flake8 = "^3.7"
 pytest = "^4.3"
 django-debug-toolbar = "^1.11"
+coverage = "^4.5"
 
 [build-system]
 requires = ["poetry>=0.12"]
