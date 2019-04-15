@@ -20,5 +20,3 @@ DATABASES = {
         "PORT": "",
     }
 }
-
-TESTING_MODE = "test" in sys.argv  # to avoid dtb to cause errors when testing

@@ -1,5 +1,5 @@
 import os
-# import sys
+import sys
 
 from decouple import config
 
@@ -99,3 +99,7 @@ MEDIA_ROOT = os.path.join(VENV_PATH, "media_root")
 
 # custom user model
 AUTH_USER_MODEL = "users.CustomUser"
+
+
+# to avoid dtb to cause errors when testing
+TESTING_MODE = "test" in sys.argv
