@@ -9,8 +9,9 @@ if __name__ == "__main__":
     debug = config("DEBUG", cast=bool)
     if "test" in sys.argv:
         settings_file = "testing"
-    elif debug is True:
+    elif debug:
         settings_file = "development"
+        print(settings_file)
     elif debug is False:
         settings_file = "production"
 
