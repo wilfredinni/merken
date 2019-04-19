@@ -24,3 +24,16 @@ function scrollToTop() {
   intervalId = setInterval(scrollStep, 16.66);
 }
 scrollButton.addEventListener("click", scrollToTop);
+
+
+// index message
+let message = document.getElementById("HomeMessage");
+let closeNotificationBtn = document.getElementById("closeNotification");
+
+// functions
+const closeMessage = () => (message.style.display = "none");
+
+// listeners
+closeNotificationBtn.addEventListener("click", closeMessage);
+
+
