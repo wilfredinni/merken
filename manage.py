@@ -11,7 +11,6 @@ if __name__ == "__main__":
         settings_file = "testing"
     elif debug:
         settings_file = "development"
-        print(settings_file)
     elif debug is False:
         settings_file = "production"
 
