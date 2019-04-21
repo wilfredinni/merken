@@ -11,9 +11,9 @@
 {% endblock seo %}
 
 {% block title %}
-    <title>{{ page.title }} - {{ settings.site_name }}</title>
+  <title>{{ page.title }} - {{ settings.site_name }}</title>
 {% endblock title %}
 
 {% block main_column %}
-    {{ page.content|render_markdown }}
+  {{ page.content|render_markdown }}
 {% endblock main_column %}

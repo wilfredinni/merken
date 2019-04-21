@@ -16,11 +16,7 @@
 
 <!-- title -->
 {% block title %}
-  {% if tag %}
-    <title>{{ tag }} - {{ settings.site_name }}</title>
-  {% else %}
-    <title>Blog - {{ settings.site_name }}</title>
-  {% endif %}
+  <title>{{ title }} - {{ settings.site_name }}</title>
 {% endblock title %}
 
 <!-- post list column -->
@@ -28,16 +24,16 @@
 
   <h1 class="is-hidden-tablet is-hidden-mobile">Python Cheat Sheet Blog</h1>
 
-  {% if tag %}
+  {% if title != 'Blog' %}
   <a class="tags has-addons" href="{{ tag.get_absolute_url }}">
     <span class="tag">Tag</span>
-    <span class="tag is-warning">{{ tag }}</span>
+    <span class="tag is-warning">{{ title }}</span>
   </a>
   {% endif %}
 
-{% for post in articles %}
-  {% include 'merken/blog/includes/posts.html' %}
-{% endfor %}
+  {% for post in articles %}
+    {% include 'merken/blog/includes/posts.html' %}
+  {% endfor %}
 
   {% if is_paginated %}
     {% include 'merken/includes/pagination.html' %}

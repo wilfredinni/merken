@@ -11,11 +11,11 @@
 {% endblock seo %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'merken/css/atom-one-dark-min.css' %}">
+  <link rel="stylesheet" href="{% static 'merken/css/atom-one-dark-min.css' %}">
 {% endblock css %}
 
 {% block title %}
-<title>{{ home_page.title }} - {{ settings.site_name }}</title>
+  <title>{{ home_page.title }} - {{ settings.site_name }}</title>
 {% endblock title %}
 
 {% block content %}
@@ -37,10 +37,8 @@
     <div class="column is-8 cheat">
 
       <!-- message -->
-      {% if message.content %}
-        {% if message.enabled %}
-          {% include 'merken/pages/includes/message.html' %}
-        {% endif %}
+      {% if message.content and message.enabled %}
+        {% include 'merken/pages/includes/message.html' %}
       {% endif %}
 
       {% if settings.enable_ads %}
