@@ -10,11 +10,10 @@ class BlogView(ListView):
     template_name = "merken/blog/blog.html"
     paginate_by = 5
 
-
-class ArticleView(DetailView):
-    model = Article
-    template_name = "merken/blog/article.html"
-    slug_field = "url"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Blog"
+        return context
 
 
 class TagView(ListView):
@@ -24,10 +23,16 @@ class TagView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["tag"] = self.tag
+        context["title"] = self.tag
         return context
 
     def get_queryset(self):
         self.tag = get_object_or_404(Tag, title=self.kwargs.get("slug"))
         queryset = self.tag.article_set.all()
         return queryset
+
+
+class ArticleView(DetailView):
+    model = Article
+    template_name = "merken/blog/article.html"
+    slug_field = "url"

@@ -11,6 +11,6 @@ def global_query(request):
         "pages": pages,
         "tags": tags,
         "settings": SiteConfiguration.load(),
-        "message": HomeMsg.load(),
+        # "message": HomeMsg.load(),
     }
     return context
