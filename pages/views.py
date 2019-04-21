@@ -7,6 +7,7 @@ from dashboard.models import HomeMsg
 
 
 class IndexView(ListView):
+    model = Page
     template_name = "merken/pages/index.html"
 
     def get_context_data(self, **kwargs):
@@ -14,9 +15,6 @@ class IndexView(ListView):
         context["home_page"] = get_object_or_404(Page, url="index")
         context["message"] = HomeMsg.load()
         return context
-
-    def queryset(self):
-        pass
 
 
 class PageView(DetailView):
