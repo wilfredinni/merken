@@ -1,48 +1,47 @@
 .newsletter {
-    background: #eee;
-    margin-bottom: 2rem !important;
+  background: #eee;
+  margin-bottom: 2rem !important;
 
-    h3 {
-        margin: 0 !important;
-        color: #4a4a4a !important;
-    }
+  h3 {
+    margin: 0 !important;
+    color: #4a4a4a !important;
+  }
 }
 
 .side-contents-sticky {
-    position: sticky;
-    top: 80px;
+  position: sticky;
+  top: 80px;
 
-    h3 {
-        font-size: 24px !important;
-        font-weight: 400 !important;
-        color: #4a4a4a !important;
-    }
+  h3 {
+    font-size: 24px !important;
+    font-weight: 400 !important;
+    color: #4a4a4a !important;
+  }
 
-    ul {
-        margin: 0 1rem !important;
-    }
+  ul {
+    margin: 0 1rem !important;
+  }
 }
 
-
 .side-list-tag {
-    margin-top: 2%;
-    margin-bottom: 2%;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
 .side-padding-top {
-    padding-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 .sidebar-section {
-    padding-top: 4rem;
-    padding-bottom: 0;
+  padding-top: 4rem;
+  padding-bottom: 0;
 }
 
 .column-section {
-    padding: 0rem 0.5rem;
+  padding: 0rem 0.5rem;
 }
 
 // fix for codefund ad on sidebar
 .codefund-side {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }

@@ -12,7 +12,9 @@
 </div>
 
 <!-- image -->
-<img class="blog-img" src="{{ article.img_url }}" alt="{{ article.title }}"><br>
+<img class="blog-image-header" src="{{ article.img_url }}" alt="{{ article.title }}"><br>
 
 <!-- article content -->
-<p>{{ article.content|render_markdown }}</p>
+<div class="article-content">
+  <p>{{ article.content|render_markdown }}</p>
+</div>

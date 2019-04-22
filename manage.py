@@ -1,10 +1,10 @@
-#!/usr/bin/env python
 import os
 import sys
 from decouple import config
 
 
 if __name__ == "__main__":
+
     # development, production or testing
     debug = config("DEBUG", cast=bool)
     if "test" in sys.argv:

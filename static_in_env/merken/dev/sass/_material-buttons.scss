@@ -1,30 +1,30 @@
 @mixin button($bottom) {
-    background: #ffdd57;
-    border-radius: 50%;
-    border: none;
-    display: block;
-    height: 40px;
-    outline: 0;
-    overflow: hidden;
-    padding: 0;
-    right: 2%;
-    width: 40px;
-    position: fixed;
-    bottom: $bottom
+  background: #ffdd57;
+  border-radius: 50%;
+  border: none;
+  display: block;
+  height: 40px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0;
+  right: 2%;
+  width: 40px;
+  position: fixed;
+  bottom: $bottom;
 }
 
 .material-scrolltop {
-    @include button(80px);
+  @include button(80px);
 }
 
 .material-search {
-    @include button(23px);
+  @include button(23px);
 }
 
 .material-scrolltop:hover,
 .material-search:hover {
-    background-color: #fad028;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
-    text-decoration: none;
-    cursor: pointer;
+  background-color: #fad028;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  cursor: pointer;
 }
