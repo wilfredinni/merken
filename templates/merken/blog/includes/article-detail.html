@@ -8,7 +8,14 @@
 <!-- author, date, comments -->
 <div class="has-text-centered blog-author-date">
   <p>posted on <a href="#">{{ article.created_at|date:"M d, Y" }}</a> by <a
-      href="{{ article.author.get_absolute_url }}">{{ article.author }}</a></p>
+      href="{{ article.author.get_absolute_url }}">{{ article.author }}</a>
+      {% if article.is_draft %}
+        <span class="tag is-danger">Draft</span>
+      {% endif %}
+      {% if not article.is_in_past %}
+        <span class="tag is-success">Future Post</span>
+      {% endif %}
+  </p>
 </div>
 
 <!-- image -->

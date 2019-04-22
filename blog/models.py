@@ -5,6 +5,18 @@ from django.urls import reverse
 from users.models import CustomUser
 
 
+class ArticleQuerySet(models.QuerySet):
+    """
+    Custom model manager for Articles
+    """
+
+    def published(self):
+        return self.filter(is_draft=False, created_at__lte=timezone.now())
+
+    def featured(self):
+        return self.filter(is_featured=True)
+
+
 class Tag(models.Model):
     title = models.SlugField(unique=True)
 
@@ -26,15 +38,23 @@ class Article(models.Model):
     img_url = models.CharField(max_length=200)
     tags = models.ManyToManyField(Tag)
     url = models.SlugField(max_length=120, unique=True)
+    is_draft = models.BooleanField(default=False)
     allow_comments = models.BooleanField(default=True)
-    featured = models.BooleanField(default=False)
+    is_featured = models.BooleanField(default=False)
     created_at = models.DateTimeField(default=timezone.now)
+
+    # use PostQuerySet as the manager for this model
+    objects = ArticleQuerySet.as_manager()
 
     def get_absolute_url(self):
         return reverse("blog_app:article", kwargs={"slug": self.url})
 
+    class Meta:
+        ordering = ["-created_at"]
+
     def __str__(self):
         return self.title
 
-    class Meta:
-        ordering = ["-created_at"]
+    @property
+    def is_in_past(self):
+        return self.created_at < timezone.now()

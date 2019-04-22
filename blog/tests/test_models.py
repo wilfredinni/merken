@@ -27,14 +27,17 @@ class TestModels(TestCase):
         self.assertEqual(self.article.url, "url")
 
         # defaults
-        self.assertEqual(self.article.featured, False)
+        self.assertEqual(self.article.is_featured, False)
+        self.assertEqual(self.article.is_draft, False)
         self.assertEqual(self.article.allow_comments, True)
 
     def test_article_model_modified(self):
-        self.article.featured = True
+        self.article.is_featured = True
+        self.article.is_draft = True
         self.article.allow_comments = False
         self.article.save()
-        self.assertEqual(self.article.featured, True)
+        self.assertEqual(self.article.is_featured, True)
+        self.assertEqual(self.article.is_draft, True)
         self.assertEqual(self.article.allow_comments, False)
 
     def test_tag_model(self):

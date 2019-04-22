@@ -8,11 +8,18 @@
 <!-- author, date, comments -->
 <div class="has-text-centered blog-author-date">
   <p>By <a href="{{ post.author.get_absolute_url }}">{{ post.author }}</a> • {{ post.created_at|date:"M d, Y" }} • <a
-      href="#">comments</a></p>
+      href="#">comments</a>
+      {% if post.is_draft %}
+        <span class="tag is-danger">Draft</span>
+      {% endif %}
+      {% if not post.is_in_past %}
+        <span class="tag is-success">Future Post</span>
+      {% endif %}
+    </p>
 </div>
 
 <!-- image -->
-<img class="blog-img" src="{{ post.img_url }}" alt="{{ post.title }}">
+<img class="blog-image-header" src="{{ post.img_url }}" alt="{{ post.title }}">
 
 <!-- overview -->
 <p>{{ post.overview|render_markdown }}</p>
