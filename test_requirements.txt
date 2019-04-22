@@ -2,3 +2,4 @@ coverage==4.5.3
 Django==2.2
 mistune==0.8.4
 python-decouple==3.1
+SQLite==3.8.3
