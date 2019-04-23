@@ -1,6 +1,6 @@
 language: python
 python:
-  - "3.7"
+  - "3.7-dev"
 env:
   global:
     - DJANGO_SETTINGS_MODULE="merken.settings.testing"
