@@ -2,4 +2,5 @@ coverage==4.5.3
 Django==2.2
 mistune==0.8.4
 python-decouple==3.1
-psycopg2-binary== 2.8
+psycopg2-binary==2.8
+django-debug-toolbar==1.11
