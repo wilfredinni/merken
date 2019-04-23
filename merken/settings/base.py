@@ -4,15 +4,11 @@ import sys
 from decouple import config
 
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 SECRET_KEY = config(
     "SECRET_KEY", default="$9597jcpibr3w!$(y^lm+77qp()*wc^ty%ak4v!g(@1=9p!^kp"
     )
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -44,14 +40,12 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
-
 
 ROOT_URLCONF = "merken.urls"
 
@@ -74,24 +68,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "merken.wsgi.application"
 
-
 # Internationalization
-# https://docs.djangoproject.com/en/2.1/topics/i18n/
-
 LANGUAGE_CODE = "en-us"
-
 TIME_ZONE = "UTC"
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-
-
 STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static_in_env")]
@@ -99,10 +84,8 @@ VENV_PATH = os.path.dirname(BASE_DIR)
 STATIC_ROOT = os.path.join(VENV_PATH, "static_root")
 MEDIA_ROOT = os.path.join(VENV_PATH, "media_root")
 
-
 # custom user model
 AUTH_USER_MODEL = "users.CustomUser"
-
 
 # to avoid dtb to cause errors when testing
 TESTING_MODE = "test" in sys.argv
