@@ -374,3 +374,4 @@ $RECYCLE.BIN/
 .vscode
 node_modules
 src/.coveragerc
+static_root

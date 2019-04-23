@@ -4,8 +4,7 @@ from decouple import config
 
 
 if __name__ == "__main__":
-
-    # development, production or testing
+    # test, develop or production
     debug = config("DEBUG", cast=bool)
     if "test" in sys.argv:
         settings_file = "testing"
