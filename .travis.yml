@@ -16,6 +16,7 @@ install:
 before_script:
   - psql -c "CREATE DATABASE travis_ci_db;" -U postgres
   - python manage.py migrate
+  - python manage.py collectstatic
 
 script:
   - coverage run manage.py test
