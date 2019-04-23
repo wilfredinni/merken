@@ -1,6 +1,5 @@
-import sys
-from decouple import config
 from .base import *
+from decouple import config
 
 DEBUG = False
 SECRET_KEY = config("SECRET_KEY")

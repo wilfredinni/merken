@@ -3,12 +3,13 @@ python:
   - "3.7-dev"
 env:
   global:
-    - DJANGO_SETTINGS_MODULE="merken.settings.testing"
+    - DJANGO_SETTINGS_MODULE="merken.settings.test_ci"
 # command to install dependencies
 install:
   - pip install -r test_requirements.txt
 
 before_script:
+  - psql -c "CREATE DATABASE travis_ci_db;" -U postgres
   - python manage.py migrate
 # command to run tests
 script:
