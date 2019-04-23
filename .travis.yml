@@ -9,16 +9,14 @@ env:
   global:
     - DJANGO_SETTINGS_MODULE="merken.settings.test_ci"
 
-# command to install dependencies
 install:
-  - pip install -r test_requirements.txt
+  - pip install -r travis_requirements.txt
   - pip install codecov
 
 before_script:
   - psql -c "CREATE DATABASE travis_ci_db;" -U postgres
   - python manage.py migrate
 
-# command to run tests
 script:
   - coverage run manage.py test
 
