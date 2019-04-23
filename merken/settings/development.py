@@ -13,8 +13,8 @@ MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": config("DEV_DB_NAME"),
-        "USER": config("DEV_DB_USERNAME"),
+        "NAME": config("DEV_DB_NAME", default="merken_db"),
+        "USER": config("DEV_DB_USERNAME", default="merken_user"),
         "PASSWORD": "",
         "HOST": "localhost",
         "PORT": 5432,

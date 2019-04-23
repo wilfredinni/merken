@@ -5,7 +5,7 @@ from decouple import config
 
 if __name__ == "__main__":
     # test, develop or production
-    debug = config("DEBUG", cast=bool)
+    debug = config("DEBUG", cast=bool, default=True)
     if "test" in sys.argv:
         settings_file = "testing"
     elif debug:

@@ -4,4 +4,4 @@ mistune==0.8.4
 python-decouple==3.1
 psycopg2-binary==2.8.2
 django-debug-toolbar==1.11
-whitenoise==4.1
+whitenoise==4.1.2
