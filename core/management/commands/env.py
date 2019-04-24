@@ -1,14 +1,24 @@
+import os
+import sys
+import secrets
+
 from django.core.management.base import BaseCommand
 from merken.settings.base import BASE_DIR
 
+# TODO: check choice for debug (True/False)
 
-# TODO: auto generate SECRET_KEY
-# TODO: DRY
-
-ENV_FIELDS = {
-    "common": ["SECRET_KEY", "DEBUG"],
-    "dev": ["DEV_DB_NAME", "DEV_DB_USERNAME"],
-    "prod": ["DB_NAME", "DB_USERNAME", "DB_PASSWORD", "DB_HOST"],
+ENV_QUESTIONS = {
+    # common
+    "debug": lambda: input("DEBUG: "),
+    "secret_key": lambda: secrets.token_urlsafe(30),
+    # development
+    "dev_db_name": lambda: input("DEV_DB_NAME: "),
+    "dev_db_username": lambda: input("DEV_DB_USERNAME: "),
+    # production
+    "db_name": lambda: input("DB_NAME: "),
+    "db_username": lambda: input("DB_USERNAME: "),
+    "db_password": lambda: input("DB_PASSWORD: "),
+    "db_host": lambda: input("DB_HOST: "),
 }
 
 
@@ -25,69 +35,53 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         env_for = kwargs["env_file_for"]
 
+        if os.path.isfile(BASE_DIR + "/.env"):
+            choice = input(
+                ".env file already exists. Do you want to replace it? [y/n]: "
+            )
+            if choice == "n":
+                sys.exit()
+            elif choice != "y":
+                print("Unexpected choice.")
+                sys.exit()
+
         def create_env_file(settings):
             with open(BASE_DIR + "/.env", "w") as e:
                 e.write(settings)
 
         def development():
-            secret_key = input("SECRET_KEY: ")
-            dev_db_name = input("DEV DB NAME: ")
-            dev_db_username = input("DEV DB USERNAME: ")
-
             env_file = (
-                "DEBUG=True\n"
-                f"SECRET_KEY={secret_key}\n\n"
-                f"DEV_DB_NAME={dev_db_name}\n"
-                f"DEV_DB_USERNAME={dev_db_username}"
+                "DEBUG=True\n",
+                f"SECRET_KEY={ENV_QUESTIONS['secret_key']()}\n\n"
+                f"DEV_DB_NAME={ENV_QUESTIONS['dev_db_name']()}\n"
+                f"DEV_DB_USERNAME={ENV_QUESTIONS['dev_db_username']()}"
             )
-            # print(env_file)
             create_env_file(env_file)
 
         def production():
-            secret_key = input("SECRET_KEY: ")
-            db_username = input("DB NAME: ")
-            db_username = input("DB USERNAME: ")
-            db_password = input("DB PASSWORD: ")
-            db_host = input("DB HOST: ")
-
             env_file = (
                 "DEBUG=False\n"
-                f"SECRET_KEY={secret_key}\n\n"
-                f"DB_NAME={db_username}\n"
-                f"DB_USERNAME={db_username}\n"
-                f"DB_PASSWORD={db_password}\n"
-                f"DB_HOST={db_host}"
+                f"SECRET_KEY={ENV_QUESTIONS['secret_key']()}\n\n"
+                f"DB_NAME={ENV_QUESTIONS['db_name']()}\n"
+                f"DB_USERNAME={ENV_QUESTIONS['db_username']()}\n"
+                f"DB_PASSWORD={ENV_QUESTIONS['db_password']()}\n"
+                f"DB_HOST={ENV_QUESTIONS['db_host']()}"
             )
-            # print(env_file)
             create_env_file(env_file)
 
         def both():
-            # commons
-            debug = input("DEBUG: ")
-            secret_key = input("SECRET_KEY: ")
-
-            # development
-            dev_db_name = input("DEV DB NAME: ")
-            dev_db_username = input("DEV DB USERNAME: ")
-
-            # production
-            db_username = input("DB NAME: ")
-            db_username = input("DB USERNAME: ")
-            db_password = input("DB PASSWORD: ")
-            db_host = input("DB HOST: ")
-
             env_file = (
                 # common
-                f"DEBUG={debug}\n"
-                f"SECRET_KEY={secret_key}\n\n"
+                f"DEBUG={ENV_QUESTIONS['debug']()}\n"
+                f"SECRET_KEY={ENV_QUESTIONS['secret_key']()}\n\n"
                 # development
-                f"DEV_DB_NAME={dev_db_name}\n"
-                f"DEV_DB_USERNAME={dev_db_username}\n\n"
+                f"DEV_DB_NAME={ENV_QUESTIONS['dev_db_name']()}\n"
+                f"DEV_DB_USERNAME={ENV_QUESTIONS['dev_db_username']()}\n\n"
                 # production
-                f"DB_NAME={db_username}\n"
-                f"DB_USERNAME={db_username}\n"
-                f"DB_PASSWORD={db_password}\n"
-                f"DB_HOST={db_host}"
+                f"DB_NAME={ENV_QUESTIONS['db_name']()}\n"
+                f"DB_USERNAME={ENV_QUESTIONS['db_username']()}\n"
+                f"DB_PASSWORD={ENV_QUESTIONS['db_password']()}\n"
+                f"DB_HOST={ENV_QUESTIONS['db_host']()}"
             )
             create_env_file(env_file)
 

@@ -375,3 +375,4 @@ $RECYCLE.BIN/
 node_modules
 src/.coveragerc
 static_root
+.env_
