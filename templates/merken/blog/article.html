@@ -26,8 +26,15 @@
   {% include 'merken/blog/includes/article-bottom.html' %}
 
   {% if article.allow_comments %}
-    <br><br>
-    <div id="disqus_thread"></div>
+    <br>
+    <script src="https://utteranc.es/client.js"
+      repo="wilfredinni/comments_merken"
+      issue-term="title"
+      label="Comments"
+      theme="github-light"
+      crossorigin="anonymous"
+      async>
+    </script>
   {% endif %}
 {% endblock main_column %}
 
@@ -47,26 +54,6 @@
     window.TinyQ.init();
   });
 </script>
-
-<!-- disqus -->
-<script>
-  var disqus_config = function () {
-    this.page.url =
-    "{{ settings.canonical_url }}/blog/{{ article.url }}"; // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = "{{ article.url }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-  };
-
-  (function () { // DON'T EDIT BELOW THIS LINE
-    var d = document,
-      s = d.createElement('script');
-    s.src = 'https://python-cheatsheet.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-  })();
-</script>
-<noscript>
-  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
 
 <!-- addthis -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b05cb2ae9e75f31"></script>
