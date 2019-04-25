@@ -43,18 +43,18 @@ class Article(models.Model):
     is_featured = models.BooleanField(default=False)
     created_at = models.DateTimeField(default=timezone.now)
 
-    # use PostQuerySet as the manager for this model
+    # use ArticleQuerySet as the manager for this model
     objects = ArticleQuerySet.as_manager()
 
     def get_absolute_url(self):
         return reverse("blog_app:article", kwargs={"slug": self.url})
 
-    class Meta:
-        ordering = ["-created_at"]
+    @property
+    def is_in_past(self):
+        return self.created_at < timezone.now()
 
     def __str__(self):
         return self.title
 
-    @property
-    def is_in_past(self):
-        return self.created_at < timezone.now()
+    class Meta:
+        ordering = ["-created_at"]
