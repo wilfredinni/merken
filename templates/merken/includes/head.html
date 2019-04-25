@@ -18,17 +18,6 @@
 <!-- favicon -->
 <link rel="icon" type="image/svg" href="{% static 'merken/img/snake.svg' %}">
 
-<!-- schema.org -->
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Website",
-    "publisher": "{{ settings.publisher }}",
-    "url": "{{ settings.canonical_url }}",
-    "description": "{{ settings.site_description }}"
-  }
-</script>
-
 {% if settings.enable_analytics %}
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121059935-1"></script>

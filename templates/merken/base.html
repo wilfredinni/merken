@@ -7,6 +7,19 @@
   <!-- seo -->
   {% block seo %}{% endblock seo %}
 
+  {% block schema %}
+  <!-- schema.org -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Website",
+      "publisher": "{{ settings.publisher }}",
+      "url": "{{ settings.canonical_url }}",
+      "description": "{{ settings.site_description }}"
+    }
+  </script>
+  {% endblock schema %}
+
   <!-- title -->
   {% block title %}{% endblock title %}
 

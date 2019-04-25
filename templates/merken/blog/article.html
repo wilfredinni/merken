@@ -1,48 +1,92 @@
 {% extends 'merken/base_sidebar.html' %}
-{% load static markdown_tag  %}
+{% load static markdown_tag %}
 
 {% block seo %}
-  <meta property="og:title" content="{{ article.title }} - {{ settings.site_name }}">
-  <link rel="canonical" href="{{ settings.canonical_url }}/blog/{{ article.url }}">
-  <meta property="og:url" content="{{ settings.canonical_url }}/blog/{{ article.url }}">
-  <meta name="description" content="{{ article.overview|render_markdown|striptags }}">
-  <meta property="og:description" content="{{ article.overview|render_markdown|striptags }}">
-  <meta name="twitter:description" content="{{ article.overview|render_markdown|striptags }}" />
+<meta property="og:title" content="{{ article.title }} - {{ settings.site_name }}"/>
+<link rel="canonical" href="{{ settings.canonical_url }}/blog/{{ article.url }}"/>
+<meta property="og:url" content="{{ settings.canonical_url }}/blog/{{ article.url }}"/>
+<meta name="description" content="{{ article.overview | render_markdown | striptags }}"/>
+<meta property="og:description" content="{{ article.overview | render_markdown | striptags }}"/>
+<meta name="twitter:description" content="{{ article.overview | render_markdown | striptags }}"/>
 {% endblock seo %}
 
+{% block schema %}
+<!-- schema.org -->
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "{{ article.title }}",
+    "image": {
+      "@type": "ImageObject",
+      "url": "{{ article.img_url }}"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ settings.canonical_url }}/blog/{{ article.url }}"
+    },
+    "datePublished": "{{ article.created_at }}",
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ settings.publisher }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ settings.canonical_url }}{% static 'merken/img/snake.svg' %}",
+        "width": 60,
+        "height": 60
+      }
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "{{ settings.publisher }}",
+      "url": "{{ settings.canonical_url }}",
+      "logo": "{{ settings.canonical_url }}{% static 'merken/img/snake.svg' %}"
+    },
+    "description": "{{ article.overview|render_markdown|striptags }}"
+  }
+</script>
+{% endblock schema %}
+
 {% block title %}
-  <title>{{ article.title }} - {{ settings.site_name }}</title>
+<title>{{ article.title }} - {{ settings.site_name }}</title>
 {% endblock title %}
 
 {% block css %}
-  <link rel="stylesheet" href="{% static 'merken/css/atom-one-dark-min.css' %}">
+<link rel="stylesheet" href="{% static 'merken/css/atom-one-dark-min.css' %}" />
 {% endblock css %}
 
 {% block main_column %}
-  <!-- article -->
-  {% include 'merken/blog/includes/article-detail.html' %}
-  <hr>
-  <!-- share and article tags -->
-  {% include 'merken/blog/includes/article-bottom.html' %}
+<!-- article -->
+{% include 'merken/blog/includes/article-detail.html' %}
+<hr />
+<!-- share and article tags -->
+{% include 'merken/blog/includes/article-bottom.html' %}
 
-  {% if article.allow_comments %}
-    <br>
-    <script src="https://utteranc.es/client.js"
-      repo="wilfredinni/comments_merken"
-      issue-term="title"
-      label="Comments"
-      theme="github-light"
-      crossorigin="anonymous"
-      async>
-    </script>
-  {% endif %}
+{% if article.allow_comments %}
+<br />
+<script
+  src="https://utteranc.es/client.js"
+  repo="wilfredinni/comments_merken"
+  issue-term="title"
+  label="Comments"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script>
+{% endif %}
 {% endblock main_column %}
 
 {% block javascript %}
-<script type="text/javascript" src="{% static 'merken/js/article-index.min.js' %}"></script>
+<script
+  type="text/javascript"
+  src="{% static 'merken/js/article-index.min.js' %}">
+</script>
 
 <!-- highlight -->
-<script type="text/javascript" src="{% static 'merken/js/highlight.pack.js' %}"></script>
+<script
+  type="text/javascript"
+  src="{% static 'merken/js/highlight.pack.js' %}">
+</script>
 <script>
   hljs.initHighlightingOnLoad();
 </script>
@@ -50,17 +94,21 @@
 <!-- tiny quoter -->
 <script src="{% static 'merken/js/tinyquoter.min.js' %}"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function (event) {
+  document.addEventListener("DOMContentLoaded", function(event) {
     window.TinyQ.init();
   });
 </script>
 
 <!-- addthis -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b05cb2ae9e75f31"></script>
+<script
+  type="text/javascript"
+  src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b05cb2ae9e75f31">
+</script>
+
 <script type="text/javascript">
   var addthis_share = {
     url: "{{ settings.canonical_url }}/blog/{{ article.url }}",
-    title: "{{ article.title }}",
+    title: "{{ article.title }}"
   };
 </script>
 {% endblock javascript %}
