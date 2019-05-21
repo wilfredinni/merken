@@ -1,20 +1,16 @@
 from django.contrib.syndication.views import Feed
-
-# from dashboard.models import SiteConfiguration
-from .models import Article
-
 from mistune import markdown
+
+from .models import Article
 
 
 class ArticleFeed(Feed):
-    # site_info = SiteConfiguration.load()
     link = "/blog/"
-    description = (  # replace with SiteConfiguration
+    description = (
         f"Updates to the Python Cheatsheet Blog"
     )
 
     def title(self):
-        # return f"{self.site_info.site_name}"
         return "Python Cheatsheet"
 
     def items(self):
@@ -24,4 +20,4 @@ class ArticleFeed(Feed):
         return item.title
 
     def item_description(self, item):
-        return markdown(item.overview)
+        return markdown(item.content)
