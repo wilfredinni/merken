@@ -29,7 +29,7 @@ class SiteConfigurationModelModified(TestCase):
             favicon="path/to/favicon.png",
             site_img="pat/to/img.png",
             enable_ads=True,
-            enable_analytics=True
+            enable_analytics=True,
         )
         self.config = SiteConfiguration.objects.get()
 

@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     "django.contrib.sitemaps",
     "robots",
+    "cachalot",
     # local apps
     "users",
     "blog",
@@ -96,5 +97,3 @@ AUTH_USER_MODEL = "users.CustomUser"
 
 # to avoid dtb to cause errors when testing
 TESTING_MODE = "test" in sys.argv
-
-# Simplified static file serving with WhiteNoise adding cachable files and gzip support
