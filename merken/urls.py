@@ -13,8 +13,8 @@ sitemaps = {
     "blog": BlogSitemap,
     "page": PagesSitemap,
     "Tags": TagSitemap,
-    "users": UsersSitemap
-    }
+    "users": UsersSitemap,
+}
 
 handler404 = handler404
 handler500 = handler500
@@ -30,6 +30,7 @@ urlpatterns = [
         {"sitemaps": sitemaps},
         name="django.contrib.sitemaps.views.sitemap",
     ),
+    path("robots.txt", include("robots.urls")),
 ]
 
 if settings.DEBUG or settings.TESTING_MODE:
