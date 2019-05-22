@@ -24,13 +24,13 @@ urlpatterns = [
     path("", include("blog.urls")),
     path("", include("users.urls")),
     path("", include("pages.urls")),
+    path("robots.txt", include("robots.urls")),
     path(
         "sitemap.xml",
         sitemap,
         {"sitemaps": sitemaps},
         name="django.contrib.sitemaps.views.sitemap",
     ),
-    path("robots.txt", include("robots.urls")),
 ]
 
 if settings.DEBUG or settings.TESTING_MODE:

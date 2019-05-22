@@ -46,6 +46,9 @@ class SiteConfiguration(SingletonModel):
     class Meta:
         verbose_name = "Site Configuration"
 
+    def __str__(self):
+        return self.site_name
+
 
 class HomeMsg(SingletonModel):
     content = models.TextField(null=True, blank=True)

@@ -2,6 +2,7 @@
 source =
     .
 omit =
+    */settings/*
     */migrations/*
     */tests/*
     */apps.py
@@ -13,3 +14,4 @@ exclude_lines =
     raise AssertionError
     raise NotImplementedError
     if __name__ == .__main__.:
+    def __str__(self):
