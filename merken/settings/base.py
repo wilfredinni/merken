@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     "django.contrib.sitemaps",
     "robots",
+    "cachalot",
     # local apps
     "users",
     "blog",
