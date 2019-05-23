@@ -5,13 +5,13 @@ from ..models import Page
 class PageModelDefaults(TestCase):
     def setUp(self):
         Page.objects.create(
-            title="title",
-            overview="overview",
-            content="content",
-            url="url"
+            title="title", overview="overview", content="content", url="url"
         )
 
         self.page = Page.objects.get(url="url")
+
+    def test_str(self):
+        self.assertEqual(str(self.page), "title")
 
     def test_pages_model_defaults(self):
         self.assertEqual(self.page.title, "title")

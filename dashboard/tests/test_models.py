@@ -18,7 +18,7 @@ class SiteConfigurationModelDefaults(TestCase):
         self.assertEqual(self.config.enable_analytics, False)
 
     def test_str(self):
-        self.assertEqual(str(self.config.site_name), "Site Name")
+        self.assertEqual(str(self.config), "Site Name")
 
 
 class SiteConfigurationModelModified(TestCase):
@@ -37,7 +37,7 @@ class SiteConfigurationModelModified(TestCase):
         self.config = SiteConfiguration.objects.get()
 
     def test_str(self):
-        self.assertEqual(str(self.config.site_name), "site_name")
+        self.assertEqual(str(self.config), "site_name")
 
     def test_site_configuration_model_modified(self):
         self.assertEqual(self.config.site_name, "site_name")
