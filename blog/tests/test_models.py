@@ -18,6 +18,9 @@ class TestModels(TestCase):
         self.article = Article.objects.get(url="url")
         self.tag = Tag.objects.get(title="test_tag")
 
+    def test_str(self):
+        self.assertEqual(str(self.article), "title")
+
     def test_article_model_defaults(self):
         self.assertEqual(self.article.author.username, "test_user")
         self.assertEqual(self.article.title, "title")
@@ -51,3 +54,27 @@ class TestModels(TestCase):
         self.article.tags.add(self.tag)
         self.article.tags.remove(self.tag)
         self.assertNotEqual(self.article.tags.first(), self.tag)
+
+
+class TestManagers(TestCase):
+    def setUp(self):
+        posts = [
+            ["title1", True, True, "url1"],
+            ["title2", False, False, "url2"],
+            ["title3", False, True, "url3"],
+            ["title4", True, False, "url4"],
+        ]
+        user = CustomUser.objects.create_user("test_user")
+        for post in posts:
+            Article.objects.create(
+                author=user,
+                title=post[0],
+                is_draft=post[1],
+                is_featured=post[2],
+                url=post[3],
+            )
+
+    def test_featured_published(self):
+        queryset = Article.objects.all()
+        self.assertEqual(len(queryset.featured()), 2)
+        self.assertEqual(len(queryset.published()), 2)

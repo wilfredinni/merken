@@ -17,6 +17,9 @@ class SiteConfigurationModelDefaults(TestCase):
         self.assertEqual(self.config.enable_ads, False)
         self.assertEqual(self.config.enable_analytics, False)
 
+    def test_str(self):
+        self.assertEqual(str(self.config.site_name), "Site Name")
+
 
 class SiteConfigurationModelModified(TestCase):
     def setUp(self):
@@ -32,6 +35,9 @@ class SiteConfigurationModelModified(TestCase):
             enable_analytics=True,
         )
         self.config = SiteConfiguration.objects.get()
+
+    def test_str(self):
+        self.assertEqual(str(self.config.site_name), "site_name")
 
     def test_site_configuration_model_modified(self):
         self.assertEqual(self.config.site_name, "site_name")
