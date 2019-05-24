@@ -18,5 +18,5 @@ class HomeMsgSerializer(serializers.HyperlinkedModelSerializer):
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        Model = CustomUser
+        model = CustomUser
         fields = "__all__"
