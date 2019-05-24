@@ -75,6 +75,7 @@ TEMPLATES = [
     }
 ]
 
+
 WSGI_APPLICATION = "merken.wsgi.application"
 
 # Internationalization
