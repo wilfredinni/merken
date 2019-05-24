@@ -6,7 +6,9 @@ app_name = "api"
 
 urlpatterns = [
     path("articles/", views.ArticlesListView.as_view()),
-    path("articles/<int:pk>/", views.ArticlesDetailView.as_view())
+    path("articles/<int:pk>/", views.ArticlesDetailView.as_view()),
+    path('users/', views.UserList.as_view()),
+    path('users/<int:pk>/', views.UserDetail.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
