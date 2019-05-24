@@ -22,6 +22,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sites",
     "django.contrib.sitemaps",
+    # third apps
+    "rest_framework",
     "robots",
     "cachalot",
     # local apps
