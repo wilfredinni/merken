@@ -31,9 +31,7 @@ class Tag(models.Model):
 
 
 class Article(models.Model):
-    author = models.ForeignKey(
-        CustomUser, related_name="articles", on_delete=models.CASCADE
-    )
+    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     title = models.CharField(max_length=120, unique=True)
     overview = models.TextField()
     content = models.TextField()
