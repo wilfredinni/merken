@@ -75,7 +75,7 @@
   <div>
     <h2 class="author-title level-item">Blog Posts by {{ user.username }}</h2>
     <ul style="list-style-type:disc">
-      {% for article in user.article_set.all %}
+      {% for article in user.articles.all %}
       <li>
         <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
       </li>
