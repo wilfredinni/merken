@@ -28,9 +28,9 @@ class UserAdminSerializer(serializers.HyperlinkedModelSerializer):
         )
 
 
-class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.HyperlinkedModelSerializer):
     # articles = serializers.PrimaryKeyRelatedField(
-    #     many=True, queryset=Article.objects.all()
+    #     many=True, queryset=Article.objects.all(),
     # )
 
     class Meta:
@@ -44,6 +44,6 @@ class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
             "github",
             "website",
             "about",
-            "articles"
+            # "articles"
         )
         # read_only_fields = ("articles",)

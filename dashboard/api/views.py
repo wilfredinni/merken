@@ -1,12 +1,7 @@
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, mixins
 
-from .permissions import IsAdminOrReadOnly, IsSameUserOrReadOnly
-from .serializers import (
-    SiteConfigSerializer,
-    HomeMsgSerializer,
-    UserProfileSerializer,
-    UserAdminSerializer,
-)
+from .permissions import IsAdminOrReadOnly, IsOwnerOrAdminOrReadOnly
+from .serializers import SiteConfigSerializer, HomeMsgSerializer, UserSerializer
 
 from ..models import SiteConfiguration, HomeMsg
 from users.models import CustomUser
@@ -31,19 +26,24 @@ class HomeViewSet(viewsets.ModelViewSet):
     http_method_names = ["get", "put", "head"]
 
 
-class UserAdminViewSet(viewsets.ModelViewSet):
-    # only the admins have access to the UserAdminViewSet endpoint
-    # the admin has full permissions
-    permission_classes = (permissions.IsAdminUser,)
+class UserListView(
+    mixins.ListModelMixin, mixins.CreateModelMixin, viewsets.GenericViewSet
+):
+    # only authenticated users can have access to the Users endpoint
+    # only admin users can create new users
+    permission_classes = (permissions.IsAuthenticated, IsAdminOrReadOnly)
     queryset = CustomUser.objects.all()
-    serializer_class = UserAdminSerializer
+    serializer_class = UserSerializer
 
 
-class UserProfileViewSet(viewsets.ModelViewSet):
-    # only authenticated users can have access to the UserProfileViewSet endpoint
-    # no one, not even the admin can create new users from here
-    # only the user can update his user profile
-    permission_classes = (permissions.IsAuthenticated, IsSameUserOrReadOnly)
+class UserDetailView(
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
+    viewsets.GenericViewSet,
+):
+    # only authenticated users can have access to the Users Details endpoint
+    # only admin users or owners can update profiles
+    permission_classes = (permissions.IsAuthenticated, IsOwnerOrAdminOrReadOnly)
     queryset = CustomUser.objects.all()
-    serializer_class = UserProfileSerializer
-    http_method_names = ["get", "put", "head"]
+    serializer_class = UserSerializer
