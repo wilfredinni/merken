@@ -1,7 +1,12 @@
 from rest_framework import viewsets, permissions
 
-from .serializers import SiteConfigSerializer, HomeMsgSerializer, UserProfileSerializer
 from .permissions import IsAdminOrReadOnly, IsSameUserOrReadOnly
+from .serializers import (
+    SiteConfigSerializer,
+    HomeMsgSerializer,
+    UserProfileSerializer,
+    UserAdminSerializer,
+)
 
 from ..models import SiteConfiguration, HomeMsg
 from users.models import CustomUser
@@ -24,6 +29,14 @@ class HomeViewSet(viewsets.ModelViewSet):
     queryset = HomeMsg.objects.all()
     serializer_class = HomeMsgSerializer
     http_method_names = ["get", "put", "head"]
+
+
+class UserAdminViewSet(viewsets.ModelViewSet):
+    # only the admins have access to the UserAdminViewSet endpoint
+    # the admin has full permissions
+    permission_classes = (permissions.IsAdminUser,)
+    queryset = CustomUser.objects.all()
+    serializer_class = UserAdminSerializer
 
 
 class UserProfileViewSet(viewsets.ModelViewSet):

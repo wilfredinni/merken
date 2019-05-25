@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from ..models import SiteConfiguration, HomeMsg
+# from blog.models import Article
 from users.models import CustomUser
 
 
@@ -16,6 +17,17 @@ class HomeMsgSerializer(serializers.HyperlinkedModelSerializer):
         fields = "__all__"
 
 
+class UserAdminSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = (
+            "url",
+            "username",
+            "email",
+            "password",
+        )
+
+
 class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
     # articles = serializers.PrimaryKeyRelatedField(
     #     many=True, queryset=Article.objects.all()
@@ -24,7 +36,7 @@ class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = CustomUser
         fields = (
-            "id",
+            "url",
             "username",
             "email",
             "password",
@@ -32,5 +44,6 @@ class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
             "github",
             "website",
             "about",
-            # "articles"
+            "articles"
         )
+        # read_only_fields = ("articles",)
