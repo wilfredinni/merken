@@ -42,7 +42,7 @@ class SiteConfiguration(SingletonModel):
 
 
 class HomeMsg(SingletonModel):
-    content = models.TextField(null=True, blank=True)
+    content = models.TextField(default="Notification Message")
     enabled = models.BooleanField(default=False)
 
     class Meta:

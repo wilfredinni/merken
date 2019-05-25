@@ -1,30 +1,36 @@
 from rest_framework import viewsets, permissions
 
-from .serializers import SiteConfigSerializer, HomeMsgSerializer, UserSerializer
-from .permissions import IsAdminOrReadOnly
+from .serializers import SiteConfigSerializer, HomeMsgSerializer, UserProfileSerializer
+from .permissions import IsAdminOrReadOnly, IsSameUserOrReadOnly
+
 from ..models import SiteConfiguration, HomeMsg
 from users.models import CustomUser
 
 
 class ConfigViewSet(viewsets.ModelViewSet):
-    # only authenticated users can have access to the site configuration endpoint
     # only admin users can update the fields in the SiteConfiguration model
-    permission_classes = (permissions.IsAuthenticated, IsAdminOrReadOnly,)
+    # authenticated users have access to the site configuration endpoint
+    # this is I can display the site information on the dashboard (like site_name)
+    permission_classes = (permissions.IsAuthenticated, IsAdminOrReadOnly)
     queryset = SiteConfiguration.objects.all()
     serializer_class = SiteConfigSerializer
+    http_method_names = ["get", "put", "head"]
 
 
 class HomeViewSet(viewsets.ModelViewSet):
     # only authenticated users can have access to the HomeMsg endpoint
     # only admin users can update the fields in the HomeMsg model
-    permission_classes = (permissions.IsAuthenticated, IsAdminOrReadOnly,)
+    permission_classes = (permissions.IsAuthenticated, IsAdminOrReadOnly)
     queryset = HomeMsg.objects.all()
     serializer_class = HomeMsgSerializer
+    http_method_names = ["get", "put", "head"]
 
 
-class UserViewSet(viewsets.ModelViewSet):
-    # only authenticated users can have access to the HomeMsg endpoint
-    # only admin users can update the fields in the HomeMsg model
-    permission_classes = (permissions.IsAuthenticated, IsAdminOrReadOnly,)
+class UserProfileViewSet(viewsets.ModelViewSet):
+    # only authenticated users can have access to the UserProfileViewSet endpoint
+    # no one, not even the admin can create new users from here
+    # only the user can update his user profile
+    permission_classes = (permissions.IsAuthenticated, IsSameUserOrReadOnly)
     queryset = CustomUser.objects.all()
-    serializer_class = UserSerializer
+    serializer_class = UserProfileSerializer
+    http_method_names = ["get", "put", "head"]

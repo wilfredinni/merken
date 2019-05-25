@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
-from users.models import CustomUser
 from ..models import SiteConfiguration, HomeMsg
+from users.models import CustomUser
 
 
 class SiteConfigSerializer(serializers.HyperlinkedModelSerializer):
@@ -16,7 +16,21 @@ class HomeMsgSerializer(serializers.HyperlinkedModelSerializer):
         fields = "__all__"
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
+    # articles = serializers.PrimaryKeyRelatedField(
+    #     many=True, queryset=Article.objects.all()
+    # )
+
     class Meta:
         model = CustomUser
-        fields = "__all__"
+        fields = (
+            "id",
+            "username",
+            "email",
+            "password",
+            "twitter",
+            "github",
+            "website",
+            "about",
+            # "articles"
+        )
