@@ -11,11 +11,11 @@ class TestModels(TestCase):
             title="title",
             overview="overview",
             content="content",
-            url="url",
+            slug="url",
             img_url="img_url",
         )
 
-        self.article = Article.objects.get(url="url")
+        self.article = Article.objects.get(slug="url")
         self.tag = Tag.objects.get(title="test_tag")
 
     def test_str(self):
@@ -27,7 +27,7 @@ class TestModels(TestCase):
         self.assertEqual(self.article.overview, "overview")
         self.assertEqual(self.article.content, "content")
         self.assertEqual(self.article.img_url, "img_url")
-        self.assertEqual(self.article.url, "url")
+        self.assertEqual(self.article.slug, "url")
 
         # defaults
         self.assertEqual(self.article.is_featured, False)
@@ -71,7 +71,7 @@ class TestManagers(TestCase):
                 title=post[0],
                 is_draft=post[1],
                 is_featured=post[2],
-                url=post[3],
+                slug=post[3],
             )
 
     def test_featured_published(self):

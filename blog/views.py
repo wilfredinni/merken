@@ -44,4 +44,4 @@ class TagView(ListView):
 class ArticleView(DetailView):
     model = Article
     template_name = "merken/blog/article.html"
-    slug_field = "url"
+    slug_field = "slug"

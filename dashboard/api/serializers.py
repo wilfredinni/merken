@@ -1,8 +1,8 @@
 from rest_framework import serializers
 
 from ..models import SiteConfiguration, HomeMsg
-# from blog.models import Article
 from users.models import CustomUser
+from blog.models import Article, Tag
 from pages.models import Page
 
 
@@ -37,6 +37,38 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
             # "articles"
         )
         # read_only_fields = ("articles",)
+
+
+class FullBlogSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Article
+        fields = "__all__"
+
+
+class AuthorBlogSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        owner = serializers.ReadOnlyField(source='author.username')
+        model = Article
+        fields = (
+            "url",
+            "author",
+            "title",
+            "overview",
+            "content",
+            "img_url",
+            "tags",
+            "slug",
+            "allow_comments",
+            "is_draft",
+            "is_featured",
+        )
+        read_only_fields = ("is_featured",)
+
+
+class TagsSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Tag
+        fields = "__all__"
 
 
 class PageSerializer(serializers.HyperlinkedModelSerializer):

@@ -20,7 +20,7 @@ class TestArticleView(TestCase):
     def setUp(self):
         self.client = Client()
         user = CustomUser.objects.create_user("test_user")
-        Article.objects.create(url="test_slug", author=user)
+        Article.objects.create(slug="test_slug", author=user)
 
     def test_article_GET(self):
         url = reverse("blog_app:article", args=["test_slug"])

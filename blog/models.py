@@ -39,7 +39,7 @@ class Article(models.Model):
     content = models.TextField()
     img_url = models.CharField(max_length=200)
     tags = models.ManyToManyField(Tag)
-    url = models.SlugField(max_length=120, unique=True)
+    slug = models.SlugField(max_length=120, unique=True)
     is_draft = models.BooleanField(default=False)
     allow_comments = models.BooleanField(default=True)
     is_featured = models.BooleanField(default=False)
@@ -49,7 +49,7 @@ class Article(models.Model):
     objects = ArticleQuerySet.as_manager()
 
     def get_absolute_url(self):
-        return reverse("blog_app:article", kwargs={"slug": self.url})
+        return reverse("blog_app:article", kwargs={"slug": self.slug})
 
     @property
     def is_in_past(self):
