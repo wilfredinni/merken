@@ -7,6 +7,7 @@ router.register(r"configuration", views.ConfigViewSet)
 router.register(r"message", views.HomeViewSet)
 router.register(r"users", views.UserListView)
 router.register(r"users", views.UserDetailView)
+router.register(r"pages", views.PagesViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),

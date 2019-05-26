@@ -7,7 +7,7 @@ from ..models import Page
 class TestPageView(TestCase):
     def setUp(self):
         self.client = Client()
-        Page.objects.create(url="test_slug")
+        Page.objects.create(slug="test_slug")
 
     def test_page_GET(self):
         url = reverse("page_app:page", args=["test_slug"])
@@ -26,7 +26,7 @@ class TestIndexView(TestCase):
         self.client = Client()
 
     def test_index_GET(self):
-        Page.objects.create(url="index")
+        Page.objects.create(slug="index")
         url = reverse("page_app:index")
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)

@@ -5,10 +5,10 @@ from ..models import Page
 class PageModelDefaults(TestCase):
     def setUp(self):
         Page.objects.create(
-            title="title", overview="overview", content="content", url="url"
+            title="title", overview="overview", content="content", slug="url"
         )
 
-        self.page = Page.objects.get(url="url")
+        self.page = Page.objects.get(slug="url")
 
     def test_str(self):
         self.assertEqual(str(self.page), "title")
@@ -17,7 +17,7 @@ class PageModelDefaults(TestCase):
         self.assertEqual(self.page.title, "title")
         self.assertEqual(self.page.overview, "overview")
         self.assertEqual(self.page.content, "content")
-        self.assertEqual(self.page.url, "url")
+        self.assertEqual(self.page.slug, "url")
 
         # defaults
         self.assertEqual(self.page.visible, False)
