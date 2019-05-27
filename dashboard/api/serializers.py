@@ -19,10 +19,6 @@ class HomeMsgSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    # articles = serializers.PrimaryKeyRelatedField(
-    #     many=True, queryset=Article.objects.all(),
-    # )
-
     class Meta:
         model = CustomUser
         fields = (
@@ -34,9 +30,9 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
             "github",
             "website",
             "about",
-            # "articles"
+            "articles"
         )
-        # read_only_fields = ("articles",)
+        read_only_fields = ("articles",)
 
 
 class FullBlogSerializer(serializers.HyperlinkedModelSerializer):
@@ -47,7 +43,7 @@ class FullBlogSerializer(serializers.HyperlinkedModelSerializer):
 
 class AuthorBlogSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        owner = serializers.ReadOnlyField(source='author.username')
+        author = serializers.ReadOnlyField(source='author.username')
         model = Article
         fields = (
             "url",
