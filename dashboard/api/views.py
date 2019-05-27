@@ -76,6 +76,9 @@ class ArticlesListView(
             return FullBlogSerializer
         return AuthorBlogSerializer
 
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
 
 class ArticlesDetailView(
     mixins.RetrieveModelMixin,
@@ -93,9 +96,6 @@ class ArticlesDetailView(
         if self.request.user.is_staff:
             return FullBlogSerializer
         return AuthorBlogSerializer
-
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
 
 
 class TagsViewSet(viewsets.ModelViewSet):
