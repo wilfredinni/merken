@@ -43,7 +43,6 @@ class FullBlogSerializer(serializers.HyperlinkedModelSerializer):
 
 class AuthorBlogSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        author = serializers.ReadOnlyField(source='author.username')
         model = Article
         fields = (
             "url",
@@ -58,7 +57,7 @@ class AuthorBlogSerializer(serializers.HyperlinkedModelSerializer):
             "is_draft",
             "is_featured",
         )
-        read_only_fields = ("is_featured",)
+        read_only_fields = ("is_featured", "author")
 
 
 class TagsSerializer(serializers.HyperlinkedModelSerializer):

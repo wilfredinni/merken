@@ -87,7 +87,7 @@ class ArticlesDetailView(
     viewsets.GenericViewSet,
 ):
     # admin users can update all the articles
-    # authors can update only their own articles
+    # authors can update and delete only their own articles
     # authenticated users have safe access
     permission_classes = (permissions.IsAuthenticated, IsAuthorOrAdminOrReadOnly)
     queryset = Article.objects.all()
