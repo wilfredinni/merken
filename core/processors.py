@@ -1,6 +1,6 @@
 from blog.models import Tag
 from pages.models import Page
-from dashboard.models import SiteConfiguration
+from .models import SiteConfiguration
 
 
 def global_query(request):

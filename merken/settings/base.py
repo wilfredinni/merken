@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     "users",
     "blog",
     "pages",
-    "dashboard",
     "core",
 ]
 
