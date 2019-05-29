@@ -105,9 +105,3 @@ AUTH_USER_MODEL = "users.CustomUser"
 
 # to avoid dtb to cause errors when testing
 TESTING_MODE = "test" in sys.argv
-
-# security
-SECURE_BROWSER_XSS_FILTER = True
-CSRF_COOKIE_SECURE = True
-SECURE_CONTENT_TYPE_NOSNIFF = True
-X_FRAME_OPTIONS = "DENY"
