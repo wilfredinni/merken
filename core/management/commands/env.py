@@ -1,16 +1,25 @@
 import os
-import sys
 import secrets
+import string
+import sys
 
 from django.core.management.base import BaseCommand
+
 from merken.settings.base import BASE_DIR
 
+
 # TODO: check choice for debug (True/False)
+def secret_key():
+    return "".join(
+        secrets.choice(string.digits + string.ascii_letters + string.punctuation)
+        for i in range(100)
+    )
+
 
 ENV_QUESTIONS = {
     # common
     "debug": lambda: input("DEBUG: "),
-    "secret_key": lambda: secrets.token_urlsafe(30),
+    "secret_key": lambda: secret_key(),
     # development
     "dev_db_name": lambda: input("DEV_DB_NAME: "),
     "dev_db_username": lambda: input("DEV_DB_USERNAME: "),
@@ -19,6 +28,7 @@ ENV_QUESTIONS = {
     "db_username": lambda: input("DB_USERNAME: "),
     "db_password": lambda: input("DB_PASSWORD: "),
     "db_host": lambda: input("DB_HOST: "),
+    "sentry_dsn": lambda: input("SENTRY_DSN: "),
 }
 
 
@@ -54,7 +64,7 @@ class Command(BaseCommand):
                 "DEBUG=True\n",
                 f"SECRET_KEY={ENV_QUESTIONS['secret_key']()}\n\n"
                 f"DEV_DB_NAME={ENV_QUESTIONS['dev_db_name']()}\n"
-                f"DEV_DB_USERNAME={ENV_QUESTIONS['dev_db_username']()}"
+                f"DEV_DB_USERNAME={ENV_QUESTIONS['dev_db_username']()}",
             )
             create_env_file(env_file)
 
@@ -65,7 +75,8 @@ class Command(BaseCommand):
                 f"DB_NAME={ENV_QUESTIONS['db_name']()}\n"
                 f"DB_USERNAME={ENV_QUESTIONS['db_username']()}\n"
                 f"DB_PASSWORD={ENV_QUESTIONS['db_password']()}\n"
-                f"DB_HOST={ENV_QUESTIONS['db_host']()}"
+                f"DB_HOST={ENV_QUESTIONS['db_host']()}\n"
+                f"SENTRY_DSN={ENV_QUESTIONS['sentry_dsn']()}"
             )
             create_env_file(env_file)
 
@@ -81,7 +92,8 @@ class Command(BaseCommand):
                 f"DB_NAME={ENV_QUESTIONS['db_name']()}\n"
                 f"DB_USERNAME={ENV_QUESTIONS['db_username']()}\n"
                 f"DB_PASSWORD={ENV_QUESTIONS['db_password']()}\n"
-                f"DB_HOST={ENV_QUESTIONS['db_host']()}"
+                f"DB_HOST={ENV_QUESTIONS['db_host']()}\n"
+                f"SENTRY_DSN={ENV_QUESTIONS['sentry_dsn']()}"
             )
             create_env_file(env_file)
 
