@@ -39,6 +39,9 @@ class FullBlogSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Article
         fields = "__all__"
+        extra_kwargs = {
+            'content': {'write_only': True},
+        }
 
 
 class AuthorBlogSerializer(serializers.HyperlinkedModelSerializer):
@@ -58,6 +61,9 @@ class AuthorBlogSerializer(serializers.HyperlinkedModelSerializer):
             "is_featured",
         )
         read_only_fields = ("is_featured", "author")
+        extra_kwargs = {
+            'content': {'write_only': True},
+        }
 
 
 class TagsSerializer(serializers.HyperlinkedModelSerializer):
@@ -70,3 +76,4 @@ class PageSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Page
         fields = "__all__"
+        read_only_fields = ("created_at",)

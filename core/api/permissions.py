@@ -2,6 +2,10 @@ from rest_framework import permissions
 
 
 class IsAdminOrReadOnly(permissions.BasePermission):
+    """
+    Custom permission to allow only admin users edit content.
+    """
+
     def has_permission(self, request, view):
         # Read permissions are allowed to any request,
         # so always allow GET, HEAD or OPTIONS requests.

@@ -11,7 +11,7 @@ router.register(r"message", views.HomeMsgViewSet)
 router.register(r"users", views.UserListView)
 router.register(r"users", views.UserDetailView)
 
-# articles and tags Detail and ListView
+# articles and tags, Detail and ListView
 router.register(r"articles", views.ArticlesListView)
 router.register(r"articles", views.ArticlesDetailView)
 router.register(r"tags", views.TagsViewSet)

@@ -58,6 +58,7 @@ class UserDetailView(
 ):
     # only admin users or owners can update profiles
     # authenticated users have safe access to the UsersDetail endpoint
+    # authenticated users can also edit their own profiles
     permission_classes = (permissions.IsAuthenticated, IsOwnerOrAdminOrReadOnly)
     queryset = CustomUser.objects.all()
     serializer_class = UserSerializer
@@ -74,6 +75,7 @@ class ArticlesListView(
     def get_serializer_class(self):
         if self.request.user.is_staff:
             return FullBlogSerializer
+
         return AuthorBlogSerializer
 
     def perform_create(self, serializer):
@@ -95,6 +97,7 @@ class ArticlesDetailView(
     def get_serializer_class(self):
         if self.request.user.is_staff:
             return FullBlogSerializer
+
         return AuthorBlogSerializer
 
 
