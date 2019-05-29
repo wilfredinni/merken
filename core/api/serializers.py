@@ -33,6 +33,9 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
             "articles"
         )
         read_only_fields = ("articles",)
+        extra_kwargs = {
+            'password': {'write_only': True},
+        }
 
 
 class FullBlogSerializer(serializers.HyperlinkedModelSerializer):
