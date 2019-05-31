@@ -1,11 +1,11 @@
 from django.views.generic import TemplateView
-# from django.views.decorators.cache import never_cache
+from django.views.decorators.cache import never_cache
 from django.shortcuts import render
 
 
-# DashboardView = never_cache(TemplateView.as_view(template_name='index.html'))
-class DashboardView(TemplateView):
-    template_name = "index.html"
+DashboardView = never_cache(TemplateView.as_view(template_name='index.html'))
+# class DashboardView(TemplateView):
+#     template_name = "index.html"
 
 
 def handler404(request, exception):
