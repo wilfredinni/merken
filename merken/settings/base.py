@@ -6,10 +6,15 @@ from decouple import config
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 TEMPLATES = os.path.join(BASE_DIR, "templates")
+SITE_STATIC = os.path.join(BASE_DIR, "static_in_env")
+VUE_DASHBOARD = os.path.join(BASE_DIR, "dashboard/dist")
+VUE_DASHBOARD_STATIC = os.path.join(BASE_DIR, "dashboard/dist/static")
+
 
 # the default value for the secret key is only for TravisCI
 SECRET_KEY = config(
-    "SECRET_KEY", default="$9597jcpibr3w!$(y^lm+77qp()*wc^ty%ak4v!g(@1=9p!^kp"
+    "SECRET_KEY",
+    default="$9597jcpibr3w!$(y^lm+77qp()*wc^ty%ak4v!g(@1=9p!^kp",
 )
 
 SITE_ID = 1
@@ -62,7 +67,7 @@ ROOT_URLCONF = "merken.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [TEMPLATES],
+        "DIRS": [TEMPLATES, VUE_DASHBOARD],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -90,16 +95,16 @@ USE_TZ = True
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 5,
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',
-    )
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework.authentication.SessionAuthentication",
+    ),
 }
 
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static_in_env")]
+STATICFILES_DIRS = [SITE_STATIC, VUE_DASHBOARD_STATIC]
 VENV_PATH = os.path.dirname(BASE_DIR)
 STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
 MEDIA_ROOT = os.path.join(VENV_PATH, "media_root")
