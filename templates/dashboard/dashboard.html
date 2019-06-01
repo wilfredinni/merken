@@ -1,0 +1,12 @@
+{% load render_bundle from webpack_loader %}
+
+
+{% block content %}
+    <div id="app">
+        <app></app>
+    </div>
+    {% render_bundle 'chunk-vendors' %}
+
+    <!-- this is the name of the page on vue.config.js -->
+    {% render_bundle 'vue_dashboard' %}
+{% endblock %}

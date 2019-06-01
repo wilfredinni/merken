@@ -7,14 +7,10 @@ from decouple import config
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 TEMPLATES = os.path.join(BASE_DIR, "templates")
 SITE_STATIC = os.path.join(BASE_DIR, "static_in_env")
-VUE_DASHBOARD = os.path.join(BASE_DIR, "dashboard/dist")
-VUE_DASHBOARD_STATIC = os.path.join(BASE_DIR, "dashboard/dist/static")
-
 
 # the default value for the secret key is only for TravisCI
 SECRET_KEY = config(
-    "SECRET_KEY",
-    default="$9597jcpibr3w!$(y^lm+77qp()*wc^ty%ak4v!g(@1=9p!^kp",
+    "SECRET_KEY", default="$9597jcpibr3w!$(y^lm+77qp()*wc^ty%ak4v!g(@1=9p!^kp"
 )
 
 SITE_ID = 1
@@ -30,6 +26,7 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     "django.contrib.sitemaps",
     # third apps
+    "webpack_loader",
     "rest_framework",
     "robots",
     "cachalot",
@@ -39,8 +36,6 @@ INSTALLED_APPS = [
     "pages",
     "core",
 ]
-
-# SITE_ID = 1
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -67,7 +62,7 @@ ROOT_URLCONF = "merken.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [TEMPLATES, VUE_DASHBOARD],
+        "DIRS": [TEMPLATES],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -81,7 +76,6 @@ TEMPLATES = [
     }
 ]
 
-
 WSGI_APPLICATION = "merken.wsgi.application"
 
 # Internationalization
@@ -90,7 +84,6 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-
 
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
@@ -101,17 +94,31 @@ REST_FRAMEWORK = {
 }
 
 
+VUE_FRONTEND_DIR = os.path.join(BASE_DIR, 'dashboard')
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'vue/',  # must end with slash
+        'STATS_FILE': os.path.join(VUE_FRONTEND_DIR, 'webpack-stats.json'),
+        'POLL_INTERVAL': 0.3,
+        'TIMEOUT': None,
+        'IGNORE': [r'.+\.hot-update.js', r'.+\.map']
+    }
+}
+
+
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
-STATICFILES_DIRS = [SITE_STATIC, VUE_DASHBOARD_STATIC]
+STATICFILES_DIRS = [SITE_STATIC]
 VENV_PATH = os.path.dirname(BASE_DIR)
 STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
 MEDIA_ROOT = os.path.join(VENV_PATH, "media_root")
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+
 # custom user model
 AUTH_USER_MODEL = "users.CustomUser"
+
 
 # to avoid debug toolbar to cause errors when testing
 TESTING_MODE = "test" in sys.argv
