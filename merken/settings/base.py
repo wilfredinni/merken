@@ -97,7 +97,7 @@ REST_FRAMEWORK = {
 VUE_FRONTEND_DIR = os.path.join(BASE_DIR, 'dashboard')
 WEBPACK_LOADER = {
     'DEFAULT': {
-        'BUNDLE_DIR_NAME': 'vue/',  # must end with slash
+        'BUNDLE_DIR_NAME': 'dashboard/',  # must end with slash
         'STATS_FILE': os.path.join(VUE_FRONTEND_DIR, 'webpack-stats.json'),
         'POLL_INTERVAL': 0.3,
         'TIMEOUT': None,

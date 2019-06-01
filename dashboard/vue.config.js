@@ -17,9 +17,9 @@ module.exports = {
   productionSourceMap: true,
   publicPath:
     process.env.NODE_ENV === "production"
-      ? "http://127.0.0.1:8000/static/vue/"
+      ? "http://127.0.0.1:8000/static/dashboard/"
       : "http://localhost:8080/",
-  outputDir: "../static_in_env/vue/",
+  outputDir: "../static_in_env/dashboard/",
 
   chainWebpack: config => {
     config.optimization.splitChunks({
