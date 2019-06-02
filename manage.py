@@ -13,7 +13,7 @@ if __name__ == "__main__":
     elif debug is False:
         settings_file = "production"
 
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "merken.settings." + settings_file)
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "conf.settings." + settings_file)
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

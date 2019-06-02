@@ -5,7 +5,7 @@ import sys
 
 from django.core.management.base import BaseCommand
 
-from merken.settings.base import BASE_DIR
+from conf.settings.base import BASE_DIR
 
 
 # TODO: check choice for debug (True/False)
