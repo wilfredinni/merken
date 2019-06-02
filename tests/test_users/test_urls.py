@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import resolve, reverse
 
-from ..views import ProfileView
+from apps.users.views import ProfileView
 
 
 class AuthorTest(TestCase):

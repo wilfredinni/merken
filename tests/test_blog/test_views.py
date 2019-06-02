@@ -2,7 +2,7 @@ from django.test import TestCase, Client
 from django.urls import reverse
 
 from apps.users.models import CustomUser
-from ..models import Article, Tag
+from apps.blog.models import Article, Tag
 
 
 class TestBlogView(TestCase):

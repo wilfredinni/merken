@@ -1,5 +1,5 @@
 from django.test import TestCase
-from ..models import SiteConfiguration, HomeMsg
+from apps.core.models import SiteConfiguration, HomeMsg
 
 
 class SiteConfigurationModelDefaults(TestCase):

@@ -1,7 +1,7 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 
-from ..views import ArticleView, BlogView, TagView
+from apps.blog.views import ArticleView, BlogView, TagView
 
 
 class TestUrls(SimpleTestCase):

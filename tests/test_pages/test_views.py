@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 
-from ..models import Page
+from apps.pages.models import Page
 
 
 class TestPageView(TestCase):

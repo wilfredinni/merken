@@ -1,5 +1,6 @@
 from django.test import TestCase
-from ..models import CustomUser, Article, Tag
+from apps.users.models import CustomUser
+from apps.blog.models import Article, Tag
 
 
 class TestModels(TestCase):

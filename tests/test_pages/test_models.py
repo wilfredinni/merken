@@ -1,5 +1,5 @@
 from django.test import TestCase
-from ..models import Page
+from apps.pages.models import Page
 
 
 class PageModelDefaults(TestCase):
