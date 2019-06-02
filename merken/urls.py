@@ -3,10 +3,10 @@ from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.urls import include, path
 
-from blog.sitemaps import ArticleSitemap, BlogSitemap, TagSitemap
-from core.views import handler404, handler500
-from pages.sitemaps import PagesSitemap
-from users.sitemaps import UsersSitemap
+from apps.blog.sitemaps import ArticleSitemap, BlogSitemap, TagSitemap
+from apps.core.views import handler404, handler500
+from apps.pages.sitemaps import PagesSitemap
+from apps.users.sitemaps import UsersSitemap
 
 sitemaps = {
     "articles": ArticleSitemap,
@@ -21,11 +21,11 @@ handler500 = handler500
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/", include("core.api.urls")),
-    path("dashboard/", include("core.urls")),
-    path("", include("blog.urls")),
-    path("", include("users.urls")),
-    path("", include("pages.urls")),
+    path("api/", include("apps.core.api.urls")),
+    path("dashboard/", include("apps.core.urls")),
+    path("", include("apps.blog.urls")),
+    path("", include("apps.users.urls")),
+    path("", include("apps.pages.urls")),
     path("robots.txt", include("robots.urls")),
     path(
         "sitemap.xml",

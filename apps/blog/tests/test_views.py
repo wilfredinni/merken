@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 
-from users.models import CustomUser
+from apps.users.models import CustomUser
 from ..models import Article, Tag
 
 

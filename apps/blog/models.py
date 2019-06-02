@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.urls import reverse
 
-from users.models import CustomUser
+from apps.users.models import CustomUser
 
 
 class ArticleQuerySet(models.QuerySet):

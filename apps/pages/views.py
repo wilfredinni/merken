@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404
 
 
 from .models import Page
-from core.models import HomeMsg
+from apps.core.models import HomeMsg
 
 
 class IndexView(ListView):

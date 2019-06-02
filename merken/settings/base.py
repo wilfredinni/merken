@@ -31,10 +31,10 @@ INSTALLED_APPS = [
     "robots",
     "cachalot",
     # local apps
-    "users",
-    "blog",
-    "pages",
-    "core",
+    "apps.users",
+    "apps.blog",
+    "apps.pages",
+    "apps.core",
 ]
 
 MIDDLEWARE = [
@@ -70,7 +70,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                "core.processors.global_query",
+                "apps.core.processors.global_query",
             ]
         },
     }

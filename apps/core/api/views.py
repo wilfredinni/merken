@@ -16,9 +16,9 @@ from .serializers import (
 )
 
 from ..models import SiteConfiguration, HomeMsg
-from users.models import CustomUser
-from blog.models import Article, Tag
-from pages.models import Page
+from apps.users.models import CustomUser
+from apps.blog.models import Article, Tag
+from apps.pages.models import Page
 
 
 class ConfigViewSet(viewsets.ModelViewSet):

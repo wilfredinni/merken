@@ -1,5 +1,5 @@
-from blog.models import Tag
-from pages.models import Page
+from apps.blog.models import Tag
+from apps.pages.models import Page
 from .models import SiteConfiguration
 
 
