@@ -6,7 +6,7 @@ from decouple import config
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 TEMPLATES = os.path.join(BASE_DIR, "templates")
-SITE_STATIC = os.path.join(BASE_DIR, "static_in_env")
+SITE_STATIC = os.path.join(BASE_DIR, "static")
 
 # the default value for the secret key is only for TravisCI
 SECRET_KEY = config(

@@ -19,7 +19,7 @@ module.exports = {
     process.env.NODE_ENV === "production"
       ? "http://127.0.0.1:8000/static/dashboard/"
       : "http://localhost:8080/",
-  outputDir: "../static_in_env/dashboard/",
+  outputDir: "../static/dashboard/",
 
   chainWebpack: config => {
     config.optimization.splitChunks({
