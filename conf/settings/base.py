@@ -12,7 +12,6 @@ env.read_env(str(root_path.path(".env")))
 # Basic Config
 # -----------------------------------------------------------------------------
 
-BASE_DIR = root_path()
 TEMPLATES = root_path('templates')
 SITE_STATIC = root_path('static')
 ROOT_URLCONF = "conf.urls"
@@ -131,7 +130,7 @@ MEDIA_ROOT = root_path("media_root")
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-VUE_FRONTEND_DIR = os.path.join(BASE_DIR, 'dashboard')
+VUE_FRONTEND_DIR = root_path('dashboard')
 WEBPACK_LOADER = {
     'DEFAULT': {
         'BUNDLE_DIR_NAME': 'dashboard/',  # must end with slash
