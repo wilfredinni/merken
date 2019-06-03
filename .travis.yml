@@ -8,6 +8,7 @@ services:
 env:
   global:
     - DJANGO_SETTINGS_MODULE="conf.settings.test_ci"
+    - SECRET_KEY=$9597jcpibr3w!$(y^lm+77qsdfs9d8fs8df
     - DATABASE_URL=postgres://travis@127.0.0.1:5432/travis_ci_db
 
 install:
