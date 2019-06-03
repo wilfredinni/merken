@@ -1,7 +1,10 @@
 import os
 import sys
-from conf.settings.base import env
 
+import environ
+
+
+env = environ.Env()
 
 if __name__ == "__main__":
     # test, develop or production
