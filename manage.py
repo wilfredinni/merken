@@ -1,11 +1,11 @@
 import os
 import sys
-from decouple import config
+from conf.settings.base import env
 
 
 if __name__ == "__main__":
     # test, develop or production
-    debug = config("DEBUG", cast=bool, default=True)
+    debug = env.bool("DEBUG", default=True)
     if "test" in sys.argv:
         settings_file = "test_ci"
     elif debug:
