@@ -7,11 +7,11 @@ if __name__ == "__main__":
     # test, develop or production
     debug = config("DEBUG", cast=bool, default=True)
     if "test" in sys.argv:
-        settings_file = "testing"
+        settings_file = "test_ci"
     elif debug:
-        settings_file = "development"
+        settings_file = "dev"
     elif debug is False:
-        settings_file = "production"
+        settings_file = "prod"
 
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "conf.settings." + settings_file)
     try:

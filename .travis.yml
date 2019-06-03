@@ -6,7 +6,6 @@ services:
   - postgresql
 
 env:
-  - DEBUG=True
   - DATABASE_URL=postgres://travis@127.0.0.1:5432/travis_ci_db
   global:
     - DJANGO_SETTINGS_MODULE="conf.settings.test_ci"
