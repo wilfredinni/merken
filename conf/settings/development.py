@@ -9,16 +9,19 @@ ALLOWED_HOSTS = ["127.0.0.1"]
 # Databases
 # -----------------------------------------------------------------------------
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": config("DEV_DB_NAME", default="merken_db"),
-        "USER": config("DEV_DB_USERNAME", default="merken_user"),
-        "PASSWORD": "",
-        "HOST": "localhost",
-        "PORT": 5432,
-    }
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": config("DEV_DB_NAME", default="merken_db"),
+#         "USER": config("DEV_DB_USERNAME", default="merken_user"),
+#         "PASSWORD": "",
+#         "HOST": "localhost",
+#         "PORT": 5432,
+#     }
+# }
+
+# DJANGO_DATABASE_URL = env.db('DATABASE_URL')
+# DATABASES = {'default': DJANGO_DATABASE_URL}
 
 # -----------------------------------------------------------------------------
 # Django Debug Toolbar

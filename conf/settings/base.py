@@ -2,15 +2,20 @@ import os
 import sys
 
 from decouple import config
+import environ
+
+env = environ.Env()
+root_path = environ.Path(__file__) - 3
+env.read_env(str(root_path.path(".env")))
 
 
 # -----------------------------------------------------------------------------
 # Basic Config
 # -----------------------------------------------------------------------------
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-TEMPLATES = os.path.join(BASE_DIR, "templates")
-SITE_STATIC = os.path.join(BASE_DIR, "static")
+BASE_DIR = root_path()
+TEMPLATES = root_path('templates')
+SITE_STATIC = root_path('static')
 ROOT_URLCONF = "conf.urls"
 WSGI_APPLICATION = "conf.wsgi.application"
 SITE_ID = 1
@@ -37,6 +42,13 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
+
+# -----------------------------------------------------------------------------
+# Databases
+# -----------------------------------------------------------------------------
+
+DJANGO_DATABASE_URL = env.db('DATABASE_URL')
+DATABASES = {'default': DJANGO_DATABASE_URL}
 
 # -----------------------------------------------------------------------------
 # Applications configuration
@@ -115,9 +127,8 @@ STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
 
 STATICFILES_DIRS = [SITE_STATIC]
-STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
-VENV_PATH = os.path.dirname(BASE_DIR)
-MEDIA_ROOT = os.path.join(VENV_PATH, "media_root")
+STATIC_ROOT = root_path('static_root')
+MEDIA_ROOT = root_path("media_root")
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
