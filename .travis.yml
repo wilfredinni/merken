@@ -6,9 +6,9 @@ services:
   - postgresql
 
 env:
-  - DATABASE_URL=postgres://travis@127.0.0.1:5432/travis_ci_db
   global:
     - DJANGO_SETTINGS_MODULE="conf.settings.test_ci"
+    - DATABASE_URL=postgres://travis@127.0.0.1:5432/travis_ci_db
 
 install:
   - pip install -r travis_requirements.txt
