@@ -11,19 +11,16 @@ env:
     - DATABASE_URL=postgres://travis@127.0.0.1:5432/travis_ci_db
 
 install:
-  - pip install poetry
-  - poetry install -v
-  - poetry add codecov
-  # - pip install -r travis_requirements.txt
-  # - pip install codecov
+  - pip install -r travis_requirements.txt
+  - pip install codecov
 
 before_script:
   - psql -c "CREATE DATABASE travis_ci_db;" -U postgres
-  - poetry run python manage.py migrate
-  - poetry run python manage.py collectstatic
+  - python manage.py migrate
+  - python manage.py collectstatic
 
 script:
-  - poetry run coverage run manage.py test
+  - coverage run manage.py test
 
 after_success:
-  - poetry run codecov
+  - codecov
