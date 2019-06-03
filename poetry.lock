@@ -305,14 +305,6 @@ termcolor = ">=1.1.0"
 
 [[package]]
 category = "main"
-description = "Strict separation of settings from code."
-name = "python-decouple"
-optional = false
-python-versions = "*"
-version = "3.1"
-
-[[package]]
-category = "main"
 description = "World timezone definitions, modern and historical"
 name = "pytz"
 optional = false
@@ -396,7 +388,7 @@ python-versions = ">=2.7"
 version = "0.5.1"
 
 [metadata]
-content-hash = "705b2a209707e2016647f7f6921a3f01eb78d332f9cf01db2dc49719a93cde44"
+content-hash = "5f69f75e46bbb4ecb35063dad75af9c98006cb1134d45d54ce9aab7a97f4c9df"
 python-versions = "^3.7"
 
 [metadata.hashes]
@@ -431,7 +423,6 @@ pyparsing = ["1873c03321fc118f4e9746baf201ff990ceb915f433f23b395f5580d1840cb2a",
 pytest = ["8304c2f6466cf48f24631263d60320a1996668acfd659d8fa5e5e8f28129e1cd", "b68d84c7c01073ddf2a918a7504ab73849d52483d9f1f15f3875487011d09f71"]
 pytest-django = ["30d773f1768e8f214a3106f1090e00300ce6edfcac8c55fd13b675fe1cbd1c85", "4d3283e774fe1d40630ee58bf34929b83875e4751b525eeb07a7506996eb42ee"]
 pytest-sugar = ["26cf8289fe10880cbbc130bd77398c4e6a8b936d8393b116a5c16121d95ab283", "fcd87a74b2bce5386d244b49ad60549bfbc4602527797fac167da147983f58ab"]
-python-decouple = ["1317df14b43efee4337a4aa02914bf004f010cd56d6c4bd894e6474ec8c4fe2d"]
 pytz = ["303879e36b721603cc54604edcac9d20401bdbe31e1e4fdee5b9f98d5d31dfda", "d747dd3d23d77ef44c6a3526e274af6efeb0a6f1afd5a69ba4d5be4098c8e141"]
 sentry-sdk = ["e308129104567cee9f8848ed5098de17cbccc19bd21417c8980d47f80f1409ec", "f5819df450d7b0696be69a0c6d70a09e4890a3844ee8ccb7a461794135bd5965"]
 six = ["3350809f0555b11f552448330d0b52d5f24c91a322ea4a15ef22629740f3761c", "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"]
