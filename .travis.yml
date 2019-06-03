@@ -1,6 +1,5 @@
 language: python
 python:
-  - "3.6"
   - "3.7-dev"
 
 services:
@@ -9,7 +8,6 @@ services:
 env:
   global:
     - DJANGO_SETTINGS_MODULE="conf.settings.test_ci"
-    # - SECRET_KEY=mysecretkey
     - DATABASE_URL=postgres://travis@127.0.0.1:5432/travis_ci_db
 
 install:
