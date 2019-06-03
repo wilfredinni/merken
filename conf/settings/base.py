@@ -1,7 +1,6 @@
 import os
 import sys
 
-from decouple import config
 import environ
 
 env = environ.Env()
@@ -34,7 +33,7 @@ USE_TZ = True
 # Security and Users
 # -----------------------------------------------------------------------------
 
-SECRET_KEY = config("SECRET_KEY", default="$9597jcpibr3w!$(y^lm+77qp()*wc^ty%ak4v!g(@s%")
+SECRET_KEY = env('SECRET_KEY', default="$9597jcpibr3w!$(y^lm+77qp()*wc^ty%ak4v!g(@s%")
 AUTH_USER_MODEL = "users.CustomUser"
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
