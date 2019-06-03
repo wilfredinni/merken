@@ -5,16 +5,14 @@ import sys
 from conf.settings.base import env
 
 if __name__ == "__main__":
-    # test, develop or production
-    debug = env.bool("DEBUG", default=True)
     if "test" in sys.argv:
         settings_file = "test_ci"
-    elif debug:
-        settings_file = "dev"
-    elif debug is False:
-        settings_file = "prod"
+    else:
+        # dev or prod
+        settings_file = env("ENV", default="dev")
 
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "conf.settings." + settings_file)
+
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
