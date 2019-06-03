@@ -1,6 +1,3 @@
-import os
-import sys
-
 import environ
 
 env = environ.Env()
@@ -32,7 +29,6 @@ USE_TZ = True
 # Security and Users
 # -----------------------------------------------------------------------------
 
-SECRET_KEY = env('SECRET_KEY')
 AUTH_USER_MODEL = "users.CustomUser"
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
@@ -130,11 +126,10 @@ MEDIA_ROOT = root_path("media_root")
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-VUE_FRONTEND_DIR = root_path('dashboard')
 WEBPACK_LOADER = {
     'DEFAULT': {
         'BUNDLE_DIR_NAME': 'dashboard/',  # must end with slash
-        'STATS_FILE': os.path.join(VUE_FRONTEND_DIR, 'webpack-stats.json'),
+        'STATS_FILE': root_path('dashboard/', 'webpack-stats.json'),
         'POLL_INTERVAL': 0.3,
         'TIMEOUT': None,
         'IGNORE': [r'.+\.hot-update.js', r'.+\.map']
@@ -145,4 +140,4 @@ WEBPACK_LOADER = {
 # Django Debug Toolbar
 # -----------------------------------------------------------------------------
 
-TESTING_MODE = "test" in sys.argv
+# TESTING_MODE = "test" in sys.argv

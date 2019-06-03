@@ -1,13 +1,14 @@
 from .base import *
-from .base import env
 
 
 DEBUG = False
 ALLOWED_HOSTS = ["127.0.0.1"]  # ie. ["ip-address", "www.site.com"]
+SECRET_KEY = env("SECRET_KEY")
 
 # -----------------------------------------------------------------------------
 # Logging
 # -----------------------------------------------------------------------------
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
