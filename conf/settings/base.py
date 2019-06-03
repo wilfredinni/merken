@@ -4,16 +4,43 @@ import sys
 from decouple import config
 
 
+# -----------------------------------------------------------------------------
+# Basic Config
+# -----------------------------------------------------------------------------
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 TEMPLATES = os.path.join(BASE_DIR, "templates")
 SITE_STATIC = os.path.join(BASE_DIR, "static")
-
-# the default value for the secret key is only for TravisCI
-SECRET_KEY = config(
-    "SECRET_KEY", default="$9597jcpibr3w!$(y^lm+77qp()*wc^ty%ak4v!g(@1=9p!^kp"
-)
-
+ROOT_URLCONF = "conf.urls"
+WSGI_APPLICATION = "conf.wsgi.application"
 SITE_ID = 1
+
+# -----------------------------------------------------------------------------
+# Time & Language
+# -----------------------------------------------------------------------------
+
+LANGUAGE_CODE = "en-us"
+TIME_ZONE = "UTC"
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
+
+# -----------------------------------------------------------------------------
+# Security and Users
+# -----------------------------------------------------------------------------
+
+SECRET_KEY = config("SECRET_KEY", default="$9597jcpibr3w!$(y^lm+77qp()*wc^ty%ak4v!g(@s%")
+AUTH_USER_MODEL = "users.CustomUser"
+AUTH_PASSWORD_VALIDATORS = [
+    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
+    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
+    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
+    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
+]
+
+# -----------------------------------------------------------------------------
+# Applications configuration
+# -----------------------------------------------------------------------------
 
 INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
@@ -26,13 +53,13 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     "django.contrib.sitemaps",
 
-    # third apps
+    # Third party
     "webpack_loader",
     "rest_framework",
     "robots",
     "cachalot",
 
-    # local apps
+    # Local apps
     "apps.users",
     "apps.blog",
     "apps.pages",
@@ -50,14 +77,6 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-AUTH_PASSWORD_VALIDATORS = [
-    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
-]
-
-ROOT_URLCONF = "conf.urls"
 
 TEMPLATES = [
     {
@@ -76,14 +95,6 @@ TEMPLATES = [
     }
 ]
 
-WSGI_APPLICATION = "conf.wsgi.application"
-
-# Internationalization
-LANGUAGE_CODE = "en-us"
-TIME_ZONE = "UTC"
-USE_I18N = True
-USE_L10N = True
-USE_TZ = True
 
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
@@ -93,6 +104,19 @@ REST_FRAMEWORK = {
     ),
 }
 
+# -----------------------------------------------------------------------------
+# Static & Media Files
+# -----------------------------------------------------------------------------
+
+STATIC_URL = "/static/"
+MEDIA_URL = "/media/"
+
+STATICFILES_DIRS = [SITE_STATIC]
+STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
+VENV_PATH = os.path.dirname(BASE_DIR)
+MEDIA_ROOT = os.path.join(VENV_PATH, "media_root")
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 VUE_FRONTEND_DIR = os.path.join(BASE_DIR, 'dashboard')
 WEBPACK_LOADER = {
@@ -105,20 +129,8 @@ WEBPACK_LOADER = {
     }
 }
 
+# -----------------------------------------------------------------------------
+# Django Debug Toolbar
+# -----------------------------------------------------------------------------
 
-# Static files (CSS, JavaScript, Images)
-STATIC_URL = "/static/"
-MEDIA_URL = "/media/"
-STATICFILES_DIRS = [SITE_STATIC]
-VENV_PATH = os.path.dirname(BASE_DIR)
-STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
-MEDIA_ROOT = os.path.join(VENV_PATH, "media_root")
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
-
-# custom user model
-AUTH_USER_MODEL = "users.CustomUser"
-
-
-# to avoid debug toolbar to cause errors when testing
 TESTING_MODE = "test" in sys.argv

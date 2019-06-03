@@ -5,10 +5,9 @@ from decouple import config
 DEBUG = True
 ALLOWED_HOSTS = ["127.0.0.1"]
 
-# DEVELOPMENT APPS AND MIDDLEWARES
-INSTALLED_APPS += ["debug_toolbar"]
-MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
-
+# -----------------------------------------------------------------------------
+# Databases
+# -----------------------------------------------------------------------------
 
 DATABASES = {
     "default": {
@@ -21,7 +20,12 @@ DATABASES = {
     }
 }
 
-# DEBUG TOOLBAR SETTINGS
+# -----------------------------------------------------------------------------
+# Django Debug Toolbar
+# -----------------------------------------------------------------------------
+
+INSTALLED_APPS += ["debug_toolbar"]
+MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
 DEBUG_TOOLBAR_PANELS = [
     "debug_toolbar.panels.versions.VersionsPanel",
     "debug_toolbar.panels.timer.TimerPanel",
@@ -35,15 +39,11 @@ DEBUG_TOOLBAR_PANELS = [
     "debug_toolbar.panels.signals.SignalsPanel",
     "debug_toolbar.panels.logging.LoggingPanel",
     "cachalot.panels.CachalotPanel",
-    # "debug_toolbar.panels.redirects.RedirectsPanel",
 ]
 
-
-def show_toolbar(request):
-    return True
-
+INTERNAL_IPS = ["127.0.0.1", "10.0.2.2"]
 
 DEBUG_TOOLBAR_CONFIG = {
     "INTERCEPT_REDIRECTS": False,
-    "SHOW_TOOLBAR_CALLBACK": show_toolbar,
+    "SHOW_TEMPLATE_CONTEXT": True,
 }

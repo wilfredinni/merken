@@ -13,6 +13,10 @@ sentry_sdk.init(
 DEBUG = False
 ALLOWED_HOSTS = ["127.0.0.1"]  # ie. ["ip-address", "www.site.com"]
 
+# -----------------------------------------------------------------------------
+# Databases
+# -----------------------------------------------------------------------------
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
@@ -25,8 +29,10 @@ DATABASES = {
     }
 }
 
+# -----------------------------------------------------------------------------
+# Security
+# -----------------------------------------------------------------------------
 
-# security
 SECURE_BROWSER_XSS_FILTER = True
 CSRF_COOKIE_SECURE = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
