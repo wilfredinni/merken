@@ -12,8 +12,8 @@ env:
 
 install:
   - pip install poetry
-  - poetry install -v --no-dev
-  - poetry add codecov coverage
+  - poetry install -v
+  - poetry add codecov
   # - pip install -r travis_requirements.txt
   # - pip install codecov
 
