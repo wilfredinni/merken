@@ -1,16 +1,13 @@
 import environ
 
-env = environ.Env()
-root_path = environ.Path(__file__) - 3
-env.read_env(str(root_path.path(".env")))
-
 
 # -----------------------------------------------------------------------------
 # Basic Config
 # -----------------------------------------------------------------------------
 
-TEMPLATES = root_path('templates')
-SITE_STATIC = root_path('static')
+env = environ.Env()
+root_path = environ.Path(__file__) - 3
+env.read_env(str(root_path.path(".env")))
 ROOT_URLCONF = "conf.urls"
 WSGI_APPLICATION = "conf.wsgi.application"
 SITE_ID = 1
@@ -87,7 +84,7 @@ MIDDLEWARE = [
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [TEMPLATES],
+        "DIRS": [root_path('templates')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -120,7 +117,7 @@ REST_FRAMEWORK = {
 STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
 
-STATICFILES_DIRS = [SITE_STATIC]
+STATICFILES_DIRS = [root_path('static')]
 STATIC_ROOT = root_path('static_root')
 MEDIA_ROOT = root_path("media_root")
 
@@ -135,7 +132,3 @@ WEBPACK_LOADER = {
         'IGNORE': [r'.+\.hot-update.js', r'.+\.map']
     }
 }
-
-# -----------------------------------------------------------------------------
-# Django Debug Toolbar
-# -----------------------------------------------------------------------------
