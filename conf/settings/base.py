@@ -27,6 +27,14 @@ USE_TZ = True
 # -----------------------------------------------------------------------------
 
 AUTH_USER_MODEL = "users.CustomUser"
+
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+]
+
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
@@ -57,6 +65,9 @@ INSTALLED_APPS = [
     "django.contrib.sitemaps",
 
     # Third party
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     "webpack_loader",
     "rest_framework",
     "robots",
@@ -93,6 +104,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "apps.core.processors.global_query",
+                'django.template.context_processors.request',  # allauth
             ]
         },
     }

@@ -22,6 +22,7 @@ handler500 = handler500
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include("apps.core.api.urls")),
+    path("accounts/", include("allauth.urls")),
     path("dashboard/", include("apps.core.urls")),
     path("", include("apps.blog.urls")),
     path("", include("apps.users.urls")),

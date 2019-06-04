@@ -1,11 +1,20 @@
 from django.views.generic import TemplateView
 from django.views.decorators.cache import never_cache
+from django.utils.decorators import method_decorator
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from django.shortcuts import render
 
 
-DashboardView = never_cache(
-    TemplateView.as_view(template_name="dashboard/dashboard.html")
-)
+class NeverCacheMixin(object):
+    @method_decorator(never_cache)
+    def dispatch(self, *args, **kwargs):
+        return super(NeverCacheMixin, self).dispatch(*args, **kwargs)
+
+
+class DashboardView(NeverCacheMixin, LoginRequiredMixin, TemplateView):
+    """This view load the VUE app into Django."""
+    template_name = "dashboard/dashboard.html"
 
 
 def handler404(request, exception):
