@@ -1,7 +1,6 @@
 import os
 import sys
 
-# from decouple import config
 from conf.settings.base import env
 
 if __name__ == "__main__":
