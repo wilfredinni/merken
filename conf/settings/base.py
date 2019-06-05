@@ -29,7 +29,9 @@ USE_TZ = True
 AUTH_USER_MODEL = "users.CustomUser"
 LOGIN_REDIRECT_URL = "page_app:index"
 ACCOUNT_ADAPTER = 'conf.account_adapter.NoNewUsersAccountAdapter'
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_EMAIL_REQUIRED = True
 
 PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.Argon2PasswordHasher',

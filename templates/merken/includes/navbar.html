@@ -81,17 +81,6 @@
 
     <div class="navbar-end">
       {% if user.is_authenticated %}
-      <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-dark">
-            <span class="icon">
-              <i class="fas fa-plus"></i>
-            </span>
-            <span aria-hidden="true"></span>
-            New Article
-          </a>
-        </div>
-      </div>
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">{{ user.username }}</a>
         <div class="navbar-dropdown">
