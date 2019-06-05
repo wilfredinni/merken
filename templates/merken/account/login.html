@@ -1,0 +1,47 @@
+{% extends 'merken/base_sidebar.html' %}
+
+{% load widget_tweaks %}
+{% load account socialaccount %}
+{% load i18n %}
+
+
+{% block content %}
+<div class="hero">
+  <div class="container hero-body sing-in-resp">
+    <br><br><br>
+    <div class="column is-4 is-offset-4 is-mobile box">
+      <h1 class="title has-text-centered">Sign In</h1>
+
+      <form method="POST" action="{% url 'account_login' %}">
+        {% csrf_token %}
+        <!-- {{ form.as_p }} -->
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            {{ form.login|add_class:"input" }}
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control has-icons-left">
+            {{ form.password|add_class:"input"|attr:"type:password" }}
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </p>
+        </div>
+        {{ form.password.errors }}
+        <label class="checkbox" disabled>{{ form.remember|attr:"type:checkbox" }} Remember Me</label>
+        {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <button class="button is-fullwidth is-primary" type="submit">Sign In</button>
+        <hr>
+        <p class="help">Forgot your password? <a href="{% url 'account_reset_password' %}">Reset it</a></p>
+      </form>
+    </div>
+    <br><br><br>
+  </div>
+</div>
+{% endblock %}

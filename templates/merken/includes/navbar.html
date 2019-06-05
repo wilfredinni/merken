@@ -54,13 +54,25 @@
         <div class="navbar-dropdown">
           <a class="navbar-item"
             href="https://github.com/wilfredinni/Python-cheatsheet/raw/master/python_cheat_sheet.pdf">
+            <span class="icon">
+              <i class="fas fa-file-pdf"></i>
+            </span>
+            <span aria-hidden="true"></span>
             PDF
           </a>
           <a class="navbar-item"
             href="https://mybinder.org/v2/gh/wilfredinni/python-cheatsheet/master?filepath=jupyter_notebooks">
-            Jupyter Notebook
+            <span class="icon">
+              <i class="fas fa-book-open"></i>
+            </span>
+            <span aria-hidden="true"></span>
+            Jupyter
           </a>
           <a class="navbar-item" href="https://github.com/wilfredinni/python-cheatsheet/blob/master/README.md">
+            <span class="icon">
+              <i class="fab fa-markdown"></i>
+            </span>
+            <span aria-hidden="true"></span>
             Markdown
           </a>
         </div>
@@ -68,16 +80,53 @@
     </div>
 
     <div class="navbar-end">
+      {% if user.is_authenticated %}
       <div class="navbar-item">
-        <!-- <div class="buttons">
-          <a class="button is-primary">
-            <strong>Sign up</strong>
+        <div class="buttons">
+          <a class="button is-dark">
+            <span class="icon">
+              <i class="fas fa-plus"></i>
+            </span>
+            <span aria-hidden="true"></span>
+            New Article
           </a>
-          <a class="button is-light">
-            Log in
-          </a>
-        </div> -->
+        </div>
       </div>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">{{ user.username }}</a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            <span class="icon">
+              <i class="fas fa-user"></i>
+            </span>
+            <span aria-hidden="true"></span>
+            Dashboard
+          </a>
+          <a class="navbar-item">
+            <span class="icon">
+                <i class="fas fa-plus"></i>
+            </span>
+            <span aria-hidden="true"></span>
+            New Article
+          </a>
+          <a class="navbar-item">
+            <span class="icon">
+              <i class="fas fa-cogs"></i>
+            </span>
+            <span aria-hidden="true"></span>
+            settings
+          </a>
+          <hr class="navbar-divider">
+          <a href="{% url 'account_logout' %}" class="navbar-item">
+            <span class="icon">
+              <i class="fas fa-power-off"></i>
+            </span>
+            <span aria-hidden="true"></span>
+            Logout
+          </a>
+        </div>
+      </div>
+      {% endif %}
     </div>
   </div>
 </nav>

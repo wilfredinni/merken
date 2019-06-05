@@ -27,6 +27,9 @@ USE_TZ = True
 # -----------------------------------------------------------------------------
 
 AUTH_USER_MODEL = "users.CustomUser"
+LOGIN_REDIRECT_URL = "page_app:index"
+ACCOUNT_ADAPTER = 'conf.account_adapter.NoNewUsersAccountAdapter'
+ACCOUNT_LOGOUT_ON_GET = True
 
 PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.Argon2PasswordHasher',
@@ -42,12 +45,18 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
 # -----------------------------------------------------------------------------
 # Databases
 # -----------------------------------------------------------------------------
 
 DJANGO_DATABASE_URL = env.db('DATABASE_URL')
 DATABASES = {'default': DJANGO_DATABASE_URL}
+ATOMIC_REQUESTS = True
 
 # -----------------------------------------------------------------------------
 # Applications configuration
@@ -72,6 +81,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "robots",
     "cachalot",
+    "widget_tweaks",
 
     # Local apps
     "apps.users",
@@ -95,7 +105,7 @@ MIDDLEWARE = [
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [root_path('templates')],
+        "DIRS": [root_path('templates'), root_path('templates', 'merken')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

@@ -182,6 +182,14 @@ version = "0.6.0"
 
 [[package]]
 category = "main"
+description = "Tweak the form field rendering in templates, not in python-level form definitions."
+name = "django-widget-tweaks"
+optional = false
+python-versions = "*"
+version = "1.4.3"
+
+[[package]]
+category = "main"
 description = "Web APIs for Django, made easy."
 name = "djangorestframework"
 optional = false
@@ -502,7 +510,7 @@ python-versions = ">=2.7"
 version = "0.5.1"
 
 [metadata]
-content-hash = "41aa6b920f3b52c2b6c2db5b42a14e0aa2194342eaf66ff009c78ad7888e9e1f"
+content-hash = "eec9e546cf2926eaadc1a507f54251d65fab88b18d6cb60d6523bff9a273eb43"
 python-versions = "^3.7"
 
 [metadata.hashes]
@@ -525,6 +533,7 @@ django-debug-toolbar = ["89d75b60c65db363fb24688d977e5fbf0e73386c67acf562d278402
 django-environ = ["6c9d87660142608f63ec7d5ce5564c49b603ea8ff25da595fd6098f6dc82afde", "c57b3c11ec1f319d9474e3e5a79134f40174b17c7cc024bbb2fad84646b120c4"]
 django-robots = ["59baa054fc38751f1d6a38e873e0a7e431b646b5ee757534544da05c3873a213", "ec70cf2d60f6c105cfbdbe2686cdea5f13897bb772c76e4002bee26e2ae23eb1"]
 django-webpack-loader = ["60bab6b9a037a5346fad12d2a70a6bc046afb33154cf75ed640b93d3ebd5f520", "970b968c2a8975fb7eff56a3bab5d0d90d396740852d1e0c50c5cfe2b824199a"]
+django-widget-tweaks = ["a69cba6c8a6b98f0cf6eef0535f8212d635e19044ee4533d4d78df700c2e233f", "bc645ef88307bc4ac269ee8ee9e572be814cd4a125c2bb6edb59ffcdc194982d"]
 djangorestframework = ["376f4b50340a46c15ae15ddd0c853085f4e66058f97e4dbe7d43ed62f5e60651", "c12869cfd83c33d579b17b3cb28a2ae7322a53c3ce85580c2a2ebe4e3f56c4fb"]
 entrypoints = ["589f874b313739ad35be6e0cd7efde2a4e9b6fea91edcc34e58ecbb8dbe56d19", "c70dd71abe5a8c85e55e12c19bd91ccfeec11a6e99044204511f9ed547d48451"]
 flake8 = ["859996073f341f2670741b51ec1e67a01da142831aa1fdc6242dbf88dffbe661", "a796a115208f5c03b18f332f7c11729812c8c3ded6c46319c59b53efd3819da8"]
