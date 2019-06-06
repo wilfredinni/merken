@@ -49,6 +49,6 @@ if USE_SENTRY:
 # -----------------------------------------------------------------------------
 
 SECURE_BROWSER_XSS_FILTER = True
-CSRF_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = "DENY"
