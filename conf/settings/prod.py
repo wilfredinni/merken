@@ -2,7 +2,8 @@ from .base import *
 
 
 DEBUG = False
-ALLOWED_HOSTS = ["127.0.0.1"]  # ie. ["ip-address", "www.site.com"]
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
+print(ALLOWED_HOSTS)
 SECRET_KEY = env("SECRET_KEY")
 
 # -----------------------------------------------------------------------------
