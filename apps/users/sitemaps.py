@@ -3,6 +3,7 @@ from .models import CustomUser
 
 
 class UsersSitemap(Sitemap):
+    protocol = "https"
     changefreq = "weekly"
     priority = 0.9
 

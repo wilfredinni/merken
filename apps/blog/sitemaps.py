@@ -4,6 +4,8 @@ from .models import Article, Tag
 
 
 class BlogSitemap(Sitemap):
+    protocol = "https"
+
     def items(self):
         return ["blog_app:blog"]
 
@@ -12,6 +14,7 @@ class BlogSitemap(Sitemap):
 
 
 class ArticleSitemap(Sitemap):
+    protocol = "https"
     changefreq = "weekly"
     priority = 0.9
 
@@ -24,5 +27,7 @@ class ArticleSitemap(Sitemap):
 
 
 class TagSitemap(Sitemap):
+    protocol = "https"
+
     def items(self):
         return Tag.objects.all()

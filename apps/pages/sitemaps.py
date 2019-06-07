@@ -3,6 +3,7 @@ from .models import Page
 
 
 class PagesSitemap(Sitemap):
+    protocol = "https"
     changefreq = "weekly"
     priority = 0.9
 
