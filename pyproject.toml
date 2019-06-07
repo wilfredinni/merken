@@ -20,6 +20,7 @@ django-environ = "^0.4.5"
 argon2-cffi = "^19.1"
 django-allauth = "^0.39.1"
 django-widget-tweaks = "^1.4"
+django-admin-honeypot = "^1.1"
 
 [tool.poetry.dev-dependencies]
 black = { version = "*", allows-prereleases = true }

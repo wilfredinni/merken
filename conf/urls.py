@@ -3,10 +3,14 @@ from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.urls import include, path
 
-from apps.blog.sitemaps import ArticleSitemap, BlogSitemap, TagSitemap
 from apps.core.views import handler404, handler500
-from apps.pages.sitemaps import PagesSitemap
-from apps.users.sitemaps import UsersSitemap
+from apps.core.sitemaps import (
+    ArticleSitemap,
+    BlogSitemap,
+    TagSitemap,
+    PagesSitemap,
+    UsersSitemap,
+)
 
 sitemaps = {
     "articles": ArticleSitemap,
@@ -20,7 +24,8 @@ handler404 = handler404
 handler500 = handler500
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path("admin-panel/", admin.site.urls),
+    path("admin/", include("admin_honeypot.urls", namespace="admin_honeypot")),
     path("api/", include("apps.core.api.urls")),
     path("accounts/", include("allauth.urls")),
     path("dashboard/", include("apps.core.urls")),

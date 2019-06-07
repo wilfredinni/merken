@@ -1,6 +1,8 @@
 from django.contrib.sitemaps import Sitemap
 from django.shortcuts import reverse
-from .models import Article, Tag
+from apps.blog.models import Article, Tag
+from apps.pages.models import Page
+from apps.users.models import CustomUser
 
 
 class BlogSitemap(Sitemap):
@@ -31,3 +33,25 @@ class TagSitemap(Sitemap):
 
     def items(self):
         return Tag.objects.all()
+
+
+class PagesSitemap(Sitemap):
+    protocol = "https"
+    changefreq = "weekly"
+    priority = 0.9
+
+    def items(self):
+        # TODO filter for visible pages (bool) whitout descarting index
+        return Page.objects.all()
+
+    def lastmod(self, obj):
+        return obj.created_at
+
+
+class UsersSitemap(Sitemap):
+    protocol = "https"
+    changefreq = "weekly"
+    priority = 0.9
+
+    def items(self):
+        return CustomUser.objects.all()

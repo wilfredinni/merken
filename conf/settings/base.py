@@ -84,6 +84,7 @@ INSTALLED_APPS = [
     "robots",
     "cachalot",
     "widget_tweaks",
+    "admin_honeypot",
 
     # Local apps
     "apps.users",
