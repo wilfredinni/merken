@@ -8,5 +8,5 @@ def global_query(request):
     context["settings"] = SiteConfiguration.load()
     context["pages"] = Page.objects.all()
     context["tags"] = Tag.objects.all()
-    context["featured"] = Article.objects.all().featured()
+    context["featured"] = Article.objects.featured()
     return context
