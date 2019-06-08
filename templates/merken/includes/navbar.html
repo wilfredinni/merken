@@ -80,6 +80,22 @@
     </div>
 
     <div class="navbar-end">
+      <a href="https://twitter.com/pyCheatsheet" class="navbar-item">
+        <span class="icon">
+          <i class="fab fa-twitter"></i>
+        </span>
+        <span aria-hidden="true"></span>
+        Twitter
+      </a>
+
+      <a href="{% url 'blog_app:rss_feed' %}" class="navbar-item">
+        <span class="icon">
+          <i class="fas fa-rss"></i>
+        </span>
+        <span aria-hidden="true"></span>
+        Rss
+      </a>
+
       {% if user.is_authenticated %}
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">{{ user.username }}</a>

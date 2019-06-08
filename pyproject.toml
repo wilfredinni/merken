@@ -10,7 +10,6 @@ python = "^3.7"
 django = "^2.1"
 mistune = "^0.8.4"
 psycopg2-binary = "^2.8"
-whitenoise = "^4.1"
 sentry-sdk = "=0.8.0"
 django-robots = "^3.1"
 django-cachalot = "^2.1"
@@ -21,6 +20,8 @@ argon2-cffi = "^19.1"
 django-allauth = "^0.39.1"
 django-widget-tweaks = "^1.4"
 django-admin-honeypot = "^1.1"
+whitenoise = "^4.1"
+brotli = "^1.0"
 
 [tool.poetry.dev-dependencies]
 black = { version = "*", allows-prereleases = true }

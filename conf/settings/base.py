@@ -32,6 +32,7 @@ ACCOUNT_ADAPTER = 'conf.account_adapter.NoNewUsersAccountAdapter'
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_EMAIL_REQUIRED = True
+ADMIN_HONEYPOT_EMAIL_ADMINS = False
 
 PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.Argon2PasswordHasher',
