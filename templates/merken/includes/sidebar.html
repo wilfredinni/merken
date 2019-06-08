@@ -1,6 +1,6 @@
 {% if settings.enable_ads %}
-  <div id="codefund" class="codefund-side"></div>
-  <script src="https://codefund.app/properties/92/funder.js" async="async"></script>
+<div id="codefund" class="codefund-side"></div>
+<script src="https://codefund.app/properties/92/funder.js" async="async"></script>
 {% endif %}
 
 <!-- subscribe -->
@@ -15,6 +15,25 @@
   <a class="button is-fullwidth" disabled>Subscribe</a>
   <p class="help has-text-left">Unsubscribe any time.</p>
 </div>
+
+{% if featured %}
+<article class="message is-link featured">
+  <div class="message-header">
+    <p>Popular Content ✨</p>
+  </div>
+  <div class="message-body message-margin">
+    <ul>
+    {% for article in featured %}
+      <li>
+        <a href="{{ article.get_absolute_url }}">
+          {{ article.title|truncatechars:42 }}
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+</article>
+{% endif %}
 
 <!-- article content block -->
 {% if article %}
