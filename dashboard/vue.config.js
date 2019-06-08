@@ -1,7 +1,6 @@
 const BundleTracker = require("webpack-bundle-tracker");
 require("dotenv").config();
-
-let allowedHost = process.env.ALLOWED_HOSTS;
+let host = process.env.ALLOWED_HOSTS
 
 const pages = {
   vue_dashboard: {
@@ -19,7 +18,9 @@ module.exports = {
   filenameHashing: false,
   productionSourceMap: true,
   publicPath:
-    process.env.NODE_ENV === "production" ? allowedHost : "http://127.0.0.1:8080/",
+    process.env.NODE_ENV === "production"
+      ? `http://${host}/static/dashboard/`
+      : "http://127.0.0.1:8080/",
   outputDir: "../static/dashboard/",
 
   chainWebpack: config => {
