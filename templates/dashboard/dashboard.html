@@ -1,7 +1,17 @@
 {% load render_bundle from webpack_loader %}
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard - {{ settings.site_name }}</title>
+</head>
+<body>
 
-{% block content %}
+  {% block content %}
+
     <div id="app">
         <app></app>
     </div>
@@ -9,4 +19,8 @@
 
     <!-- the name of the page on vue.config.js -->
     {% render_bundle 'vue_dashboard' %}
-{% endblock %}
+
+  {% endblock %}
+
+</body>
+</html>

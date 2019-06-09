@@ -45,7 +45,7 @@ module.exports = {
       .plugin("BundleTracker")
       .use(BundleTracker, [{ filename: "../dashboard/webpack-stats.json" }]);
 
-    // config.resolve.alias.set("__STATIC__", "static");
+    config.resolve.alias.set("__STATIC__", "static");
 
     config.devServer
       .public("http://localhost:8080")
