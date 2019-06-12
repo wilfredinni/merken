@@ -30,21 +30,27 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
             "github",
             "website",
             "about",
-            "articles"
+            "articles",
         )
         read_only_fields = ("articles",)
-        extra_kwargs = {
-            'password': {'write_only': True},
-        }
+        extra_kwargs = {"password": {"write_only": True}}
 
 
 class FullBlogSerializer(serializers.HyperlinkedModelSerializer):
+    # change the default link field (hyperlink) to a string
+    author = serializers.SlugRelatedField(read_only=True, slug_field="username")
+    tags = serializers.SlugRelatedField(many=True, read_only=True, slug_field="title")
+
     class Meta:
         model = Article
         fields = "__all__"
 
 
 class AuthorBlogSerializer(serializers.HyperlinkedModelSerializer):
+    # change the default link field (hyperlink) to a string
+    author = serializers.SlugRelatedField(read_only=True, slug_field="username")
+    tags = serializers.SlugRelatedField(many=True, read_only=True, slug_field="title")
+
     class Meta:
         model = Article
         fields = (
