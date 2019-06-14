@@ -1,15 +1,6 @@
 <template>
   <v-layout row class="mb-3" wrap>
 
-    <!-- <v-tooltip v-model="show" top>
-      <template v-slot:activator="{ on }">
-        <v-btn icon v-on="on">
-          <v-icon color="primary">dashboard</v-icon>
-        </v-btn>
-      </template>
-      <span>All Articles</span>
-    </v-tooltip> -->
-
     <v-tooltip top>
       <template v-slot:activator="{ on }">
         <v-btn icon v-on="on">
