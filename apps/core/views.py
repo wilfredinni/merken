@@ -13,7 +13,7 @@ class NeverCacheMixin(object):
 
 
 class DashboardView(NeverCacheMixin, LoginRequiredMixin, TemplateView):
-    """This view load the VUE app into Django."""
+    """Load the VUE app into Django."""
     template_name = "dashboard/dashboard.html"
 
 
