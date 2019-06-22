@@ -1,44 +1,50 @@
 <template>
   <v-layout row class="mb-3" wrap>
 
+    <!-- all articles -->
     <v-tooltip top>
       <template v-slot:activator="{ on }">
-        <v-btn icon v-on="on">
+        <v-btn @click="filterArticles('all')" icon v-on="on">
           <v-icon color="primary">dashboard</v-icon>
         </v-btn>
       </template>
       <span>All Articles</span>
     </v-tooltip>
 
+    <!-- published -->
     <v-tooltip top>
       <template v-slot:activator="{ on }">
-        <v-btn icon v-on="on" class="icon-published">
+        <v-btn @click="filterArticles('published')" icon v-on="on" class="icon-published">
           <v-icon>check_circle</v-icon>
         </v-btn>
       </template>
       <span>Published</span>
     </v-tooltip>
 
+    <!-- featured -->
     <v-tooltip top>
       <template v-slot:activator="{ on }">
-        <v-btn icon v-on="on" class="icon-featured">
+        <v-btn @click="filterArticles('featured')" icon v-on="on" class="icon-featured">
           <v-icon>stars</v-icon>
         </v-btn>
       </template>
       <span>Featured</span>
     </v-tooltip>
 
+    <!-- draft -->
     <v-tooltip top>
       <template v-slot:activator="{ on }">
-        <v-btn icon v-on="on" class="icon-draft">
+        <v-btn @click="filterArticles('draft')" icon v-on="on" class="icon-draft">
           <v-icon>work</v-icon>
         </v-btn>
       </template>
       <span>Draft</span>
     </v-tooltip>
 
+    <!-- unpublished -->
     <v-tooltip top>
       <template v-slot:activator="{ on }">
+        <!-- TODO: code this filter -->
         <v-btn icon v-on="on" class="icon-unpublished">
           <v-icon>watch_later</v-icon>
         </v-btn>
@@ -61,8 +67,14 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
-  name: "FilterArticle"
+  name: "FilterArticle",
+
+  methods: {
+    ...mapActions(["filterArticles"]),
+  },
 };
 </script>
 
