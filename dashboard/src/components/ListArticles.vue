@@ -2,17 +2,19 @@
   <div>
     <v-card flat grid-list-xl v-for="article in allArticles" :key="article.id">
       <v-layout row wrap pa-2 :class="borderStatusCard(article)">
-
+        <!-- title and tags -->
         <v-flex xs12 md6>
           <div class="mt-0 mb-1">{{ article.title }}</div>
-          <div class="caption grey--text">{{ tagName(article.tags) }}</div>
+          <div class="caption grey--text" v-html="tagName(article.tags)"></div>
         </v-flex>
 
+        <!-- publish date -->
         <v-flex xs5 sm6 md2>
           <div class="caption grey--text">Publish date</div>
           <div class="mt-0 mx-0 px-0">{{ article.created_at | formatDate }}</div>
         </v-flex>
 
+        <!-- status -->
         <v-flex xs3 sm3 md2 class="pt-0">
           <div class="mt-0 pt-0">
             <v-btn
@@ -27,14 +29,18 @@
 
         <v-spacer></v-spacer>
 
+        <!-- edit, delete and view -->
         <v-flex xs3 sm3 md2>
           <div class="mt-0 pt-0">
+            <!-- edit -->
             <v-btn icon flat :class="statusBtnClass(article)" class="pa-0 ma-0">
               <v-icon>edit</v-icon>
             </v-btn>
+            <!-- delete -->
             <v-btn icon flat :class="statusBtnClass(article)" class="pa-0 ma-0">
               <v-icon>delete</v-icon>
             </v-btn>
+            <!-- preview -->
             <v-btn icon flat :class="statusBtnClass(article)" class="pa-0 ma-0">
               <v-icon>visibility</v-icon>
             </v-btn>
@@ -53,6 +59,10 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "listArticles",
 
+  data: function() {
+    return { tagUrl: "/blog/tag/" };
+  },
+
   methods: {
     ...mapActions(["fetchArticles"]),
 
@@ -68,7 +78,7 @@ export default {
     tagName(tags) {
       let string = "";
       for (let tag of tags) {
-        string += `#${tag} `;
+        string += `#<a href="${this.tagUrl}${tag}">${tag}</a> `;
       }
       return string;
     },
@@ -141,4 +151,3 @@ export default {
   border-left: 4px solid #9652ff;
 }
 </style>
-
