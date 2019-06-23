@@ -1,16 +1,16 @@
 <template>
-  <div>
-    <Articles/>
-  </div>
+  <v-container my-2>
+    <FilterArticle/>
+    <listArticles/>
+  </v-container>
 </template>
 
 <script>
-import Articles from "@/components/Articles";
+import FilterArticle from "@/components/articles/FilterArticle";
+import listArticles from "@/components/articles/ListArticles";
 
 export default {
-  name: "home",
-  components: {
-    Articles
-  }
+  name: "Articles",
+  components: { FilterArticle, listArticles }
 };
 </script>

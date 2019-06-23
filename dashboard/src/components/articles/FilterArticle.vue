@@ -54,11 +54,14 @@
 
     <v-spacer></v-spacer>
 
+    <!-- new article -->
     <v-tooltip top>
       <template v-slot:activator="{ on }">
-        <v-btn icon v-on="on">
-          <v-icon color="primary">add_circle</v-icon>
-        </v-btn>
+        <router-link to="new">
+          <v-btn icon v-on="on">
+            <v-icon color="primary">add_circle</v-icon>
+          </v-btn>
+        </router-link>
       </template>
       <span>New Article</span>
     </v-tooltip>

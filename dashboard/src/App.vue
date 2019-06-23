@@ -8,21 +8,10 @@
 </template>
 
 <script>
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/layout/Navbar";
 
 export default {
   name: "App",
   components: { Navbar },
-  data () {
-      return {
-        drawer: true,
-        items: [
-          { title: 'Home', icon: 'dashboard' },
-          { title: 'About', icon: 'question_answer' }
-        ],
-        mini: true,
-        right: null
-      }
-    }
 };
 </script>
