@@ -6,7 +6,7 @@ authors = ["wilfredinni <carlos.w.montecinos@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.6"
 django = "^2.1"
 mistune = "^0.8.4"
 psycopg2-binary = "^2.8"
