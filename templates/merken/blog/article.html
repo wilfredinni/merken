@@ -3,7 +3,7 @@
 
 {% block seo %}
 <meta property="og:title" content="{{ article.title }} - {{ settings.site_name }}"/>
-<link rel="canonical" href="{{ settings.canonical_url }}/blog/{{ article.url }}"/>
+<link rel="canonical" href="{{ settings.canonical_url }}/blog/{{ article.slug }}"/>
 <meta property="og:url" content="{{ settings.canonical_url }}/blog/{{ article.slug }}"/>
 <meta name="description" content="{{ article.overview | render_markdown | striptags }}"/>
 <meta property="og:description" content="{{ article.overview | render_markdown | striptags }}"/>
