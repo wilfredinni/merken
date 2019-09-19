@@ -80,7 +80,6 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    "webpack_loader",
     "rest_framework",
     "robots",
     "cachalot",
@@ -148,13 +147,3 @@ STATIC_ROOT = root_path('static_root')
 MEDIA_ROOT = root_path("media_root")
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
-WEBPACK_LOADER = {
-    'DEFAULT': {
-        'BUNDLE_DIR_NAME': 'dashboard/',  # must end with slash
-        'STATS_FILE': root_path('dashboard/', 'webpack-stats.json'),
-        'POLL_INTERVAL': 0.3,
-        'TIMEOUT': None,
-        'IGNORE': [r'.+\.hot-update.js', r'.+\.map']
-    }
-}

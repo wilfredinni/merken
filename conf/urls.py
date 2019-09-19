@@ -26,7 +26,7 @@ handler500 = handler500
 urlpatterns = [
     path("admin-panel/", admin.site.urls),
     path("admin/", include("admin_honeypot.urls", namespace="admin_honeypot")),
-    path("api/", include("apps.core.api.urls")),
+    path("api/", include("apps.api.urls")),
     path("accounts/", include("allauth.urls")),
     path("dashboard/", include("apps.core.urls")),
     path("", include("apps.blog.urls")),

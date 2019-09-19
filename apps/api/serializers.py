@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from ..models import SiteConfiguration, HomeMsg
+from apps.core.models import SiteConfiguration, HomeMsg
 from apps.users.models import CustomUser
 from apps.blog.models import Article, Tag
 from apps.pages.models import Page
