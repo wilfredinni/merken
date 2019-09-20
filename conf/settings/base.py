@@ -108,7 +108,7 @@ MIDDLEWARE = [
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [root_path('templates'), root_path('templates', 'merken')],
+        "DIRS": [root_path('templates'), root_path('dist')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -142,7 +142,7 @@ REST_FRAMEWORK = {
 STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
 
-STATICFILES_DIRS = [root_path('static')]
+STATICFILES_DIRS = [root_path('static'), root_path('dist', 'static')]
 STATIC_ROOT = root_path('static_root')
 MEDIA_ROOT = root_path("media_root")
 

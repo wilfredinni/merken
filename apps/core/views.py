@@ -14,7 +14,7 @@ class NeverCacheMixin(object):
 
 class DashboardView(NeverCacheMixin, LoginRequiredMixin, TemplateView):
     """Load the VUE app into Django."""
-    template_name = "dashboard/dashboard.html"
+    template_name = "index.html"
 
 
 def handler404(request, exception):

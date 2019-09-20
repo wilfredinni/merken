@@ -1,5 +1,29 @@
 # merken
 
-Future replacement for pythoncheatsheet.org
+## Project setup
+```
+yarn install
+```
 
-[![Build Status](https://travis-ci.org/wilfredinni/merken.svg?branch=master)](https://travis-ci.org/wilfredinni/merken) [![codecov](https://codecov.io/gh/wilfredinni/merken/branch/master/graph/badge.svg)](https://codecov.io/gh/wilfredinni/merken) [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/wilfredinni/merken/blob/master/LICENSE)
+### Compiles and hot-reloads for development
+```
+yarn run serve
+```
+
+### Compiles and minifies for production
+```
+yarn run build
+```
+
+### Run your tests
+```
+yarn run test
+```
+
+### Lints and fixes files
+```
+yarn run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
