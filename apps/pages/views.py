@@ -1,7 +1,6 @@
 from django.views.generic import DetailView, ListView
 from django.shortcuts import get_object_or_404
 
-
 from .models import Page
 from apps.core.models import HomeMsg
 
