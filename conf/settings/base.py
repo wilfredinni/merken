@@ -82,7 +82,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     "rest_framework",
     "robots",
-    "cachalot",
     "widget_tweaks",
     "admin_honeypot",
 

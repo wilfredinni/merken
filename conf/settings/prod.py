@@ -3,7 +3,6 @@ from .base import *
 
 DEBUG = False
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
-print(ALLOWED_HOSTS)
 SECRET_KEY = env("SECRET_KEY")
 
 # -----------------------------------------------------------------------------
@@ -47,8 +46,6 @@ if USE_SENTRY:
 # -----------------------------------------------------------------------------
 # Security
 # -----------------------------------------------------------------------------
-
 SECURE_BROWSER_XSS_FILTER = True
-# CSRF_COOKIE_SECURE = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = "DENY"

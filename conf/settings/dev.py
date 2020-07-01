@@ -2,7 +2,7 @@ from .base import *
 
 
 DEBUG = True
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = ["*"]
 SECRET_KEY = env("SECRET_KEY", default="myverysecretkey")
 
 # -----------------------------------------------------------------------------
@@ -23,7 +23,6 @@ DEBUG_TOOLBAR_PANELS = [
     "debug_toolbar.panels.cache.CachePanel",
     "debug_toolbar.panels.signals.SignalsPanel",
     "debug_toolbar.panels.logging.LoggingPanel",
-    "cachalot.panels.CachalotPanel",
 ]
 
 INTERNAL_IPS = ["127.0.0.1", "10.0.2.2"]
