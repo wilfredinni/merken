@@ -5,14 +5,8 @@ import environ
 # -----------------------------------------------------------------------------
 # Basic Config
 # -----------------------------------------------------------------------------
-
 env = environ.Env()
 root_path = environ.Path(__file__) - 3
-# env.read_env(str(root_path.path(".env")))
-# hosts = os.environ.get("ALLOWED_HOSTS")
-# ALLOWED_HOSTS = hosts.split(',')
-# SECRET_KEY = os.environ.get("SECRET_KEY")
-# root_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 ROOT_URLCONF = "conf.urls"
 WSGI_APPLICATION = "conf.wsgi.application"
 SITE_ID = 1
@@ -20,7 +14,6 @@ SITE_ID = 1
 # -----------------------------------------------------------------------------
 # Time & Language
 # -----------------------------------------------------------------------------
-
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
 USE_I18N = True
@@ -30,7 +23,6 @@ USE_TZ = True
 # -----------------------------------------------------------------------------
 # Security and Users
 # -----------------------------------------------------------------------------
-
 AUTH_USER_MODEL = "users.CustomUser"
 LOGIN_REDIRECT_URL = "page_app:index"
 ACCOUNT_ADAPTER = 'conf.account_adapter.NoNewUsersAccountAdapter'
@@ -57,28 +49,11 @@ AUTHENTICATION_BACKENDS = (
 
 DJANGO_DATABASE_URL = env.db('DATABASE_URL', 'postgres://postgres@localhost:5432/pysheet')
 DATABASES = {'default': DJANGO_DATABASE_URL}
-# name = os.environ.get("CR_DB_NAME") or "pysheet"
-# user = os.environ.get("CR_DB_USER") or "postgres"
-# password = os.environ.get("CR_DB_PASSWORD") or ""
-# host = os.environ.get("CR_DB_HOST") or "localhost"
-# port = os.environ.get("CR_DB_PORT") or "5432"
-
-# DATABASES = {
-#     "default": {
-#     "ENGINE": "django.db.backends.postgresql",
-#     "NAME": name,
-#     "USER": user,
-#     "PASSWORD": password,
-#     "HOST": host,
-#     "PORT": port,
-#     }
-# }
 
 
 # -----------------------------------------------------------------------------
 # Applications configuration
 # -----------------------------------------------------------------------------
-
 INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
     "django.contrib.admin",
@@ -122,7 +97,6 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [root_path('templates'), root_path('templates', 'merken')],
-        # "DIRS": [os.path.join(root_path, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -140,10 +114,8 @@ TEMPLATES = [
 # -----------------------------------------------------------------------------
 # Rest Framework
 # -----------------------------------------------------------------------------
-
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
-    # "PAGE_SIZE": 5,
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework.authentication.SessionAuthentication",
     ),
@@ -152,15 +124,11 @@ REST_FRAMEWORK = {
 # -----------------------------------------------------------------------------
 # Static & Media Files
 # -----------------------------------------------------------------------------
-
 STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
 
 STATICFILES_DIRS = [root_path('static')]
 STATIC_ROOT = root_path('static_root')
 MEDIA_ROOT = root_path("media_root")
-# STATICFILES_DIRS = [os.path.join(root_path, "static")]
-# STATIC_ROOT = os.path.join(root_path, "static_root")
-# MEDIA_ROOT = os.path.join(root_path, "media_root")
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"

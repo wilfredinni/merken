@@ -4,14 +4,10 @@ from .base import *
 DEBUG = False
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 SECRET_KEY = env("SECRET_KEY")
-# hosts = os.environ.get("ALLOWED_HOSTS")
-# ALLOWED_HOSTS = hosts.split(',')
-# SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # -----------------------------------------------------------------------------
 # Logging
 # -----------------------------------------------------------------------------
-
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
@@ -39,14 +35,12 @@ LOGGING = {
 }
 
 USE_SENTRY = env.bool("USE_SENTRY", default=False)
-# USE_SENTRY = os.environ.get("USE_SENTRY") or False
 
 if USE_SENTRY:
     import sentry_sdk
     from sentry_sdk.integrations.django import DjangoIntegration
 
     sentry_sdk.init(dsn=env("SENTRY_DSN"), integrations=[DjangoIntegration()])
-    # sentry_sdk.init(dsn=os.environ.get("SENTRY_DSN"), integrations=[DjangoIntegration()])
 
 # -----------------------------------------------------------------------------
 # Security

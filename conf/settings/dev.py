@@ -1,23 +1,17 @@
 from .base import *
 
-from django.core.exceptions import ImproperlyConfigured
-
-
 DEBUG = True
 ALLOWED_HOSTS = ["*"]
-# SECRET_KEY = env("SECRET_KEY", default="myverysecretkey")
-SECRET_KEY = os.environ.get("SECRET_KEY") or "myverysecretkey"
+SECRET_KEY = env("SECRET_KEY", default="myverysecretkey")
 
 # -----------------------------------------------------------------------------
 # Django Debug Toolbar
 # -----------------------------------------------------------------------------
-
 INSTALLED_APPS += ["debug_toolbar"]
 MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
 DEBUG_TOOLBAR_PANELS = [
     "debug_toolbar.panels.versions.VersionsPanel",
     "debug_toolbar.panels.timer.TimerPanel",
-    # "debug_toolbar.panels.setdefaulttings.SettingsPanel",
     "debug_toolbar.panels.headers.HeadersPanel",
     "debug_toolbar.panels.request.RequestPanel",
     "debug_toolbar.panels.sql.SQLPanel",
