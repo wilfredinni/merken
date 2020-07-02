@@ -1,17 +1,18 @@
-# import environ
 import os
+
+import environ
 
 # -----------------------------------------------------------------------------
 # Basic Config
 # -----------------------------------------------------------------------------
 
-# env = environ.Env()
-# root_path = environ.Path(__file__) - 3
+env = environ.Env()
+root_path = environ.Path(__file__) - 3
 # env.read_env(str(root_path.path(".env")))
 # hosts = os.environ.get("ALLOWED_HOSTS")
 # ALLOWED_HOSTS = hosts.split(',')
 # SECRET_KEY = os.environ.get("SECRET_KEY")
-root_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# root_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 ROOT_URLCONF = "conf.urls"
 WSGI_APPLICATION = "conf.wsgi.application"
 SITE_ID = 1
@@ -38,13 +39,6 @@ ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_EMAIL_REQUIRED = True
 ADMIN_HONEYPOT_EMAIL_ADMINS = False
 
-# PASSWORD_HASHERS = [
-#     'django.contrib.auth.hashers.Argon2PasswordHasher',
-#     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
-#     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
-#     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
-# ]
-
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
@@ -61,26 +55,24 @@ AUTHENTICATION_BACKENDS = (
 # Databases
 # -----------------------------------------------------------------------------
 
-# DJANGO_DATABASE_URL = env.db('DATABASE_URL')
-# DJANGO_DATABASE_URL = os.environ.get('DATABASE_URL') or ImproperlyConfigured("postgres://postgres@localhost:5432/pysheet")
-# DATABASES = {'default': 'postgres://postgres@localhost:5432/pysheet'}
-# ATOMIC_REQUESTS = True
-name = os.environ.get("CR_DB_NAME") or "pysheet"
-user = os.environ.get("CR_DB_USER") or "postgres"
-password = os.environ.get("CR_DB_PASSWORD") or ""
-host = os.environ.get("CR_DB_HOST") or "localhost"
-port = os.environ.get("CR_DB_PORT") or "5432"
+DJANGO_DATABASE_URL = env.db('DATABASE_URL', 'postgres://postgres@localhost:5432/pysheet')
+DATABASES = {'default': DJANGO_DATABASE_URL}
+# name = os.environ.get("CR_DB_NAME") or "pysheet"
+# user = os.environ.get("CR_DB_USER") or "postgres"
+# password = os.environ.get("CR_DB_PASSWORD") or ""
+# host = os.environ.get("CR_DB_HOST") or "localhost"
+# port = os.environ.get("CR_DB_PORT") or "5432"
 
-DATABASES = {
-    "default": {
-    "ENGINE": "django.db.backends.postgresql",
-    "NAME": name,
-    "USER": user,
-    "PASSWORD": password,
-    "HOST": host,
-    "PORT": port,
-    }
-}
+# DATABASES = {
+#     "default": {
+#     "ENGINE": "django.db.backends.postgresql",
+#     "NAME": name,
+#     "USER": user,
+#     "PASSWORD": password,
+#     "HOST": host,
+#     "PORT": port,
+#     }
+# }
 
 
 # -----------------------------------------------------------------------------
@@ -129,8 +121,8 @@ MIDDLEWARE = [
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        # "DIRS": [root_path('templates'), root_path('templates', 'merken')],
-        "DIRS": [os.path.join(root_path, "templates")],
+        "DIRS": [root_path('templates'), root_path('templates', 'merken')],
+        # "DIRS": [os.path.join(root_path, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -164,11 +156,11 @@ REST_FRAMEWORK = {
 STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
 
-# STATICFILES_DIRS = [root_path('static')]
-# STATIC_ROOT = root_path('static_root')
-# MEDIA_ROOT = root_path("media_root")
-STATICFILES_DIRS = [os.path.join(root_path, "static")]
-STATIC_ROOT = os.path.join(root_path, "static_root")
-MEDIA_ROOT = os.path.join(root_path, "media_root")
+STATICFILES_DIRS = [root_path('static')]
+STATIC_ROOT = root_path('static_root')
+MEDIA_ROOT = root_path("media_root")
+# STATICFILES_DIRS = [os.path.join(root_path, "static")]
+# STATIC_ROOT = os.path.join(root_path, "static_root")
+# MEDIA_ROOT = os.path.join(root_path, "media_root")
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
