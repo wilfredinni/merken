@@ -1,16 +1,17 @@
 import os
 import sys
 
-from conf.settings.base import env
+# from conf.settings.base import env
 
 if __name__ == "__main__":
     if "test" in sys.argv:
         settings_file = "test_ci"
     else:
         # dev or prod
-        settings_file = env("ENV", default="dev")
+        # settings_file = env("ENV", default="dev")
+        settings_file = "dev"
 
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "conf.settings." + settings_file)
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", f"conf.settings.{settings_file}")
 
     try:
         from django.core.management import execute_from_command_line
