@@ -4,7 +4,7 @@ from .base import *
 DEBUG = False
 # ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 # SECRET_KEY = env("SECRET_KEY")
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS") or 'pysheet-django.test.pythoncheatsheet.org'
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS")
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # -----------------------------------------------------------------------------
