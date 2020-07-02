@@ -8,8 +8,9 @@ import os
 # env = environ.Env()
 # root_path = environ.Path(__file__) - 3
 # env.read_env(str(root_path.path(".env")))
-# ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS") or 'pysheet-django.test.pythoncheatsheet.org'
-# SECRET_KEY = os.environ.get("SECRET_KEY")
+hosts = os.environ.get("ALLOWED_HOSTS")
+ALLOWED_HOSTS = hosts.split(',')
+SECRET_KEY = os.environ.get("SECRET_KEY")
 root_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 ROOT_URLCONF = "conf.urls"
 WSGI_APPLICATION = "conf.wsgi.application"
