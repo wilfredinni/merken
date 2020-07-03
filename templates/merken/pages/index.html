@@ -12,6 +12,7 @@
 
 {% block css %}
   <link rel="stylesheet" href="{% static 'merken/css/atom-one-dark-min.css' %}">
+  <link rel="stylesheet" href="{% static 'merken/css/carbon.css' %}" />
 {% endblock css %}
 
 {% block title %}
@@ -24,7 +25,7 @@
   <!-- search modal -->
   {% include 'merken/pages/includes/search.html' %}
 
-  <div class="columns is-tablet">
+  <div class="columns is-tablet is-centered">
     <!-- index -->
     <div id="index" class="column">
       <div class="overflow-index">
@@ -42,10 +43,7 @@
       {% endif %}
 
       {% if settings.enable_ads %}
-      <div id="codefund">
-        <!-- fallback content -->
-      </div>
-      <script src="https://codefund.app/properties/92/funder.js?template=centered" async="async"></script>
+      <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CK7D62JL&placement=wwwpythoncheatsheetorg" id="_carbonads_js"></script>
       {% endif %}
 
       <!-- content -->

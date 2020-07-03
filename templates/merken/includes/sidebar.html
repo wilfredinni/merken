@@ -1,6 +1,14 @@
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'merken/css/carbon-side.css' %}" />
+{% endblock css %}
+
 {% if settings.enable_ads %}
-<div id="codefund" class="codefund-side"></div>
-<script src="https://codefund.app/properties/92/funder.js" async="async"></script>
+<!-- <div id="codefund" class="codefund-side"></div>
+<script src="https://codefund.app/properties/92/funder.js" async="async"></script> -->
+<div class="carbon-mb">
+  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CK7D62JL&placement=wwwpythoncheatsheetorg" id="_carbonads_js"></script>
+</div>
 {% endif %}
 
 <!-- subscribe -->
