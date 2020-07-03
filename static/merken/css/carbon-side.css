@@ -6,7 +6,7 @@
 
 #carbonads {
   display: flex;
-  max-width: 430px;
+  max-width: 330px;
   background-color: hsl(0, 0%, 98%);
   box-shadow: 0 1px 4px 1px hsla(0, 0%, 0%, 0.1);
   margin: auto;
@@ -43,7 +43,7 @@
 }
 
 .carbon-text {
-  font-size: 18px;
+  font-size: 13px;
   padding: 10px;
   line-height: 1.5;
   text-align: left;
