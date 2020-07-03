@@ -47,7 +47,7 @@ AUTHENTICATION_BACKENDS = (
 # Databases
 # -----------------------------------------------------------------------------
 
-DJANGO_DATABASE_URL = env.db('DATABASE_URL', 'postgres://postgres@localhost:5432/pysheet')
+DJANGO_DATABASE_URL = env.db('DATABASE_URL', 'postgres://postgres@localhost:5432/pysheet2')
 DATABASES = {'default': DJANGO_DATABASE_URL}
 
 
