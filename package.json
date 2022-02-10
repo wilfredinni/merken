@@ -28,7 +28,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify-es": "^1.0.4",
-    "node-sass": "^4.12.0"
+    "node-sass": "^7.0.0"
   },
   "dependencies": {}
 }
